@@ -267,15 +267,17 @@ const StudentRegistrationForm = () => {
       </Form>
 
       {/* Modal Popup for Success/Error */}
-      <Modal show={showModal} onHide={closeModal}>
+      <Modal show={showModal} onHide={closeModal} className="registration-modal">
         <Modal.Header closeButton>
           <Modal.Title>Form Submission</Modal.Title>
         </Modal.Header>
         <Modal.Body>{modalMessage}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={closeModal}>
+          <button
+            className="learn-more-btn fw-bold"
+          >
             Close
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
     </div>
