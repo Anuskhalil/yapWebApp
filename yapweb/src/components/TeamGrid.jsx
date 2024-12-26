@@ -6,7 +6,7 @@ import mazhar from "../images/TeamMember/mazhar.png";
 import sumair from "../images/TeamMember/sumairYAP.jpg";
 import taimoor from "../images/TeamMember/taimorYAP.jpg";
 import ghulam from "../images/TeamMember/ghulamYAP.jpeg";
-import anus from "../images/TeamMember/anus.png";
+import anus from "../images/TeamMember/anus.jpg";
 import mahnoor from "../images/TeamMember/mahnoorYAP.jpg";
 import noman from "../images/TeamMember/noman.jpg";
 import eeman from "../images/TeamMember/eemanYAP.jpg";
@@ -15,24 +15,34 @@ import usman from "../images/TeamMember/usmanYAP.jpg";
 import hamza from "../images/TeamMember/hamzaYAP.jpg";
 import mifra from "../images/TeamMember/mifraYAP.jpg";
 import muhammadAli from "../images/TeamMember/aliYAP.jpg";
+import khanHassan from "../images/TeamMember/khanHassanYAP.jpg";
+import mahnoorKamal from "../images/TeamMember/mahnoorKamalYAP.jpg";
+import asad from "../images/TeamMember/asadYAP.jpg";
+import abGhani from "../images/TeamMember/abGhaniYAP.jpg";
+import laiba from "../images/TeamMember/laibaYAP.jpg";
 
 const TeamGrid = () => {
   // Team member data
   const teamMembers = [
-    { name: "Azaib Khan", role: "Leader", image: azaib },
-    { name: "Mazhar Suleman Noorani", role: "Team Member", image: mazhar },
+    { name: "Azaib Khan", role: "Lead", image: azaib },
+    { name: "Mazhar Suleman Noorani", role: "Lead", image: mazhar },
+    { name: "Khan Hassan Afridi", role: "Lead", image: khanHassan },
     { name: "Sumair", role: "Team Member", image: sumair },
     { name: "Ghulam Rasool", role: "Team Member", image: ghulam },
     { name: "Anus Khalil", role: "Team Member", image: anus },
     { name: "Taimor", role: "Team Member", image: taimoor },
+    { name: "Muhammad Ali", role: "Team Member", image: muhammadAli },
     { name: "mahnoor", role: "Team Member", image: mahnoor },
+    { name: "Hamza Hussain Shah", role: "Team Member", image: hamza },
     { name: "Usman Ali Shah", role: "Team Member", image: usman },
     { name: "Noman", role: "Team Member", image: noman },
     { name: "Eeman", role: "Team Member", image: eeman },
     { name: "Aqsa", role: "Team Member", image: aqsa },
-    { name: "Hamza Hussain Shah", role: "Team Member", image: hamza },
     { name: "Syeda Mifrah Sajid", role: "Team Member", image: mifra },
-    { name: "Muhammad Ali", role: "Team Member", image: muhammadAli },
+    { name: "Mahnoor Kamal", role: "Team Member", image: mahnoorKamal },
+    { name: "Asad", role: "Team Member", image: asad },
+    { name: "Abdul Ghani", role: "Team Member", image: abGhani },
+    { name: "Laiba Sheikh", role: "Team Member", image: laiba },
   ];
 
   return (
