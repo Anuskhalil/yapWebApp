@@ -1,0 +1,41 @@
+/* Animation Enhancements */
+#preswords {
+  margin-top: -90px;
+}
+
+.presWord {
+  font-size: 1.2rem;
+}
+
+/* Add AOS-based Animation Styles */
+[data-aos="fade-right"] {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease-in-out;
+}
+
+[data-aos="fade-left"] {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease-in-out;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 767.98px) {
+  #preswords {
+    text-align: center;
+  }
+
+  .presWord {
+    font-size: 1rem;
+  }
+
+  img {
+    margin-bottom: 1rem;
+  }
+}

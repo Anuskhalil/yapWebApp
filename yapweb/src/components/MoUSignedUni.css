@@ -1,0 +1,162 @@
+.mou-universities {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.university-card {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  background: #fff;
+  margin: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.university-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.university-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.university-name {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.university-description {
+  font-size: 14px;
+  color: #555;
+}
+
+.learn-more-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #EDC533;
+  color: #000000;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+  background-color: #C9A000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.learn-more-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.universities-slider .slick-slide {
+  padding: 10px;
+}
+
+.slick-dots li button:before {
+  color: #333;
+}
+
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 30%;
+  max-height: 80%;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.mou-image {
+  max-width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.close-modal-btn {
+  padding: 15px 30px;
+  background: #EDC533;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 20px auto;
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  width: 240px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 992px) {
+  .close-modal-btn {
+    width: 260px;
+    padding: 18px 35px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .close-modal-btn {
+    width: 280px;
+    padding: 10px 40px;
+    font-size: 20px;
+  }
+}
+
+
+.close-modal-btn:hover {
+  background-color: #C9A000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}

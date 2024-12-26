@@ -1,0 +1,112 @@
+/* SocietyDetail.css */
+
+.society-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.society-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.society-image {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.society-slider {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.society-slider .slick-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-item {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  /* background-color: #ffffffaf; */
+}
+
+.slider-item-icon {
+  font-size: 3rem;
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.slider-item-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.slider-item-description {
+  font-size: 1rem;
+  color: #555;
+}
+
+@media screen and (max-width: 768px) {
+  .society-image {
+    max-width: 300px;
+  }
+
+  .slider-item {
+    padding: 15px;
+  }
+
+  .slider-item-icon {
+    font-size: 2.5rem;
+  }
+
+  .slider-item-title {
+    font-size: 1rem;
+  }
+
+  .slider-item-description {
+    font-size: 0.9rem;
+  }
+  .society-image {
+    max-width: 100%;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .society-image {
+    max-width: 250px;
+  }
+
+  .slider-item {
+    padding: 10px;
+  }
+
+  .slider-item-icon {
+    font-size: 2rem;
+  }
+
+  .slider-item-title {
+    font-size: 0.9rem;
+  }
+
+  .slider-item-description {
+    font-size: 0.8rem;
+  }
+}
