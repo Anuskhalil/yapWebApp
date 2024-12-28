@@ -33,10 +33,15 @@ const PresWord = () => {
           className="col-lg-6"
           data-aos="fade-left" // Animation for the text
         >
-          <h2 className="mb-3 font-weight-bold">Dear Youth of Pakistan,</h2>
+          <h2 className="mb-3 fs-1 font-bold">Message to Youth</h2>
           <p className="presWord">
-            I invite you to join our Youth Ambassador Programme at the Arts Council of Pakistan, Karachi. This programme is designed to help you grow as an artist and connect with a lively community of creative individuals. <br />
-            As a Youth Ambassador, you will gain special access to our events, utilize our modern library, and participate in workshops and mentorship programs. You’ll collaborate with talented artists and professionals, expanding your network and honing your skills. This is a wonderful opportunity to learn, develop your talents, and contribute positively to the arts community. I encourage you to join us on this exciting journey.
+            Welcome to the Youth Ambassador Program—a platform to empower future leaders. At the Arts Council of Pakistan Karachi, I believe in the power of young minds to shape our cultural, social, and creative future.
+
+            This program offers opportunities for connection, collaboration, and contribution. From cultural festivals and creative workshops to leadership building and global dialogues, it’s designed to help you realize your potential.
+
+            Join us to amplify your voice, nurture your talents, and drive meaningful change. Let’s create a more inclusive, vibrant, and innovative society together.
+
+            Take the first step today.
           </p>
           <h4 className="text-muted d-flex justify-content-end align-items-center text-align-center">- Muhammad Ahmed Shah</h4>
           <h4 className="text-muted d-flex justify-content-end align-items-center text-align-center">- President, Arts Council of Pakistan</h4>

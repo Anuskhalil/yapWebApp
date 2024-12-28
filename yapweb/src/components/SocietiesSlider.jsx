@@ -84,7 +84,8 @@ const SocietiesSlider = () => {
 
   return (
     <div className="container my-5" id='OurSociety'>
-      <Slider {...settings} className='main-societies'>
+        {/* <h1 className="society-title fs-1 fw-bold text-white">Our Societies</h1> */}
+        <Slider {...settings} className='main-societies'>
         {societies.map((society) => (
           <div key={society.id} className="society-slide">
             <div className="image-wrapper">

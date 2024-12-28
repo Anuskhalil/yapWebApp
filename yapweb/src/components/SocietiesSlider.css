@@ -14,61 +14,62 @@
   width: 100%;
   margin: 0 auto;
   font-size: 14px;
-  padding: 15px; 
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Center content vertically */
   text-align: center;
-  min-height: 250px; 
-  justify-content: space-between; 
+  min-height: 280px; /* Increased for better spacing */
 }
 
 /* Image Wrapper */
 .image-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  align-items: center; /* Center image vertically */
+  margin-bottom: 15px;
 }
 
 .society-slide img {
   border-radius: 50%;
-  width: 160px; 
+  width: 140px;
   height: 120px;
   object-fit: cover;
 }
 
 /* Title Styling */
 .society-slide h3 {
-  margin: 10px 0;
-  font-size: 1.2rem; 
+  margin: 15px 0;
+  font-size: 1.2rem;
   font-weight: 600;
   word-wrap: break-word;
-  max-width: 90%; 
+  max-width: 90%;
 }
 
 /* Adjust Button */
 #sent {
   padding: 10px 20px;
-  margin-top: 10px;
+  margin-top: 15px; /* More spacing from title */
   font-weight: 700;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #EDC533;
+  background-color: #edc533;
   color: #000000;
   transition: all 0.3s ease-in-out;
 }
 
 #sent:hover {
-  background-color: #C9A000;
+  background-color: #c9a000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
 }
 
-#send:active {
+#sent:active {
   transform: scale(0.98);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
@@ -78,6 +79,8 @@
   font-size: 3rem;
   font-weight: 700;
   text-shadow: 2px 2px 5px white;
+  text-align: center; /* Ensure title is centered */
+  margin-bottom: 30px; /* Add space below the section title */
 }
 
 /* Responsive Adjustments */
@@ -85,7 +88,8 @@
   .society-slide {
     width: 100%;
     padding: 10px;
-    min-height: 220px; 
+    min-height: 220px;
+    justify-content: space-around; /* Adjust spacing on smaller screens */
   }
 
   #sent {
@@ -102,11 +106,12 @@
   .society-slide {
     width: 100%;
     padding: 10px;
-    min-height: 200px; 
+    min-height: 200px;
+    justify-content: space-between; /* Adjust alignment further */
   }
 
   .society-slide h3 {
-    font-size: 1rem; 
+    font-size: 1rem;
   }
 
   .container {

@@ -34,7 +34,8 @@ const AboutYap = () => {
             <h1 className="fw-bold">
               Know more about the Youth Ambassador Programme
             </h1>
-            <p className="text-muted mt-3">Youth is the only way forward!</p>
+            {/* <p className="text-muted mt-3">Youth is the only way forward!</p> */}
+            <p className="text-muted mt-3">The Youth Ambassador Programme (YAP) is a groundbreaking initiative launched under the visionary leadership of President Arts Council Karachi, Muhammad Ahmed Shah (S.I., H.I.). This program is dedicated to empowering the youth of Pakistan and nurturing their creative potential to drive positive change and innovation.</p>
             <Button className="mt-3 fw-bold hero-button" onClick={handleButtonClick}>
               Know more
             </Button>

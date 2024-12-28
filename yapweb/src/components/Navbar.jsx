@@ -24,8 +24,14 @@ const NavigationBar = () => {
   // const handleSignUpClose = () => setShowSignUp(false);
   // const handleSignUpShow = () => setShowSignUp(true);
 
+  const home = () => {
+    navigate('/')
+  }
   const aboutYAP = () => {
     navigate('/AboutYap')
+  }
+  const event = () =>{
+    navigate('/events')
   }
 
   return (
@@ -43,9 +49,10 @@ const NavigationBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto gap-4" id='navItems'>
-              <Nav.Link href="#hero-page">Home</Nav.Link>
+              <Nav.Link href="" onClick={home}>Home</Nav.Link>
+              <Nav.Link href="#OurSociety" onClick={home}>Our Societies</Nav.Link>
               <Nav.Link href="" onClick={aboutYAP}>About Us</Nav.Link>
-              <Nav.Link href="#service">Events</Nav.Link>
+              <Nav.Link href="" onClick={event}>Events</Nav.Link>
               {/* <Nav.Link href="#blog">Blog</Nav.Link> */}
               <Nav.Link href="#contact">Contact</Nav.Link>
               <Button variant="dark" className="fw-bold nav-btn" onClick={handleTeamClick}>

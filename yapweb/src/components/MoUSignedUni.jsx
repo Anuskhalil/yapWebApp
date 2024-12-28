@@ -74,118 +74,126 @@ import ibaSukkur6 from '../images/MouUniversities/IbaSukkurUni/ibasukkur6.jpg';
 
 const MoUSignedUni = () => {
   const [selectedUniversity, setSelectedUniversity] = useState(null);
+  // {
+  //   id: 2, // Use a unique ID
+  //   name: 'Metropolitan University',
+  //   logo: 'path-to-logo-file', // Replace with the path to the university's logo
+  //   description: 'Memorandum of Understanding (MoU) for the Youth Ambassador Programme between Metropolitan University and Arts Council of Pakistan Karachi.',
+  //   images: ['path-to-image-1', 'path-to-image-2', ...], // Add paths to relevant MoU or related images
+  // },
 
   const universities = [
     {
       id: 1,
       name: 'NED University of Engineering & Technology',
       logo: ned,
-      description: 'This is a brief description about Karachi University.',
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and NED University of Engineering & Technology',
       images: [nedMoU1, nedMoU2, nedMoU3, nedMoU4],
     },
     {
       id: 2,
       name: 'Sindh Madressatul Islam University',
       logo: smiu,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Sindh Madressatul Islam University',
       images: [smiuMoU1, smiuMoU2],
     },
     {
       id: 3,
       name: 'Dawood University of Engineering and Technology',
       logo: dawood,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Dawood University of Engineering and Technology',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 3,
       name: 'Ali Garh University',
       logo: aliGarh,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Ali Garh University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 4,
       name: 'Beacon House College',
       logo: beacon,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Beacon House College',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 5,
       name: 'DHA Suffa University',
       logo: suffa,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and DHA Suffa University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 6,
       name: 'Greenwich University',
       logo: greenWich,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Greenwich University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 7,
       name: 'Highbrow University',
       logo: highbrow,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Highbrow University',
       images: [highbrow1, highbrow2, highbrow3, highbrow4, highbrow5, highbrow6],
     },
     {
       id: 8,
       name: 'IBA University Sukkur',
       logo: ibaSukkur,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and IBA University Sukkur',
       images: [ibaSukkur1, ibaSukkur2, ibaSukkur3, ibaSukkur4, ibaSukkur5, ibaSukkur6],
     },
     {
       id: 9,
       name: 'Karachi University',
       logo: ku,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Karachi University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 10,
       name: 'Metropolitan University',
       logo: metropolitan,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Metropolitan University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 11,
       name: 'Newports University',
       logo: newports,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Newports University',
       images: [newports1, newports2, newports3, newports4, newports5, newports6],
     },
     {
       id: 12,
       name: 'Nixor College',
       logo: nixor,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Nixor College',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 13,
       name: 'Salim Habib University',
       logo: salimHabib,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Salim Habib University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 14,
-      name: 'Sir Syed Unversity',
+      name: 'Sir Syed University of Engineering and Technology',
       logo: sirSyed,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Sir Syed University of Engineering and Technology',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 15,
       name: 'ZiaUddin University',
       logo: ziauddin,
-      description: 'This is a brief description about University of Example 2.',
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and ZiaUddin University',
       images: [ziauddin1, ziauddin2, ziauddin3, ziauddin4, ziauddin5, ziauddin6],
     },
   ];
@@ -211,7 +219,7 @@ const MoUSignedUni = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1, 
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },

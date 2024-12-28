@@ -8,6 +8,7 @@ import taimoor from "../images/TeamMember/taimorYAP.jpg";
 import ghulam from "../images/TeamMember/ghulamYAP.jpeg";
 import anus from "../images/TeamMember/anus.jpg";
 import mahnoor from "../images/TeamMember/mahnoorYAP.jpg";
+import rimsha from "../images/TeamMember/rimshaYAP.jpg";
 import noman from "../images/TeamMember/noman.jpg";
 import eeman from "../images/TeamMember/eemanYAP.jpg";
 import aqsa from "../images/TeamMember/aqsa.jpg";
@@ -29,20 +30,21 @@ const TeamGrid = () => {
     { name: "Khan Hassan Afridi", role: "Lead", image: khanHassan },
     { name: "Sumair", role: "Team Member", image: sumair },
     { name: "Ghulam Rasool", role: "Team Member", image: ghulam },
-    { name: "Anus Khalil", role: "Team Member", image: anus },
     { name: "Taimor", role: "Team Member", image: taimoor },
+    { name: "Hamza Hussain Shah", role: "Team Member", image: hamza },
     { name: "Muhammad Ali", role: "Team Member", image: muhammadAli },
     { name: "mahnoor", role: "Team Member", image: mahnoor },
-    { name: "Hamza Hussain Shah", role: "Team Member", image: hamza },
+    { name: "rimsha", role: "Team Member", image: rimsha },
+    { name: "Anus Khalil", role: "Team Member", image: anus },
     { name: "Usman Ali Shah", role: "Team Member", image: usman },
+    { name: "Syeda Mifrah Sajid", role: "Team Member", image: mifra },
+    { name: "Asad", role: "Team Member", image: asad },
+    { name: "Laiba Sheikh", role: "Team Member", image: laiba },
+    { name: "Mahnoor Kamal", role: "Team Member", image: mahnoorKamal },
+    { name: "Abdul Ghani", role: "Team Member", image: abGhani },
     { name: "Noman", role: "Team Member", image: noman },
     { name: "Eeman", role: "Team Member", image: eeman },
     { name: "Aqsa", role: "Team Member", image: aqsa },
-    { name: "Syeda Mifrah Sajid", role: "Team Member", image: mifra },
-    { name: "Mahnoor Kamal", role: "Team Member", image: mahnoorKamal },
-    { name: "Asad", role: "Team Member", image: asad },
-    { name: "Abdul Ghani", role: "Team Member", image: abGhani },
-    { name: "Laiba Sheikh", role: "Team Member", image: laiba },
   ];
 
   return (
