@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
-import './RegistrationForm.css'
+import './RegistrationForm.css';
 import axios from "axios";
 
 const StudentRegistrationForm = () => {
@@ -17,22 +17,25 @@ const StudentRegistrationForm = () => {
     instituteName: "",
     residentialAddress: "",
     district: "",
-    fieldOfInterest: [],
+    societies: [], // Updated field
   });
 
+  const [modalMessage, setModalMessage] = useState(""); // Ensure this exists
   const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
     if (type === "checkbox") {
       setFormData((prev) => {
-        const interests = prev.fieldOfInterest;
+        const selectedSocieties = prev.societies;
         if (checked) {
-          return { ...prev, fieldOfInterest: [...interests, value] };
+          return { ...prev, societies: [...selectedSocieties, value] };
         } else {
-          return { ...prev, fieldOfInterest: interests.filter((item) => item !== value) };
+          return {
+            ...prev,
+            societies: selectedSocieties.filter((item) => item !== value),
+          };
         }
       });
     } else {
@@ -43,25 +46,9 @@ const StudentRegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData2 = {
-      fullName: formData.fullName,
-      fatherName: formData.fatherName,
-      cnic: formData.cnic,
-      email: formData.email,
-      studentId: formData.studentId,
-      subjectOfStudy: formData.subjectOfStudy,
-      yearOfStudy: formData.yearOfStudy,
-      cellNumber1: formData.cellNumber1,
-      cellNumber2: formData.cellNumber2,
-      instituteName: formData.instituteName,
-      residentialAddress: formData.residentialAddress,
-      district: formData.district,
-      fieldOfInterest: formData.fieldOfInterest,
-    };
-
     try {
-      const response = await axios.post("http://localhost:4000/register", formData2);
-      console.log(response)
+      const response = await axios.post("http://localhost:4000/register", formData);
+      console.log(response);
       setModalMessage("Registration successful!");
       setShowModal(true);
       // Reset form data after submission
@@ -78,11 +65,10 @@ const StudentRegistrationForm = () => {
         instituteName: "",
         residentialAddress: "",
         district: "",
-        fieldOfInterest: [],
+        societies: [],
       });
     } catch (error) {
       setModalMessage("Error submitting the form. Please try again.");
-      setShowModal(true);
     }
   };
 
@@ -241,26 +227,39 @@ const StudentRegistrationForm = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Field of Interest</Form.Label>
+          <Form.Label>Choose Societies</Form.Label>
           <div>
-            <Form.Check
-              type="checkbox"
-              label="AI"
-              name="fieldOfInterest"
-              value="AI"
-              onChange={handleChange}
-              checked={formData.fieldOfInterest.includes("AI")}
-            />
-            <Form.Check
-              type="checkbox"
-              label="Web Development"
-              name="fieldOfInterest"
-              value="Web Development"
-              onChange={handleChange}
-              checked={formData.fieldOfInterest.includes("Web Development")}
-            />
+            {[
+              "Dramatic Society",
+              "Alliance Society",
+              "Buzz Society",
+              "Tech Society",
+              "Music Society",
+              "Sports Society",
+              "Literature Society",
+              "Media Society",
+              "Cultural Society",
+              "Art Society",
+              "Environmental Society",
+              "Debate Society",
+              "AI Society",
+              "Health Society",
+              "Entrepreneur Society",
+              "Volunteer Society",
+            ].map((society) => (
+              <Form.Check
+                key={society}
+                type="checkbox"
+                label={society}
+                name="societies"
+                value={society}
+                onChange={handleChange}
+                checked={formData.societies.includes(society)}
+              />
+            ))}
           </div>
         </Form.Group>
+
         <Button className="mt-3 fw-bold hero-button" type="submit">
           Register
         </Button>
@@ -273,11 +272,9 @@ const StudentRegistrationForm = () => {
         </Modal.Header>
         <Modal.Body>{modalMessage}</Modal.Body>
         <Modal.Footer>
-          <button
-            className="learn-more-btn fw-bold"
-          >
+          <Button variant="secondary" onClick={closeModal}>
             Close
-          </button>
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>

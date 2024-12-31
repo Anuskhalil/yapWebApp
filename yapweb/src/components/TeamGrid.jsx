@@ -4,8 +4,10 @@ import "./TeamGrid.css";
 import azaib from "../images/TeamMember/azaib.png";
 import mazhar from "../images/TeamMember/mazhar.png";
 import sumair from "../images/TeamMember/sumairYAP.jpg";
+import tayyab from "../images/TeamMember/tayyabYAP.jpg";
 import taimoor from "../images/TeamMember/taimorYAP.jpg";
 import ghulam from "../images/TeamMember/ghulamYAP.jpeg";
+import laraib from "../images/TeamMember/laraibYAP.jpg";
 import anus from "../images/TeamMember/anus.jpg";
 import mahnoor from "../images/TeamMember/mahnoorYAP.jpg";
 import rimsha from "../images/TeamMember/rimshaYAP.jpg";
@@ -29,8 +31,10 @@ const TeamGrid = () => {
     { name: "Mazhar Suleman Noorani", role: "Lead", image: mazhar },
     { name: "Khan Hassan Afridi", role: "Lead", image: khanHassan },
     { name: "Sumair", role: "Team Member", image: sumair },
-    { name: "Ghulam Rasool", role: "Team Member", image: ghulam },
+    { name: "Tayyab", role: "Team Member", image: tayyab },
     { name: "Taimor", role: "Team Member", image: taimoor },
+    { name: "Ghulam Rasool", role: "Team Member", image: ghulam },
+    { name: "Laraib", role: "Team Member", image: laraib },
     { name: "Hamza Hussain Shah", role: "Team Member", image: hamza },
     { name: "Muhammad Ali", role: "Team Member", image: muhammadAli },
     { name: "mahnoor", role: "Team Member", image: mahnoor },

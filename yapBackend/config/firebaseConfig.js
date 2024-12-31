@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const fs = require('fs');
+const fs = require("fs");
 require("dotenv").config();
 const firebaseConfigPath = process.env.FIREBASE_CONFIG;
 

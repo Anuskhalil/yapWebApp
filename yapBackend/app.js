@@ -31,13 +31,34 @@ app.post("/contact", async (req, res) => {
 
 // **Student Registration API**
 app.post("/register", async (req, res) => {
-  const { fullName, fatherName, cnic, email, studentId, subjectOfStudy, yearOfStudy, cellNumber1, cellNumber2, instituteName, residentialAddress, district, fieldOfInterest } = req.body;
+  const {
+    fullName,
+    fatherName,
+    cnic,
+    email,
+    studentId,
+    subjectOfStudy,
+    yearOfStudy,
+    cellNumber1,
+    cellNumber2,
+    instituteName,
+    residentialAddress,
+    district,
+    societies, // Changed from fieldOfInterest to societies
+  } = req.body;
 
+  // Validate required fields
   if (!fullName || !fatherName || !cnic || !email || !studentId || !subjectOfStudy || !yearOfStudy || !cellNumber1 || !instituteName || !residentialAddress || !district) {
     return res.status(400).json({ error: "All required fields must be filled" });
   }
 
+  // Validate societies array
+  if (!Array.isArray(societies) || societies.length === 0) {
+    return res.status(400).json({ error: "At least one society must be selected" });
+  }
+
   try {
+    // Save registration to database
     await db.collection("studentRegistrations").add({
       fullName,
       fatherName,
@@ -51,7 +72,7 @@ app.post("/register", async (req, res) => {
       instituteName,
       residentialAddress,
       district,
-      fieldOfInterest,
+      societies, // Save societies data
       submittedAt: new Date().toISOString(),
     });
     res.status(201).json({ message: "Registration successful!" });

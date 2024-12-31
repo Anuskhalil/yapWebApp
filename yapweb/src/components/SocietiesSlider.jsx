@@ -84,8 +84,12 @@ const SocietiesSlider = () => {
 
   return (
     <div className="container my-5" id='OurSociety'>
-        {/* <h1 className="society-title fs-1 fw-bold text-white">Our Societies</h1> */}
-        <Slider {...settings} className='main-societies'>
+      {/* Header Section */}
+      <h1 className="society-title fs-1 fw-bold text-center text-white mb-4" id='societyHeader'>
+        Our Societies
+      </h1>
+      {/* Society Slider */}
+      <Slider {...settings} className='main-societies'>
         {societies.map((society) => (
           <div key={society.id} className="society-slide">
             <div className="image-wrapper">
@@ -98,6 +102,7 @@ const SocietiesSlider = () => {
       </Slider>
     </div>
   );
+
 };
 
 export default SocietiesSlider;
