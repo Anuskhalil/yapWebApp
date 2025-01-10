@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { Container, Row, Col, Modal, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import './MeetupSlider.css'; // Assuming you have a separate CSS file
+import Slider from 'react-slick';
+import { Modal } from 'react-bootstrap';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './MeetupSlider.css';
 
-
-// Import images for Meetup
 // Page 01
 import meetupimg1 from '../images/MeetUp/meetupimg1.jpg';
 import meetupimg2 from '../images/MeetUp/meetupimg2.jpg';
@@ -47,8 +48,17 @@ import meetupimg31 from '../images/MeetUp/meetupimg31.jpg';
 import meetupimg32 from '../images/MeetUp/meetupimg32.jpg';
 
 const Meetup = () => {
-  const meetupPhotos = useMemo(() => [
-    // Replace with your images for Meetup
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: true,
+    });
+    AOS.refresh();
+  }, []);
+
+  const meetupPhotos = [
     { title: 'Meetup 25', image: meetupimg25 },
     { title: 'Meetup 26', image: meetupimg26 },
     { title: 'Meetup 27', image: meetupimg27 },
@@ -81,27 +91,7 @@ const Meetup = () => {
     { title: 'Meetup 22', image: meetupimg22 },
     { title: 'Meetup 23', image: meetupimg23 },
     { title: 'Meetup 24', image: meetupimg24 },
-    // Add more images as needed
-  ], []);
-
-  const itemsPerPage = 8;
-  const [currentPage, setCurrentPage] = useState(1);
-  const [paginatedPhotos, setPaginatedPhotos] = useState([]);
-
-  useEffect(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    setPaginatedPhotos(meetupPhotos.slice(startIndex, endIndex));
-  }, [currentPage]);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: false,
-    });
-    AOS.refresh();
-  }, [currentPage]);
+  ];
 
   const [showModal, setShowModal] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
@@ -111,27 +101,44 @@ const Meetup = () => {
     setShowModal(true);
   };
 
-  const totalPages = Math.ceil(meetupPhotos.length / itemsPerPage);
+  const sliderSettings = {
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3, slidesToScroll: 1 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2, slidesToScroll: 1 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1, slidesToScroll: 1 },
+      },
+    ],
+  };
 
   return (
-    <Container className="meetup-container">
-      <div className="meetup-title animated-content fs-1 fw-bold">
+    <div className="meetup-container">
+      <div className="meetup-title fs-1 fw-bold" data-aos="fade-up">
         Meetup Gallery
       </div>
-      <Row>
-        {paginatedPhotos.map((photo, index) => (
-          <Col
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
-            key={index}
-            className="meetup-photo-col"
-            data-aos="fade-up" // Adding AOS animations to each photo
-          >
+      <div className="slider-wrapper" data-aos="zoom-in">
+        <Slider {...sliderSettings}>
+          {meetupPhotos.map((photo, index) => (
             <div
+              key={index}
               className="meetup-photo-wrapper"
               onClick={() => handleImageClick(photo.image)}
+              data-aos="fade-up"
+              data-aos-delay={`${index * 100}`}
             >
               <img
                 className="img-fluid meetup-photo"
@@ -142,32 +149,10 @@ const Meetup = () => {
                 <p>{photo.title}</p>
               </div>
             </div>
-          </Col>
-        ))}
-      </Row>
-
-      {/* Pagination Controls */}
-      <div className="pagination-controls">
-        <Button
-          className="fw-bold hero-button"
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </Button>
-        <span className="mx-2">
-          Page {currentPage} of {totalPages}
-        </span>
-        <Button
-          className="fw-bold hero-button"
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </Button>
+          ))}
+        </Slider>
       </div>
 
-      {/* Modal for Lightbox */}
       <Modal
         show={showModal}
         onHide={() => setShowModal(false)}
@@ -187,8 +172,11 @@ const Meetup = () => {
           />
         </Modal.Body>
       </Modal>
-    </Container>
+    </div>
   );
 };
 
 export default Meetup;
+
+
+

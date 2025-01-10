@@ -51,6 +51,9 @@ const NavigationBar = () => {
               <NavDropdown.Item onClick={() => handleNavItemClick('/courses')}>
                 Courses that we Offer
               </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleNavItemClick('/ourWorkshops')}>
+                Our Workshops
+              </NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleNavItemClick('/internships')}>
                 Internships
               </NavDropdown.Item>

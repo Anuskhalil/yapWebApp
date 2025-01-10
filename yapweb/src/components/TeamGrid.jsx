@@ -23,6 +23,7 @@ import mahnoorKamal from "../images/TeamMember/mahnoorKamalYAP.jpg";
 import asad from "../images/TeamMember/asadYAP.jpg";
 import abGhani from "../images/TeamMember/abGhaniYAP.jpg";
 import laiba from "../images/TeamMember/laibaYAP.jpg";
+import armanSami from "../images/TeamMember/armanSamiYAP.jpg";
 
 const TeamGrid = () => {
   // Team member data
@@ -33,9 +34,10 @@ const TeamGrid = () => {
     { name: "Sumair", role: "Team Member", image: sumair },
     { name: "Tayyab", role: "Team Member", image: tayyab },
     { name: "Taimor", role: "Team Member", image: taimoor },
-    { name: "Ghulam Rasool", role: "Team Member", image: ghulam },
+    { name: "Arman Sami", role: "Team Member", image: armanSami },
     { name: "Laraib", role: "Team Member", image: laraib },
     { name: "Hamza Hussain Shah", role: "Team Member", image: hamza },
+    { name: "Ghulam Rasool", role: "Team Member", image: ghulam },
     { name: "Muhammad Ali", role: "Team Member", image: muhammadAli },
     { name: "mahnoor", role: "Team Member", image: mahnoor },
     { name: "rimsha", role: "Team Member", image: rimsha },
