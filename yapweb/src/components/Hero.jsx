@@ -14,7 +14,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero-section">
+    <div className="hero-section mt-5 py-5">
       {/* Use the imported video */}
       <video className="hero-video" autoPlay loop muted>
         <source src={heroVideo} type="video/mp4" />

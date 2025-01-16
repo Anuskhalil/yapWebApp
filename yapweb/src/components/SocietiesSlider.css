@@ -1,118 +1,113 @@
-/* Ensure the container doesn't cause overflow */
 #OurSociety {
   position: relative;
-  top: -140px;
+  top: -150px;
+  padding: 50px 20px;
+  /* background-color: #0f0f0f;  */
   overflow-x: hidden;
-  overflow-y: hidden;
-  padding-bottom: 0;
-  margin-bottom: 0;
+}
+
+.society-title {
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Adjust slider spacing */
+.main-societies .slick-slide {
+  padding: 0 10px; 
 }
 
 .society-slide {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  margin: 0 auto;
-  font-size: 14px;
-  padding: 15px;
+  background: #fff;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Center content vertically */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
-  min-height: 280px; /* Increased for better spacing */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Image Wrapper */
+.society-slide:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
 .image-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center; /* Center image vertically */
+  align-items: center;
   margin-bottom: 15px;
 }
 
 .society-slide img {
   border-radius: 50%;
-  width: 140px;
+  width: 120px;
   height: 120px;
   object-fit: cover;
 }
 
-/* Title Styling */
 .society-slide h3 {
-  margin: 15px 0;
   font-size: 1.2rem;
   font-weight: 600;
-  word-wrap: break-word;
-  max-width: 90%;
+  margin: 15px 0;
+  color: #333;
 }
 
-/* Adjust Button */
 #sent {
-  padding: 10px 20px;
-  margin-top: 15px; /* More spacing from title */
-  font-weight: 700;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
   background-color: #edc533;
-  color: #000000;
-  transition: all 0.3s ease-in-out;
+  color: #000;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #sent:hover {
   background-color: #c9a000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
 }
 
 #sent:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
 }
 
-/* Responsive Adjustments */
+/* Adjust slider arrows */
+.slick-arrow {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: 2;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 20px;
+  color: #000;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .society-slide {
-    width: 100%;
-    padding: 10px;
-    min-height: 220px;
-    justify-content: space-around; /* Adjust spacing on smaller screens */
-  }
-
-  #sent {
-    width: 100%;
-    text-align: center;
-  }
-
-  #OurSociety {
-    top: -100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .society-slide {
-    width: 100%;
-    padding: 10px;
-    min-height: 200px;
-    justify-content: space-between; /* Adjust alignment further */
+  .society-slide img {
+    width: 100px;
+    height: 100px;
   }
 
   .society-slide h3 {
     font-size: 1rem;
   }
+}
 
-  .container {
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    margin-bottom: 0;
+@media (max-width: 480px) {
+  #OurSociety {
+    padding: 30px 10px;
   }
 
-  #OurSociety {
-    top: -80px;
+  .society-slide img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .society-slide h3 {
+    font-size: 0.9rem;
   }
 }

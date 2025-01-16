@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import GlobalStyle from './components/GlobalStyle';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/Navbar';
 import Hero from './components/Hero';
@@ -13,6 +14,8 @@ import RegistrationForm from './components/RegistrationForm';
 import SocietyDetail from './components/SocietyDetail';
 import SocietyForm from './components/SocietyForm';
 import AboutYap from './components/AboutYap';
+import Volunteers from './components/Volunteering';
+import Internees from './components/Internees';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -33,6 +36,7 @@ const App = () => {
   return (
     <Router>
       <div>
+        <GlobalStyle />
         <NavigationBar />
         <Routes>
           <Route path="/" element={<>
@@ -47,6 +51,8 @@ const App = () => {
           <Route path="/SocietyForm" element={<SocietyForm />} />
           <Route path="/society/:id" element={<SocietyDetail />} />
           <Route path="/AboutYap" element={<AboutYap />} />
+          <Route path="/volunteering" element={<Volunteers />} />
+          <Route path="/Internees" element={<Internees />} />
         </Routes>
         <Footer />
       </div>

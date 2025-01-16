@@ -1,0 +1,167 @@
+/* Overall Container */
+.internees-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  background: url("../images/bg.jpeg") no-repeat center center;
+  background-size: cover;
+  /* min-height: 100vh; */
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Title Styling */
+.internees-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* margin-bottom: 40px; */
+  color: #000;
+  text-align: center;
+}
+
+/* Diagram Container */
+.internees-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Center Circle */
+.internee-center {
+  background-color: #F47E4A;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 100px;
+}
+
+/* Branch Styling */
+.internee-branch {
+  background-color: #fff;
+  border: 2px solid #000;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-align: center;
+  width: 250px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Branch Hover Effect */
+.internee-branch:hover {
+  transform: scale(1.1);
+  background-color: #f7f7f7;
+}
+
+/* Positioning for Left Options */
+.left-option {
+  position: absolute;
+  left: 10%;
+}
+
+.web-development {
+  top: 10%;
+}
+
+.graphic-design {
+  top: 25%;
+}
+
+.data-analytics {
+  bottom: 25%;
+}
+
+.cyber-security {
+  bottom: 10%;
+}
+
+/* Positioning for Right Options */
+.right-option {
+  position: absolute;
+  right: 10%;
+}
+
+.marketing {
+  top: 10%;
+}
+
+.content-writing {
+  top: 25%;
+}
+
+.ai-research {
+  bottom: 25%;
+}
+
+.ui-ux {
+  bottom: 10%;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .internees-diagram {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .internee-center {
+    width: 100px;
+    height: 100px;
+    font-size: 1rem;
+  }
+
+  .internee-branch {
+    width: 160px;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    position: static;
+    margin: 10px;
+  }
+
+  .left-option,
+  .right-option {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .internees-title {
+    font-size: 1.8rem;
+  }
+
+  .internee-center {
+    width: 80px;
+    height: 80px;
+    font-size: 0.8rem;
+  }
+
+  .internee-branch {
+    width: 140px;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}

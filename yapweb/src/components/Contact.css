@@ -1,0 +1,67 @@
+.contact-headings {
+  color: black;
+}
+
+.contact-headings h2 {
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.societyModal {
+  /* max-width: 100%; */
+  color: white;
+}
+
+.societyModal .Society-btn {
+  /* margin-top: 10px; */
+  /* padding: 10px 20px; */
+  /* font-size: 14px; */
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #EDC533;
+  color: #000000;
+  /* font-weight: bold; */
+  transition: all 0.3s ease;
+}
+
+.societyModal .Society-btn:hover {
+  background-color: #C9A000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.societyModal .Society-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.contact-modal-btn{
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-btn .Society-btn{
+   /* margin-top: 10px; */
+  /* padding: 10px 20px; */
+  /* font-size: 14px; */
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #EDC533;
+  color: #000000;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.contact-btn .Society-btn:hover {
+  background-color: #C9A000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.contact-btn .Society-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}

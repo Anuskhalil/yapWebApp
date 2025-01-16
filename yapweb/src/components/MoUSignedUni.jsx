@@ -227,7 +227,7 @@ const MoUSignedUni = () => {
   };
 
   return (
-    <section className="mou-universities">
+    <section className="mou-universities" id='mouSignedUni'>
       <Slider {...sliderSettings} className="universities-slider">
         {universities.map((university) => (
           <div key={university.id} className="university-card">

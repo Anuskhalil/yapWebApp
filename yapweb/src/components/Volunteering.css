@@ -1,0 +1,184 @@
+/* Overall Container */
+.volunteers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  background: url("../images/bg.jpeg") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Title Styling */
+/* .volunteers-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  color: #000;
+  text-align: center;
+} */
+
+/* Diagram Container */
+.volunteers-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center Circle */
+.volunteer-center {
+  background-color: #F47E4A;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  z-index: 2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Branch Styling */
+.volunteer-branch {
+  background-color: #fff;
+  border: 2px solid #000;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-align: center;
+  position: absolute;
+  width: 300px;
+  transition: transform 0.3s ease-in-out;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Branch Hover Effect */
+.volunteer-branch:hover {
+  transform: scale(1.1);
+  background-color: #f0f0f0;
+}
+
+/* Positioning Branches */
+.operation {
+  top: 15%;
+  left: 10%;
+  transform: translate(-10%, -50%);
+}
+
+.event-management {
+  top: 15%;
+  right: 10%;
+  transform: translate(10%, -50%);
+}
+
+.production {
+  bottom: 15%;
+  left: 10%;
+  transform: translate(-10%, 50%);
+}
+
+.logistics {
+  bottom: 15%;
+  right: 10%;
+  transform: translate(10%, 50%);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .volunteers-diagram {
+    height: 350px;
+  }
+
+  .volunteer-center {
+    width: 130px;
+    height: 130px;
+    font-size: 1rem;
+  }
+
+  .volunteer-branch {
+    width: 160px;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  /* Adjust Branch Positions */
+  .operation {
+    top: 18%;
+    left: 15%;
+  }
+
+  .event-management {
+    top: 18%;
+    right: 15%;
+  }
+
+  .production {
+    bottom: 18%;
+    left: 15%;
+  }
+
+  .logistics {
+    bottom: 18%;
+    right: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .volunteers-title {
+    font-size: 1.8rem;
+  }
+
+  .volunteers-diagram {
+    height: 300px;
+  }
+
+  .volunteer-center {
+    width: 100px;
+    height: 100px;
+    font-size: 0.8rem;
+  }
+
+  .volunteer-branch {
+    font-size: 0.7rem;
+    width: 100px;
+    padding: 6px 10px;
+  }
+
+  /* Adjust Branch Positions for Small Screens */
+  .operation {
+    top: 25%;
+    left: 10%;
+  }
+
+  .event-management {
+    top: 25%;
+    right: 10%;
+  }
+
+  .production {
+    bottom: 25%;
+    left: 10%;
+  }
+
+  .logistics {
+    bottom: 25%;
+    right: 10%;
+  }
+}
