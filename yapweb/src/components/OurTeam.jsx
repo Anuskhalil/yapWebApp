@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "./OurTeam.css";
 import TeamSlider from "./TeamSlider"; // Slider Component
 import TeamGrid from "./TeamGrid"; // Optional Grid Component for Team Members
@@ -27,15 +27,15 @@ const OurTeam = () => {
   return (
     <Container className="our-team-container">
       {/* Section Heading */}
-      <div className="main-head">
-        <h1>Meet Our Team</h1>
-        <h3>Celebrities and Influencers</h3>
+      <div className="main-head text-center mb-5">
+        <h1 className="section-title ">Meet Our Team</h1>
+        <h3 className="section-subtitle">Celebrities and Influencers</h3>
       </div>
 
       {/* Circular Layout for Celebrities */}
-      <div className="circular-layout">
+      <div className="circular-layout d-flex justify-content-center flex-wrap">
         {celebrities.map((celebrity, index) => (
-          <div key={index} className="circular-item">
+          <div key={index} className="circular-item mx-3 mb-4">
             <img src={celebrity.image} alt={celebrity.name} className="circle-img" />
             <div className="overlay">
               <div className="text">{celebrity.name}</div>
@@ -45,9 +45,11 @@ const OurTeam = () => {
       </div>
 
       {/* Additional Section for Team Members */}
-      <h3 className="teamMembers mt-5">YAP Team Members</h3>
-      <TeamSlider />
-      <TeamGrid />
+      <div className="team-members-section">
+        <h3 className="teamMembers text-center mt-5">YAP Team Members</h3>
+        <TeamSlider />
+        <TeamGrid />
+      </div>
     </Container>
   );
 };

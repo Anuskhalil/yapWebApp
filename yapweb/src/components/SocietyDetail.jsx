@@ -42,15 +42,15 @@ import {
   FaMoneyCheckAlt,
   FaChartLine,
   FaHandshake,
-  FaFeatherAlt, // Added
-  FaScroll, // Added
-  FaPenNib, // Added
-  FaBookOpen, // Added
-  FaComments, // Added
-  FaTruck, // Added
-  FaWarehouse, // Added
-  FaPlaneDeparture, // Added
-  FaIndustry, // Added
+  FaFeatherAlt,
+  FaScroll,
+  FaPenNib,
+  FaBookOpen,
+  FaComments,
+  FaTruck,
+  FaWarehouse,
+  FaPlaneDeparture,
+  FaIndustry,
   FaBrain,
 } from 'react-icons/fa';
 import Slider from 'react-slick';

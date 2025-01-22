@@ -17,7 +17,7 @@ const AboutYap = () => {
   };
 
   return (
-    <div className="container-fluid ">
+    <div className="container-fluid">
       <div className="row align-items-center aboutYap-section">
         {/* Left Image Section */}
         <div className="col-lg-6 col-md-12 p-0">

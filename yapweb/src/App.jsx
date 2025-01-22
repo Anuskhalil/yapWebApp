@@ -9,6 +9,8 @@ import PresWords from './components/PresWord';
 import UniversityPage from './components/MainPage';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import WithLoader from './components/WithLoader';
 import Loader from './components/Loader';
 import RegistrationForm from './components/RegistrationForm';
 import SocietyDetail from './components/SocietyDetail';
@@ -16,6 +18,22 @@ import SocietyForm from './components/SocietyForm';
 import AboutYap from './components/AboutYap';
 import Volunteers from './components/Volunteering';
 import Internees from './components/Internees';
+import MissionVisionValues from './components/MissionVisionValues';
+import YapEvents from "./components/YapEvents";
+import InternationalWorkshops from "./components/InternationalWorkshops";
+
+
+const ContactWithLoader = WithLoader(Contact);
+const OurTeamLoader = WithLoader(OurTeam);
+const RegistrationFormWithLoader = WithLoader(RegistrationForm);
+const SocietyFormWithLoader = WithLoader(SocietyForm);
+const SocietyDetailWithLoader = WithLoader(SocietyDetail);
+const AboutYapWithLoader = WithLoader(AboutYap);
+const MissionVisionValuesWithLoader = WithLoader(MissionVisionValues);
+const InternationalWorkshopsWithLoader = WithLoader(InternationalWorkshops);
+const VolunteersWithLoader = WithLoader(Volunteers);
+const InterneesWithLoader = WithLoader(Internees);
+const YapEventsWithLoader = WithLoader(YapEvents);
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -36,6 +54,7 @@ const App = () => {
   return (
     <Router>
       <div>
+        <ScrollToTop />
         <GlobalStyle />
         <NavigationBar />
         <Routes>
@@ -44,15 +63,18 @@ const App = () => {
             <SocietiesSlider />
             <PresWords />
             <UniversityPage />
-            <Contact />
+            <ContactWithLoader />
           </>} />
-          <Route path="/our-team" element={<OurTeam />} />
-          <Route path="/register" element={<RegistrationForm />} />
-          <Route path="/SocietyForm" element={<SocietyForm />} />
-          <Route path="/society/:id" element={<SocietyDetail />} />
-          <Route path="/AboutYap" element={<AboutYap />} />
-          <Route path="/volunteering" element={<Volunteers />} />
-          <Route path="/Internees" element={<Internees />} />
+          <Route path="/our-team" element={<OurTeamLoader />} />
+          <Route path="/register" element={<RegistrationFormWithLoader />} />
+          <Route path="/SocietyForm" element={<SocietyFormWithLoader />} />
+          <Route path="/society/:id" element={<SocietyDetailWithLoader />} />
+          <Route path="/AboutYap" element={<AboutYapWithLoader />} />
+          <Route path="/missionVisionValues" element={<MissionVisionValuesWithLoader />} />
+          <Route path="/InternationalWorkshops" element={<InternationalWorkshopsWithLoader />} />
+          <Route path="/volunteering" element={<VolunteersWithLoader />} />
+          <Route path="/Internees" element={<InterneesWithLoader />} />
+          <Route path="/YapEvents" element={<YapEventsWithLoader />} />
         </Routes>
         <Footer />
       </div>

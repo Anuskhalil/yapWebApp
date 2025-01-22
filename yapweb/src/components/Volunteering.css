@@ -1,184 +1,252 @@
-/* Overall Container */
-.volunteers-container {
+/* General Styling */
+.volunteering-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-top: 200px; */
+}
+
+.volunteering-container h1 {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  /* margin-top: 50px; */
+}
+
+.volunteering-hero {
+  position: relative;
+  top: 100px;
+  width: 100%;
+  height: 50vh; 
+  background: url("../images/MeetUp/meetupimg34.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volunteering-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px 20px;
-  background: url("../images/bg.jpeg") no-repeat center center;
-  background-size: cover;
-  min-height: 100vh;
-  position: relative;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-/* Title Styling */
-/* .volunteers-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-  color: #000;
   text-align: center;
-} */
-
-/* Diagram Container */
-.volunteers-diagram {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: white;
+  padding: 20px;
 }
 
-/* Center Circle */
-.volunteer-center {
-  background-color: #F47E4A;
-  color: #fff;
+.volunteering-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.volunteering-description {
   font-size: 1.5rem;
-  font-weight: bold;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-weight: 300;
+  max-width: 800px;
+}
+
+.volunteering-diagram {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+  justify-items: center;
+  margin-top: 150px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px; 
+  line-height: 30px;
+}
+
+.volunteering-diagram span{
+  font-size: 20px;
+}
+
+.internee-branch {
+  position: relative;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
   text-align: center;
-  position: absolute;
-  z-index: 2;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; 
+  max-width: 250px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Branch Styling */
-.volunteer-branch {
-  background-color: #fff;
-  border: 2px solid #000;
-  font-size: 1rem;
+.internee-branch:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.internee-branch button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #edc533;
+  color: #000000;
   font-weight: bold;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 25px;
-  text-align: center;
-  position: absolute;
-  width: 300px;
-  transition: transform 0.3s ease-in-out;
-  text-transform: uppercase;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px 16px;
+  transition: all 0.3s ease;
 }
 
-/* Branch Hover Effect */
-.volunteer-branch:hover {
-  transform: scale(1.1);
-  background-color: #f0f0f0;
+.internee-branch button:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
-/* Positioning Branches */
-.operation {
-  top: 15%;
-  left: 10%;
-  transform: translate(-10%, -50%);
+.internee-branch button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.event-management {
-  top: 15%;
-  right: 10%;
-  transform: translate(10%, -50%);
-}
-
-.production {
-  bottom: 15%;
-  left: 10%;
-  transform: translate(-10%, 50%);
-}
-
-.logistics {
-  bottom: 15%;
-  right: 10%;
-  transform: translate(10%, 50%);
+.internee-branch span {
+  font-weight: bold;
+  line-height: 1.5;
 }
 
 /* Responsive Styling */
+@media (max-width: 1024px) {
+  .volunteering-diagram {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+  }
+}
+
 @media (max-width: 768px) {
-  .volunteers-diagram {
-    height: 350px;
+  .volunteering-diagram {
+    grid-template-columns: 1fr; 
+    gap: 10px;
   }
 
-  .volunteer-center {
-    width: 130px;
-    height: 130px;
-    font-size: 1rem;
-  }
-
-  .volunteer-branch {
-    width: 160px;
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
-
-  /* Adjust Branch Positions */
-  .operation {
-    top: 18%;
-    left: 15%;
-  }
-
-  .event-management {
-    top: 18%;
-    right: 15%;
-  }
-
-  .production {
-    bottom: 18%;
-    left: 15%;
-  }
-
-  .logistics {
-    bottom: 18%;
-    right: 15%;
+  .volunteering-container h1 {
+    font-size: 32px; 
   }
 }
 
 @media (max-width: 480px) {
-  .volunteers-title {
-    font-size: 1.8rem;
+  .volunteering-container {
+    margin-top: 100px; 
   }
 
-  .volunteers-diagram {
-    height: 300px;
+  .internee-branch {
+    padding: 15px; 
+    font-size: 14px; 
   }
 
-  .volunteer-center {
-    width: 100px;
-    height: 100px;
-    font-size: 0.8rem;
+  .internee-branch button {
+    padding: 6px 12px; 
+    font-size: 14px;
   }
 
-  .volunteer-branch {
-    font-size: 0.7rem;
-    width: 100px;
-    padding: 6px 10px;
+  .volunteering-container h1 {
+    font-size: 24px; 
+  }
+}
+
+/* Popup Styling */
+.popup-overlay {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h1,
+.popup-content h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.apply-form .form-group {
+  margin-bottom: 15px;
+}
+
+.apply-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.apply-form input,
+.apply-form textarea,
+.apply-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+}
+
+.apply-form button {
+  background-color: #EDC533 ;
+  color: #1D2330 ;
+  border-style: none ;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.apply-form button:hover {
+  background-color: #C9A000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.apply-form button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  margin-top: 15px;
+  padding: 8px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #c82333;
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 20px;
   }
 
-  /* Adjust Branch Positions for Small Screens */
-  .operation {
-    top: 25%;
-    left: 10%;
-  }
-
-  .event-management {
-    top: 25%;
-    right: 10%;
-  }
-
-  .production {
-    bottom: 25%;
-    left: 10%;
-  }
-
-  .logistics {
-    bottom: 25%;
-    right: 10%;
+  .popup-content h1 {
+    font-size: 18px;
   }
 }

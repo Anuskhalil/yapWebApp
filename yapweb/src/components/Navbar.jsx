@@ -6,13 +6,13 @@ import logo from "../images/yap_hero_img.png";
 import "./Navbar.css";
 
 const NavigationBar = () => {
-  const [expanded, setExpanded] = useState(false); // Track navbar state
+  const [expanded, setExpanded] = useState(false); 
   const navigate = useNavigate();
 
-  const handleToggle = () => setExpanded(!expanded); // Toggle navbar
+  const handleToggle = () => setExpanded(!expanded); 
   const handleNavItemClick = (navigateTo) => {
-    setExpanded(false); // Collapse the navbar
-    navigate(navigateTo); // Navigate to the desired route
+    setExpanded(false); 
+    navigate(navigateTo); 
   };
 
   return (
@@ -24,9 +24,10 @@ const NavigationBar = () => {
             src={logo}
             alt="Youth Ambassador Programme Logo"
             className="navbar-logo"
-            onClick={() => window.location.reload()} // Refresh the page
+            onClick={() => window.location.reload()} 
             style={{ cursor: "pointer" }}
           />
+          
         </Navbar.Brand>
 
         {/* Toggle Button */}
@@ -38,7 +39,7 @@ const NavigationBar = () => {
         {/* Navbar Links */}
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link onClick={() => handleNavItemClick('/')}>Home</Nav.Link>
+            <Nav.Link className="homeLink" onClick={() => handleNavItemClick('/')}>Home</Nav.Link>
             {/* Philosophy Dropdown */}
             <NavDropdown
               title={
@@ -49,11 +50,14 @@ const NavigationBar = () => {
               }
               id="philosophy-dropdown"
             >
-              <NavDropdown.Item onClick={() => handleNavItemClick('/about-us')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick('/AboutYap')}>
                 About Us
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/mission-vision-values')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick('/missionVisionValues')}>
                 Mission, Vision & Values
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleNavItemClick('/upcomingEvents')}>
+                Upcoming Events
               </NavDropdown.Item>
               <NavDropdown.Item href="#OurSociety" onClick={() => handleNavItemClick('/')}>
                 Our Societies
@@ -64,10 +68,10 @@ const NavigationBar = () => {
             </NavDropdown>
 
             {/* People Dropdown */}
-            <NavDropdown
+            {/* <NavDropdown
               title={
                 <span>
-                  {/* <FaUsers className="me-2" /> */}
+                  <FaUsers className="me-2" />
                   People
                 </span>
               }
@@ -85,13 +89,13 @@ const NavigationBar = () => {
               <NavDropdown.Item onClick={() => handleNavItemClick('/team')}>
                 Team
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
 
             {/* Work Dropdown */}
-            <NavDropdown
+            {/* <NavDropdown
               title={
                 <span>
-                  {/* <FaBriefcase className="me-2" /> */}
+                  <FaBriefcase className="me-2" />
                   Work
                 </span>
               }
@@ -106,7 +110,11 @@ const NavigationBar = () => {
               <NavDropdown.Item onClick={() => handleNavItemClick('/initiatives')}>
                 Initiatives
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
+            <Nav.Link onClick={() => handleNavItemClick('/ourCourses')}>
+              {/* <FaBook className="me-2" /> */}
+              Our Courses
+            </Nav.Link>
 
             {/* Events Dropdown */}
             <NavDropdown
@@ -118,11 +126,11 @@ const NavigationBar = () => {
               }
               id="events-dropdown"
             >
-              <NavDropdown.Item onClick={() => handleNavItemClick('/workshops')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick('/InternationalWorkshops')}>
                 International Workshops
               </NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleNavItemClick('/yapEvents')}>
-                YAP Events
+                YAP Events/Workshops
               </NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleNavItemClick('/yapEvents')}>
                 Our Societies Events
@@ -148,7 +156,7 @@ const NavigationBar = () => {
             </NavDropdown>
 
             {/* Library Dropdown */}
-            <Nav.Link onClick={() => handleNavItemClick('/library')}>
+            <Nav.Link className="libraryLink" onClick={() => handleNavItemClick('/library')}>
               {/* <FaBook className="me-2" /> */}
               Library
             </Nav.Link>
@@ -177,8 +185,7 @@ const NavigationBar = () => {
               </NavDropdown.Item>
             </NavDropdown>
             <Button
-              variant="dark"
-              className="fw-bold nav-btn"
+              className="fw-bold nav-button"
               onClick={() => handleNavItemClick('/our-team')}
             >
               <span>Our Team</span>

@@ -85,9 +85,11 @@ const SocietiesSlider = () => {
   return (
     <div className="container" id='OurSociety'>
       {/* Header Section */}
-      <h1 className="society-title fs-1 fw-bold text-center text-white mb-4" id='societyHeader'>
+      <div class="curved-heading">
         Our Societies
-      </h1>
+      </div>
+
+
       {/* Society Slider */}
       <Slider {...settings} className='main-societies '>
         {societies.map((society) => (

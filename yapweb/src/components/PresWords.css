@@ -5,6 +5,8 @@
 
 .presWord {
   font-size: 1.2rem;
+  text-align: justify; /* Align text to both edges for a clean look */
+  line-height: 1.8; /* Improve readability with better line spacing */
 }
 
 /* Add AOS-based Animation Styles */
@@ -33,6 +35,8 @@
 
   .presWord {
     font-size: 1rem;
+    text-align: center; /* Center-align text for smaller screens */
+    line-height: 1.6; /* Slightly reduced line spacing for small screens */
   }
 
   img {

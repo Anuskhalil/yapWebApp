@@ -36,12 +36,12 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.contact-modal-btn{
+/* .contact-modal-btn{
   margin-left: 5px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
+} */
 
 .contact-btn .Society-btn{
    /* margin-top: 10px; */
@@ -55,6 +55,7 @@
   font-weight: bold;
   transition: all 0.3s ease;
 }
+
 .contact-btn .Society-btn:hover {
   background-color: #C9A000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);

@@ -8,22 +8,31 @@ import './PrDrives.css';
 import prDrive1 from '../images/PrDrives/pr1.jpg';
 import prDrive2 from '../images/PrDrives/pr2.jpg';
 import prDrive3 from '../images/PrDrives/pr3.jpg';
-// import prDrive4 from '../images/PrDrives/pr4.jpg';
+import prDrive4 from '../images/PrDrives/pr4.jpg';
 // import prDrive5 from '../images/PrDrives/pr5.jpg';
 import prDrive6 from '../images/PrDrives/pr6.jpg';
-// import prDrive7 from '../images/PrDrives/pr7.jpg';
+import prDrive7 from '../images/PrDrives/pr7.jpg';
 import prDrive8 from '../images/PrDrives/pr8.jpg';
 import prDrive9 from '../images/PrDrives/pr9.jpg';
 import prDrive10 from '../images/PrDrives/pr10.jpg';
 import prDrive11 from '../images/PrDrives/pr11.jpg';
 import prDrive12 from '../images/PrDrives/pr12.jpg';
-import prDrive13 from '../images/PrDrives/pr13.jpeg';
+import prDrive13 from '../images/PrDrives/pr13.jpg';
 import prDrive14 from '../images/PrDrives/pr14.jpeg';
-import prDrive15 from '../images/PrDrives/pr15.jpeg';
+import prDrive15 from '../images/PrDrives/pr15.jpg';
 import prDrive16 from '../images/PrDrives/pr16.jpeg';
-import prDrive17 from '../images/PrDrives/pr17.jpeg';
+import prDrive17 from '../images/PrDrives/pr17.jpg';
 import prDrive18 from '../images/PrDrives/pr18.jpeg';
 import prDrive19 from '../images/PrDrives/pr19.jpeg';
+import prDrive20 from '../images/PrDrives/pr20.jpg';
+import prDrive21 from '../images/PrDrives/pr21.jpg';
+import prDrive22 from '../images/PrDrives/pr22.jpg';
+import prDrive23 from '../images/PrDrives/pr23.jpg';
+import prDrive24 from '../images/PrDrives/pr24.jpeg';
+import prDrive25 from '../images/PrDrives/pr25.jpg';
+import prDrive26 from '../images/PrDrives/pr26.jpeg';
+import prDrive27 from '../images/PrDrives/pr27.jpg';
+import prDrive28 from '../images/PrDrives/pr28.jpeg';
 
 const PrDrives = () => {
 
@@ -41,11 +50,11 @@ const PrDrives = () => {
     { image: prDrive1 },
     { image: prDrive2 },
     { image: prDrive3 },
-    // { image: prDrive4 },
+    { image: prDrive4 },
     // { image: prDrive5 },
     { image: prDrive11 },
     { image: prDrive6 },
-    // { image: prDrive7 },
+    { image: prDrive7 },
     { image: prDrive8 },
     { image: prDrive9 },
     { image: prDrive10 },
@@ -57,6 +66,15 @@ const PrDrives = () => {
     { image: prDrive17 },
     { image: prDrive18 },
     { image: prDrive19 },
+    { image: prDrive20 },
+    { image: prDrive21 },
+    { image: prDrive22 },
+    { image: prDrive23 },
+    { image: prDrive24 },
+    { image: prDrive25 },
+    { image: prDrive26 },
+    { image: prDrive27 },
+    { image: prDrive28 },
   ];
 
   const sliderSettings = {

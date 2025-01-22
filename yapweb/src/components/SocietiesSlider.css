@@ -1,3 +1,27 @@
+.curved-heading {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff5733; 
+  color: white; 
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 50%; 
+  transform: rotate(-10deg);
+  text-align: center;
+  position: relative;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.curved-heading::before {
+  /* content: "Our Societies"; */
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  /* transform: translateX(-50%); */
+  /* font-size: 18px; */
+  font-weight: bold;
+}
+
 #OurSociety {
   position: relative;
   top: -150px;

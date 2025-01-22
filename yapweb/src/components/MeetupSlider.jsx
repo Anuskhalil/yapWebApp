@@ -47,6 +47,17 @@ import meetupimg30 from '../images/MeetUp/meetupimg30.jpg';
 import meetupimg31 from '../images/MeetUp/meetupimg31.jpg';
 import meetupimg32 from '../images/MeetUp/meetupimg32.jpg';
 
+// Page 05
+import meetupimg33 from '../images/MeetUp/meetupimg33.jpg';
+import meetupimg34 from '../images/MeetUp/meetupimg34.jpg';
+import meetupimg35 from '../images/MeetUp/meetupimg35.jpg';
+import meetupimg36 from '../images/MeetUp/meetupimg36.jpg';
+import meetupimg37 from '../images/MeetUp/meetupimg37.jpg';
+import meetupimg38 from '../images/MeetUp/meetupimg38.jpg';
+import meetupimg39 from '../images/MeetUp/meetupimg39.jpg';
+import meetupimg40 from '../images/MeetUp/meetupimg40.jpg';
+import meetupimg41 from '../images/MeetUp/meetupimg41.jpg';
+
 const Meetup = () => {
   useEffect(() => {
     AOS.init({
@@ -91,6 +102,23 @@ const Meetup = () => {
     { title: 'Meetup 22', image: meetupimg22 },
     { title: 'Meetup 23', image: meetupimg23 },
     { title: 'Meetup 24', image: meetupimg24 },
+    { title: 'Meetup 25', image: meetupimg25 },
+    { title: 'Meetup 26', image: meetupimg26 },
+    { title: 'Meetup 27', image: meetupimg27 },
+    { title: 'Meetup 28', image: meetupimg28 },
+    { title: 'Meetup 29', image: meetupimg29 },
+    { title: 'Meetup 30', image: meetupimg30 },
+    { title: 'Meetup 31', image: meetupimg31 },
+    { title: 'Meetup 32', image: meetupimg32 },
+    { title: 'Meetup 33', image: meetupimg33 },
+    { title: 'Meetup 34', image: meetupimg34 },
+    { title: 'Meetup 35', image: meetupimg35 },
+    { title: 'Meetup 36', image: meetupimg36 },
+    { title: 'Meetup 37', image: meetupimg37 },
+    { title: 'Meetup 38', image: meetupimg38 },
+    { title: 'Meetup 39', image: meetupimg39 },
+    { title: 'Meetup 40', image: meetupimg40 },
+    { title: 'Meetup 41', image: meetupimg41 },
   ];
 
   const [showModal, setShowModal] = useState(false);

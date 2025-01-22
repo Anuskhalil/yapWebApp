@@ -67,20 +67,19 @@ const Contact = () => {
             {/* Navigation Buttons */}
             <div className="contact-btn mt-4">
               <h3>What would you like to Join for?</h3>
-              <Button
-                // variant="primary"
-                className="Society-btn me-3"
-                onClick={() => navigate('/register')} // Navigate to Internships page
+              <button
+                className="Society-btn ms-1"
+                onClick={() => navigate("/internees", { state: { showPopup: true } })}
               >
                 Internships Registration
-              </Button>
-              <Button
-              className='Society-btn'
+              </button>
+              <button
+                className='Society-btn ms-1 mt-2'
                 // variant="success"
-                onClick={() => setShowSocietyModal(true)} // Show society modal
+                onClick={() => setShowSocietyModal(true)}
               >
                 Society Registration
-              </Button>
+              </button>
             </div>
           </div>
         </Col>
@@ -141,7 +140,7 @@ const Contact = () => {
         </Modal.Header>
         <Modal.Body className="text-white fw-bold">{modalMessage}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowContactModal(false)}>
+          <Button onClick={() => setShowContactModal(false)}>
             Close
           </Button>
         </Modal.Footer>

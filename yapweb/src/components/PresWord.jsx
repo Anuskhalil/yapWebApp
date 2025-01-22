@@ -10,9 +10,9 @@ const PresWord = () => {
   // Initialize AOS for animations
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration
-      easing: 'ease-in-out', // Easing for animations
-      once: true, // Only animate once
+      duration: 1000,
+      easing: 'ease-in-out', 
+      once: true, 
     });
   }, []);
 
@@ -21,7 +21,7 @@ const PresWord = () => {
       <div className="row align-items-center">
         <div
           className="col-lg-6 mb-4 mb-lg-0 text-center"
-          data-aos="fade-right" // Animation for the image
+          data-aos="fade-right" 
         >
           <img
             src={presWord}
@@ -31,11 +31,11 @@ const PresWord = () => {
         </div>
         <div
           className="col-lg-6"
-          data-aos="fade-left" // Animation for the text
+          data-aos="fade-left" 
         >
           <h2 className="mb-3 fs-1 font-bold">Message to Youth</h2>
           <p className="presWord">
-            Welcome to the Youth Ambassador Program—a platform to empower future leaders. At the Arts Council of Pakistan Karachi, I believe in the power of young minds to shape our cultural, social, and creative future.
+            Welcome to the Youth Ambassador Program a platform to empower future leaders. At the Arts Council of Pakistan Karachi, I believe in the power of young minds to shape our cultural, social, and creative future.
 
             This program offers opportunities for connection, collaboration, and contribution. From cultural festivals and creative workshops to leadership building and global dialogues, it’s designed to help you realize your potential.
 
