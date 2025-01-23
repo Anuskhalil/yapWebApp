@@ -70,6 +70,14 @@ import ibaSukkur4 from '../images/MouUniversities/IbaSukkurUni/ibasukkur4.jpg';
 import ibaSukkur5 from '../images/MouUniversities/IbaSukkurUni/ibasukkur5.jpg';
 import ibaSukkur6 from '../images/MouUniversities/IbaSukkurUni/ibasukkur6.jpg';
 
+// Beacon House School
+import beaconSchool1 from '../images/MouUniversities/BeaconHouseSchool/beaconSchool1.jpg';
+import beaconSchool2 from '../images/MouUniversities/BeaconHouseSchool/beaconSchool2.jpg';
+import beaconSchool3 from '../images/MouUniversities/BeaconHouseSchool/beaconSchool3.jpg';
+import beaconSchool4 from '../images/MouUniversities/BeaconHouseSchool/beaconSchool4.jpg';
+import beaconSchool5 from '../images/MouUniversities/BeaconHouseSchool/beaconSchool5.jpg';
+import beaconSchool6 from '../images/MouUniversities/BeaconHouseSchool/beaconSchool6.jpg';
+
 
 
 const MoUSignedUni = () => {
@@ -195,6 +203,13 @@ const MoUSignedUni = () => {
       logo: ziauddin,
       description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and ZiaUddin University',
       images: [ziauddin1, ziauddin2, ziauddin3, ziauddin4, ziauddin5, ziauddin6],
+    },
+    {
+      id: 16,
+      name: 'Beacon House School',
+      logo: beacon,
+      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Beacon House School',
+      images: [beaconSchool1, beaconSchool2, beaconSchool3, beaconSchool4, beaconSchool5, beaconSchool6],
     },
   ];
 
