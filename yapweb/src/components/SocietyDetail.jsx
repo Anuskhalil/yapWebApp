@@ -98,6 +98,13 @@ const societies = [
   { id: 16, name: 'Psych Squad', image: society16, para: 'The Psych Squad, part of the ACP Youth Ambassador programme at the Arts Council of Pakistan, Karachi. This society is focused on psychology, mental health, and understanding human behavior.' },
 ];
 
+const societyEvents = [
+  { image: 'path_to_event_image1.jpg' },
+  { image: 'path_to_event_image2.jpg' },
+  { image: 'path_to_event_image3.jpg' },
+  // Add more event images here
+];
+
 // Function to get slider content based on society ID
 const getSliderContent = (societyId) => {
   switch (societyId) {
@@ -237,39 +244,78 @@ const SocietyDetail = () => {
 
   const sliderContent = getSliderContent(society.id);
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToScroll: 1,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 3000,
-  };
-
   return (
     <div className="container mt-5">
-      <img src={society.image} alt={society.name} className="society-image" />
+      <img src={society.image} alt={society.name} className="society-image small-logo" />
       <div className="main-container-heading-and-para">
         <h1 className='societyName fs-1 fw-bold'>{society.name}</h1>
         <h6>{society.para}</h6>
       </div>
 
+      <div className="team-section mt-5 py-5 ">
+        <h2 className="text-center">Meet Our Team</h2>
+        <div className="row justify-content-center">
+          {/* President */}
+          <div className="col-md-4 text-center">
+            <img src="path_to_president_image" alt="President" className="team-image rounded-circle" />
+            <h5 className="mt-3">President</h5>
+            <div className="social-links">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
+            </div>
+          </div>
 
-      <Slider {...sliderSettings} className="society-slider">
+          {/* VP */}
+          <div className="col-md-4 text-center">
+            <img src="path_to_vp_image" alt="VP" className="team-image rounded-circle" />
+            <h5 className="mt-3">Vice President</h5>
+            <div className="social-links">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
+            </div>
+          </div>
+
+          {/* General Secretary */}
+          <div className="col-md-4 text-center">
+            <img src="path_to_secretary_image" alt="General Secretary" className="team-image rounded-circle" />
+            <h5 className="mt-3">General Secretary</h5>
+            <div className="social-links">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Society Events Section */}
+      <div className="society-events mt-5">
+        <h2 className="text-center">Society Events</h2>
+        <div className="row justify-content-center">
+          {societyEvents.map((event, index) => (
+            <div key={index} className="col-md-3 col-sm-4 col-6 text-center mb-4">
+              <img src={event.image} alt={`Event ${index + 1}`} className="event-image img-fluid" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Slider autoplay dots infinite speed={500} slidesToShow={3} slidesToScroll={1}>
         {sliderContent.map((item, index) => (
-          <div key={index} className="slider-item">
-            <div className="slider-icon">{item.icon}</div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
+          <div key={index} className="slider-item mt-5">
+            <div className="slider-item-icon">{item.icon}</div>
+            <div className="slider-item-title">{item.title}</div>
+            <div className="slider-item-description">{item.description}</div>
           </div>
         ))}
       </Slider>
+
       <div className="text-center mt-4">
         <Button variant="dark" className="register-btn px-4 fw-bold" onClick={handleSocietyFormClick}>
           Join Now
         </Button>
       </div>
     </div>
+
   );
 
 };

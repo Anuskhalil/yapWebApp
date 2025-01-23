@@ -132,9 +132,9 @@ const NavigationBar = () => {
               <NavDropdown.Item onClick={() => handleNavItemClick('/yapEvents')}>
                 YAP Events/Workshops
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/yapEvents')}>
+              {/* <NavDropdown.Item onClick={() => handleNavItemClick('/societyEvents')}>
                 Our Societies Events
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
             </NavDropdown>
 
             {/* Network Dropdown */}
@@ -180,9 +180,9 @@ const NavigationBar = () => {
               <NavDropdown.Item href="#contact" onClick={() => handleNavItemClick('/')}>
                 Contact
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/faqs')}>
+              {/* <NavDropdown.Item onClick={() => handleNavItemClick('/faqs')}>
                 FAQs
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
             </NavDropdown>
             <Button
               className="fw-bold nav-button"

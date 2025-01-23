@@ -1,4 +1,28 @@
 /* SocietyDetail.css */
+.society-image.small-logo {
+  width: 300px; 
+}
+
+.team-image {
+  width: 100px; 
+  height: 100px;
+  object-fit: cover;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-link {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.social-link:hover {
+  color: #007bff;
+}
 
 .society-container {
   display: flex;
