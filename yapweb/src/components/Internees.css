@@ -128,9 +128,6 @@
 }
 
 @media (max-width: 480px) {
-  .internees-container {
-    margin-top: 100px; 
-  }
 
   .internee-branch {
     padding: 15px; 
@@ -138,7 +135,7 @@
   }
 
   .internee-branch button {
-    padding: 6px 12px; 
+    padding: 16px 32px; 
     font-size: 14px;
   }
 
