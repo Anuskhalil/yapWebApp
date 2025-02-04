@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'; // For navigation buttons
-import { submitContactForm } from '../services/api'; // Import the API function
 import './Contact.css';
 
 const Contact = () => {
@@ -10,6 +9,8 @@ const Contact = () => {
     name: '',
     email: '',
     message: '',
+    interest: '', // For programme interest
+    contactMethod: 'email', // For preferred contact method
   });
 
   const [status, setStatus] = useState({ success: false, error: false });
@@ -29,21 +30,39 @@ const Contact = () => {
     event.preventDefault();
 
     try {
-      const response = await submitContactForm(formData); // Send form data to backend
-      console.log('Response:', response.data);
+      // Send form data directly to the backend
+      const response = await fetch('http://localhost:4000/contactForm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      // Show success modal
-      setModalMessage('Your message has been sent successfully!');
-      setStatus({ success: true, error: false });
-      setShowContactModal(true);
+      const result = await response.json();
 
-      // Clear the form inputs
-      setFormData({ name: '', email: '', message: '' });
+      if (response.ok) {
+        // Show success modal
+        setModalMessage('Your Contact form has been submitted successfully! You will be notified soon.');
+        setStatus({ success: true, error: false });
+        setShowContactModal(true);
+
+        // Clear the form inputs
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+          interest: '',
+          contactMethod: 'email',
+        });
+      } else {
+        throw new Error(result.message || 'Failed to submit form');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
 
       // Show error modal
-      setModalMessage('There was an error sending your message. Please try again later.');
+      setModalMessage('There was an error submitting your registration. Please try again later.');
       setStatus({ success: false, error: true });
       setShowContactModal(true);
     }
@@ -59,11 +78,6 @@ const Contact = () => {
             <p>
               We are here to assist you with your queries. Feel Free to contact us.
             </p>
-            {/* <div className="contact-info">
-              <p><strong>📞</strong> +92 30000000000</p>
-              <p><strong>📧</strong> yap@gmail.com</p>
-              <p><strong>📍</strong> See Our Locations</p>
-            </div> */}
             {/* Navigation Buttons */}
             <div className="contact-btn mt-4">
               <h3>What would you like to Join for?</h3>
@@ -75,7 +89,6 @@ const Contact = () => {
               </button>
               <button
                 className='Society-btn ms-1 mt-2'
-                // variant="success"
                 onClick={() => setShowSocietyModal(true)}
               >
                 Society Registration
@@ -86,7 +99,7 @@ const Contact = () => {
 
         {/* Right Section: Contact Form */}
         <Col md={6}>
-          {status.success && <Alert variant="success">Message sent successfully!</Alert>}
+          {status.success && <Alert variant="success">Registration submitted successfully!</Alert>}
           {status.error && <Alert variant="danger">An error occurred. Please try again later.</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formName">
@@ -124,6 +137,40 @@ const Contact = () => {
                 placeholder="Enter your message"
                 required
               />
+            </Form.Group>
+
+            <Form.Group controlId="formInterest">
+              <Form.Label>Are you interested in joining the Youth Ambassadors Programme?</Form.Label><br />
+              <Form.Check
+                type="radio"
+                id="interest-yes"
+                name="interest"
+                value="Yes"
+                label="Yes"
+                checked={formData.interest === 'Yes'}
+                onChange={handleChange}
+              />
+              <Form.Check
+                type="radio"
+                id="interest-no"
+                name="interest"
+                value="No"
+                label="No"
+                checked={formData.interest === 'No'}
+                onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formContactMethod">
+              <Form.Label>Preferred Contact Method</Form.Label>
+              <Form.Select
+                name="contactMethod"
+                value={formData.contactMethod}
+                onChange={handleChange}
+              >
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+              </Form.Select>
             </Form.Group>
 
             <Button className="mt-3 fw-bold hero-button" type="submit">

@@ -17,6 +17,7 @@
 
 .flex-column .footer-link{
   color: rgb(255, 255, 255);
+  line-height: 10px;
 }
 
 .flex-column .footer-link:hover{

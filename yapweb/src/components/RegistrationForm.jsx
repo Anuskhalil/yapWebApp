@@ -1,43 +1,28 @@
 import React, { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
-import './RegistrationForm.css';
 import axios from "axios";
+import './RegistrationForm.css';
 
 const StudentRegistrationForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     fatherName: "",
-    cnic: "",
     email: "",
-    studentId: "",
-    subjectOfStudy: "",
-    yearOfStudy: "",
-    cellNumber1: "",
-    cellNumber2: "",
-    instituteName: "",
-    residentialAddress: "",
-    district: "",
-    societies: [], // Updated field
+    phoneNumber: "",
+    address: "",
+    inSociety: "", // "Yes" or "No"
+    society: "", // Society name (optional)
   });
 
-  const [modalMessage, setModalMessage] = useState(""); // Ensure this exists
+  const [modalMessage, setModalMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (type === "checkbox") {
-      setFormData((prev) => {
-        const selectedSocieties = prev.societies;
-        if (checked) {
-          return { ...prev, societies: [...selectedSocieties, value] };
-        } else {
-          return {
-            ...prev,
-            societies: selectedSocieties.filter((item) => item !== value),
-          };
-        }
-      });
+    if (type === "radio") {
+      // Handle Yes/No radio buttons
+      setFormData({ ...formData, [name]: value });
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -47,30 +32,38 @@ const StudentRegistrationForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:4000/register", formData);
-      console.log(response);
-      setModalMessage("Registration successful!");
-      setShowModal(true);
-      // Reset form data after submission
+      const response = await axios.post('http://localhost:4000/register/student', formData);
+
+      setModalMessage(response.data.message); // Show success message
+      setShowModal(true); // Open success modal
+
+      // Reset the form fields after successful submission
       setFormData({
         fullName: "",
         fatherName: "",
-        cnic: "",
         email: "",
-        studentId: "",
-        subjectOfStudy: "",
-        yearOfStudy: "",
-        cellNumber1: "",
-        cellNumber2: "",
-        instituteName: "",
-        residentialAddress: "",
-        district: "",
-        societies: [],
+        phoneNumber: "",
+        address: "",
+        inSociety: "", // Reset radio button
+        society: "",   // Reset society selection
       });
-    } catch (error) {
-      setModalMessage("Error submitting the form. Please try again.");
+
+    } catch (err) {
+      if (err.response) {
+        console.error('Response error:', err.response.data);
+        setModalMessage(err.response.data.message);
+      } else if (err.request) {
+        console.error('Request error:', err.request);
+        setModalMessage("No response from the server. Please check your connection.");
+      } else {
+        console.error('Unexpected error:', err.message);
+        setModalMessage("Unexpected error. Please try again.");
+      }
+      setShowModal(true);
     }
   };
+
+
 
   const closeModal = () => setShowModal(false);
 
@@ -107,18 +100,6 @@ const StudentRegistrationForm = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formCnic">
-          <Form.Label>CNIC</Form.Label>
-          <Form.Control
-            type="text"
-            name="cnic"
-            value={formData.cnic}
-            onChange={handleChange}
-            placeholder="Enter CNIC"
-            required
-          />
-        </Form.Group>
-
         <Form.Group controlId="formEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -131,133 +112,79 @@ const StudentRegistrationForm = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="formStudentId">
-          <Form.Label>Student ID</Form.Label>
+        <Form.Group controlId="formPhoneNumber">
+          <Form.Label>Phone Number</Form.Label>
           <Form.Control
             type="text"
-            name="studentId"
-            value={formData.studentId}
+            name="phoneNumber"
+            value={formData.phoneNumber}
             onChange={handleChange}
-            placeholder="Enter student ID"
+            placeholder="Enter phone number"
             required
           />
         </Form.Group>
 
-        <Form.Group controlId="formSubjectOfStudy">
-          <Form.Label>Subject of Study</Form.Label>
+        <Form.Group controlId="formAddress">
+          <Form.Label>Address</Form.Label>
           <Form.Control
-            type="text"
-            name="subjectOfStudy"
-            value={formData.subjectOfStudy}
+            as="textarea"
+            rows={3}
+            name="address"
+            value={formData.address}
             onChange={handleChange}
-            placeholder="Enter subject of study"
+            placeholder="Enter address"
             required
           />
         </Form.Group>
 
-        <Form.Group controlId="formYearOfStudy">
-          <Form.Label>Year of Study</Form.Label>
-          <Form.Control
-            type="text"
-            name="yearOfStudy"
-            value={formData.yearOfStudy}
-            onChange={handleChange}
-            placeholder="Enter year of study"
-            required
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formCellNumber1">
-          <Form.Label>Cell Number 1</Form.Label>
-          <Form.Control
-            type="text"
-            name="cellNumber1"
-            value={formData.cellNumber1}
-            onChange={handleChange}
-            placeholder="Enter cell number 1"
-            required
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formCellNumber2">
-          <Form.Label>Cell Number 2</Form.Label>
-          <Form.Control
-            type="text"
-            name="cellNumber2"
-            value={formData.cellNumber2}
-            onChange={handleChange}
-            placeholder="Enter cell number 2 (optional)"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formInstituteName">
-          <Form.Label>Institute Name</Form.Label>
-          <Form.Control
-            type="text"
-            name="instituteName"
-            value={formData.instituteName}
-            onChange={handleChange}
-            placeholder="Enter institute name"
-            required
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formResidentialAddress">
-          <Form.Label>Residential Address</Form.Label>
-          <Form.Control
-            type="text"
-            name="residentialAddress"
-            value={formData.residentialAddress}
-            onChange={handleChange}
-            placeholder="Enter residential address"
-            required
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formDistrict">
-          <Form.Label>District</Form.Label>
-          <Form.Control
-            type="text"
-            name="district"
-            value={formData.district}
-            onChange={handleChange}
-            placeholder="Enter district"
-            required
-          />
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Choose Societies</Form.Label>
+        <Form.Group controlId="formInSociety">
+          <Form.Label>Are you in any society?</Form.Label>
           <div>
-            {[
-              "Dramatic Society",
-              "Alliance Society",
-              "Buzz Society",
-              "Tech Society",
-              "Music Society",
-              "Sports Society",
-              "Literature Society",
-              "Media Society",
-              "Cultural Society",
-              "Art Society",
-              "Environmental Society",
-              "Debate Society",
-              "AI Society",
-              "Health Society",
-              "Entrepreneur Society",
-              "Volunteer Society",
-            ].map((society) => (
-              <Form.Check
-                key={society}
-                type="checkbox"
-                label={society}
-                name="societies"
-                value={society}
-                onChange={handleChange}
-                checked={formData.societies.includes(society)}
-              />
-            ))}
+            <Form.Check
+              type="radio"
+              label="Yes"
+              name="inSociety"
+              value="Yes"
+              checked={formData.inSociety === "Yes"}
+              onChange={handleChange}
+            />
+            <Form.Check
+              type="radio"
+              label="No"
+              name="inSociety"
+              value="No"
+              checked={formData.inSociety === "No"}
+              onChange={handleChange}
+            />
           </div>
+        </Form.Group>
+
+        <Form.Group controlId="formSociety">
+          <Form.Label>Choose Society</Form.Label>
+          <Form.Control
+            as="select"
+            name="society"
+            value={formData.society}
+            onChange={handleChange}
+          >
+            <option value="">Select a society (optional)</option>
+            <option value="Dramatic Society">Dramatic Society</option>
+            <option value="Alliance Society">Alliance Society</option>
+            <option value="Buzz Society">Buzz Society</option>
+            <option value="Tech Society">Tech Society</option>
+            <option value="Music Society">Music Society</option>
+            <option value="Sports Society">Sports Society</option>
+            <option value="Literature Society">Literature Society</option>
+            <option value="Media Society">Media Society</option>
+            <option value="Cultural Society">Cultural Society</option>
+            <option value="Art Society">Art Society</option>
+            <option value="Environmental Society">Environmental Society</option>
+            <option value="Debate Society">Debate Society</option>
+            <option value="AI Society">AI Society</option>
+            <option value="Health Society">Health Society</option>
+            <option value="Entrepreneur Society">Entrepreneur Society</option>
+            <option value="Volunteer Society">Volunteer Society</option>
+          </Form.Control>
         </Form.Group>
 
         <Button className="mt-3 fw-bold hero-button" type="submit">

@@ -1,54 +1,30 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './SocietyForm.css'; // Add styles similar to your provided design
 
 const SocietyForm = () => {
+  const location = useLocation();
+  const { societyName } = location.state || { societyName: '' }; // Retrieve society name from state
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phoneNumber: '',
-    whatsapp: false,
+    whatsappNumber: '',
+    university: '',
     district: '',
-    institution: '',
     registeredAtYAP: '',
-    societies: [],
+    motivation: '', // Why you want to join the society
   });
 
   const [submissionStatus, setSubmissionStatus] = useState(null);
 
-  const societiesList = [
-    'Readers & Writers',
-    'Dramatic & Alliance',
-    'Beats & Buzz',
-    'Sports',
-    'Science & Tech',
-    'Arts & Culture',
-    'Social Impact',
-    'Entrepreneurship',
-    'Finance',
-    'Debating & Public Speaking',
-    'Psych Aquad',
-    'International Relations',
-    'Media & Journalism',
-    'Gaming & Esports',
-    'Music',
-    'Community Service',
-  ];
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    if (type === 'checkbox') {
-      if (checked) {
-        setFormData((prev) => ({ ...prev, societies: [...prev.societies, value] }));
-      } else {
-        setFormData((prev) => ({
-          ...prev,
-          societies: prev.societies.filter((society) => society !== value),
-        }));
-      }
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -56,7 +32,7 @@ const SocietyForm = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:5173/api/societyRegistration', // Replace with your backend URL
+        'http://localhost:5000/api/societyRegistration', // Replace with your backend URL
         formData,
         {
           headers: {
@@ -64,15 +40,25 @@ const SocietyForm = () => {
           },
         }
       );
-      setSubmissionStatus({ success: true, message: 'Registration successful!' });
+
+      if (response.data.success) {
+        setSubmissionStatus({ success: true, message: 'Registration successful!' });
+      } else {
+        setSubmissionStatus({ success: false, message: response.data.message });
+      }
     } catch (error) {
-      setSubmissionStatus({ success: false, message: 'Registration failed. Please try again.' });
+      if (error.response && error.response.status === 400) {
+        // Email already exists
+        setSubmissionStatus({ success: false, message: error.response.data.message });
+      } else {
+        setSubmissionStatus({ success: false, message: 'Registration failed. Please try again.' });
+      }
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="society-form">
-      <h1>YAP Society Registration</h1>
+      <h1>Join {societyName}</h1> {/* Display the society name in the heading */}
 
       {submissionStatus && (
         <div
@@ -108,14 +94,27 @@ const SocietyForm = () => {
         />
       </div>
 
-      {/* Phone Number Input */}
+      {/* WhatsApp Number Input */}
       <div className="form-group">
-        <label htmlFor="phoneNumber">Phone Number (WhatsApp)</label>
+        <label htmlFor="whatsappNumber">WhatsApp Number</label>
         <input
           type="text"
-          id="phoneNumber"
-          name="phoneNumber"
-          value={formData.phoneNumber}
+          id="whatsappNumber"
+          name="whatsappNumber"
+          value={formData.whatsappNumber}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      {/* University Name Input */}
+      <div className="form-group">
+        <label htmlFor="university">University Name</label>
+        <input
+          type="text"
+          id="university"
+          name="university"
+          value={formData.university}
           onChange={handleChange}
           required
         />
@@ -134,20 +133,7 @@ const SocietyForm = () => {
         />
       </div>
 
-      {/* Institution Input */}
-      <div className="form-group">
-        <label htmlFor="institution">Institution Name</label>
-        <input
-          type="text"
-          id="institution"
-          name="institution"
-          value={formData.institution}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      {/* Registered at YAP Input */}
+      {/* Already Joined at YAP Input */}
       <div className="form-group">
         <label>Are you already registered at YAP?</label>
         <div className="radio-group">
@@ -174,23 +160,17 @@ const SocietyForm = () => {
         </div>
       </div>
 
-      {/* Societies Checkboxes */}
+      {/* Motivation Input */}
       <div className="form-group">
-        <label>Which society do you want to join?</label>
-        <div className="checkbox-group">
-          {societiesList.map((society, index) => (
-            <label key={index}>
-              <input
-                type="checkbox"
-                name="societies"
-                value={society}
-                checked={formData.societies.includes(society)}
-                onChange={handleChange}
-              />
-              {society}
-            </label>
-          ))}
-        </div>
+        <label htmlFor="motivation">Why do you want to join {societyName}?</label><br />
+        <textarea
+          id="motivation"
+          name="motivation"
+          value={formData.motivation}
+          onChange={handleChange}
+          rows="4"
+          required
+        />
       </div>
 
       <button type="submit" className="submit-btn">

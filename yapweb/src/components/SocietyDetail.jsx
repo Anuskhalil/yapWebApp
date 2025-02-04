@@ -232,7 +232,8 @@ const SocietyDetail = () => {
   const navigate = useNavigate();
 
   const handleSocietyFormClick = () => {
-    navigate('/SocietyForm');
+    navigate('/SocietyForm', { state: { societyName: society.name } });
+
   };
 
   const { id } = useParams();
@@ -311,7 +312,7 @@ const SocietyDetail = () => {
 
       <div className="text-center mt-4">
         <Button variant="dark" className="register-btn px-4 fw-bold" onClick={handleSocietyFormClick}>
-          Join Now
+          Join {society.name}
         </Button>
       </div>
     </div>

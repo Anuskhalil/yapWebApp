@@ -1,9 +1,24 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./Volunteering.css";
 
-const volunteeringPage = () => {
+const VolunteeringPage = () => {
   const [applyPopup, setApplyPopup] = useState(false);
   const [selectedDomain, setSelectedDomain] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    contactNumber: "",
+    address: "",
+    role: "",
+    experience: "",
+    skills: "",
+    interests: "",
+    hours: "",
+    availability: "",
+    motivation: "",
+    expectations: "",
+  });
 
   const openApplyPopup = (domain) => {
     setSelectedDomain(domain);
@@ -13,6 +28,39 @@ const volunteeringPage = () => {
   const closeApplyPopup = () => {
     setApplyPopup(false);
     setSelectedDomain("");
+    setFormData({
+      fullName: "",
+      email: "",
+      contactNumber: "",
+      address: "",
+      role: "",
+      experience: "",
+      skills: "",
+      interests: "",
+      hours: "",
+      availability: "",
+      motivation: "",
+      expectations: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:4000/volunteerapply", {
+        ...formData,
+        domain: selectedDomain,
+      });
+      alert(response.data.message);
+      closeApplyPopup();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit application. Please try again.");
+    }
   };
 
   return (
@@ -26,44 +74,33 @@ const volunteeringPage = () => {
         </div>
       </div>
 
-
       {applyPopup && (
         <div className="popup-overlay">
           <div className="popup-content">
             <h1>Apply for {selectedDomain} Volunteering</h1>
-            <form className="apply-form">
-              {/* Personal Information */}
+            <form className="apply-form" onSubmit={handleSubmit}>
               <h3>Personal Information</h3>
               <div className="form-group">
                 <label>Full Name:</label>
-                <input type="text" placeholder="Enter your full name" required />
+                <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
               </div>
               <div className="form-group">
                 <label>Email Address:</label>
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  required
-                />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} required />
               </div>
               <div className="form-group">
                 <label>Contact Number:</label>
-                <input
-                  type="tel"
-                  placeholder="Enter your contact number"
-                  required
-                />
+                <input type="tel" name="contactNumber" value={formData.contactNumber} onChange={handleChange} required />
               </div>
               <div className="form-group">
                 <label>Address (optional):</label>
-                <input type="text" placeholder="Enter your address" />
+                <input type="text" name="address" value={formData.address} onChange={handleChange} />
               </div>
 
-              {/* Background */}
               <h3>Background</h3>
               <div className="form-group">
                 <label>Are you currently a student or employee?</label>
-                <select required>
+                <select name="role" value={formData.role} onChange={handleChange} required>
                   <option value="">Select</option>
                   <option value="student">Student</option>
                   <option value="employed">Employee</option>
@@ -72,97 +109,58 @@ const volunteeringPage = () => {
               </div>
               <div className="form-group">
                 <label>Do you have prior volunteering experience?</label>
-                <select required>
+                <select name="experience" value={formData.experience} onChange={handleChange} required>
                   <option value="">Select</option>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
               </div>
               <div className="form-group">
-                <label>Briefly describe your previous volunteering experience (if any):</label>
-                <textarea placeholder="Describe your experience"></textarea>
-              </div>
-
-              {/* Skills & Interests */}
-              <h3>Skills & Interests</h3>
-              <div className="form-group">
-                <label>What skills do you bring to this volunteer role?</label>
-                <textarea placeholder="List your skills" required></textarea>
+                <label>Skills & Interests:</label>
+                <textarea name="skills" value={formData.skills} onChange={handleChange} placeholder="List your skills" required></textarea>
               </div>
               <div className="form-group">
                 <label>Which areas of volunteering interest you most?</label>
-                <input
-                  type="text"
-                  placeholder="E.g., event management, community service"
-                  required
-                />
+                <input type="text" name="interests" value={formData.interests} onChange={handleChange} required />
               </div>
 
-              {/* Availability */}
               <h3>Availability</h3>
               <div className="form-group">
                 <label>How many hours can you commit?</label>
-                <input
-                  type="number"
-                  placeholder="Enter number of hours"
-                  required
-                />
+                <input type="number" name="hours" value={formData.hours} onChange={handleChange} required />
               </div>
               <div className="form-group">
                 <label>Preferred days/times for volunteering:</label>
-                <textarea placeholder="E.g., weekdays, mornings, evenings"></textarea>
+                <textarea name="availability" value={formData.availability} onChange={handleChange}></textarea>
               </div>
 
-              {/* Motivation */}
               <h3>Motivation</h3>
               <div className="form-group">
                 <label>Why do you want to volunteer with us?</label>
-                <textarea
-                  placeholder="Explain your motivation"
-                  required
-                ></textarea>
+                <textarea name="motivation" value={formData.motivation} onChange={handleChange} required></textarea>
               </div>
               <div className="form-group">
                 <label>What do you hope to gain from this experience?</label>
-                <textarea placeholder="Describe your expectations" required></textarea>
+                <textarea name="expectations" value={formData.expectations} onChange={handleChange} required></textarea>
               </div>
 
-              {/* Submit Button */}
-              <button type="submit" className="submit-btn">
-                Submit Application
-              </button>
+              <button type="submit" className="submit-btn">Submit Application</button>
             </form>
-            <button className="close-btn" onClick={closeApplyPopup}>
-              Close
-            </button>
+            <button className="close-btn" onClick={closeApplyPopup}>Close</button>
           </div>
         </div>
       )}
 
-
-      {/* Internship Domains with Apply Buttons */}
       <div className="volunteering-diagram">
-        <div className="internee-branch">
-          <span>Logistics</span><br />
-          <button onClick={() => openApplyPopup("Logistics")}>Apply</button>
-        </div>
-        <div className="internee-branch">
-          <span>Production</span><br />
-          <button onClick={() => openApplyPopup("Production")}>Apply</button>
-        </div>
-        <div className="internee-branch">
-          <span>Event Management</span>
-          <button onClick={() => openApplyPopup("Event Management")}>Apply</button>
-        </div>
-        <div className="internee-branch">
-          <span>Operation</span><br />
-          <button onClick={() => openApplyPopup("Operation")}>Apply</button>
-        </div>
+        {["Logistics", "Production", "Event Management", "Operation"].map((domain) => (
+          <div key={domain} className="internee-branch">
+            <span>{domain}</span><br />
+            <button onClick={() => openApplyPopup(domain)}>Apply</button>
+          </div>
+        ))}
       </div>
     </div>
-
   );
 };
 
-export default volunteeringPage;
-
+export default VolunteeringPage;
