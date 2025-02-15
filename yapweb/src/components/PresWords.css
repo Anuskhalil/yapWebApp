@@ -1,45 +1,61 @@
-/* Animation Enhancements */
-#preswords {
-  margin-top: -90px;
+/* MessageToYouth.css */
+.message-section {
+  padding: 4rem 2rem;
+  background-color: var(--color-background);
+  text-align: center;
 }
 
-.presWord {
-  font-size: 1.2rem;
-  text-align: justify; /* Align text to both edges for a clean look */
-  line-height: 1.8; /* Improve readability with better line spacing */
+.message-heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: var(--color-headings);
 }
 
-/* Add AOS-based Animation Styles */
-[data-aos="fade-right"] {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: all 0.8s ease-in-out;
+.message-section-content {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
 }
 
-[data-aos="fade-left"] {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.8s ease-in-out;
+.message-image-container {
+  /* Add styles for the image container if needed */
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
-[data-aos].aos-animate {
-  opacity: 1;
-  transform: translateX(0);
+.message-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-/* Responsive Design for Smaller Screens */
-@media (max-width: 767.98px) {
-  #preswords {
-    text-align: center;
+.message-text {
+  text-align: left; /* Align text to the left */
+  max-width: 600px; /* Limit text width */
+  margin: 0 auto; /* Center the text block */
+}
+
+.message-signature {
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Media Queries for Message Section */
+@media (max-width: 768px) {
+  .message-heading {
+    font-size: 2rem;
   }
-
-  .presWord {
-    font-size: 1rem;
-    text-align: center; /* Center-align text for smaller screens */
-    line-height: 1.6; /* Slightly reduced line spacing for small screens */
+  .message-text {
+    text-align: center; /* Center text on smaller screens */
   }
-
-  img {
-    margin-bottom: 1rem;
+  .message-section-content {
+    flex-direction: column;
   }
 }

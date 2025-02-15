@@ -133,7 +133,7 @@ const SocietiesSlider = () => {
   const societies = [
     { id: 1, name: 'Readers & Writers', image: society1, events: [] },
     { id: 2, name: 'Dramatic & Alliance', image: society2, events: [] },
-    { id: 3, name: 'Beats & Buzz', image: society1, events: [beatsEv1, beatsEv2, beatsEv3, beatsEv4, beatsEv5, beatsEv6, beatsEv7, beatsEv8, beatsEv9, beatsEv10, beatsEv11, beatsEv12, beatsEv13, beatsEv14, beatsEv15, beatsEv16, beatsEv17, beatsEv18, beatsEv19, beatsEv20, beatsEv21, beatsEv22, beatsEv23, beatsEv24, beatsEv25, beatsEv26, beatsEv27, beatsEv28, beatsEv29, beatsEv30, beatsEv31, beatsEv32, beatsEv33, beatsEv34, beatsEv35] },
+    { id: 3, name: 'Beats & Buzz', image: society3, events: [beatsEv1, beatsEv2, beatsEv3, beatsEv4, beatsEv5, beatsEv6, beatsEv7, beatsEv8, beatsEv9, beatsEv10, beatsEv11, beatsEv12, beatsEv13, beatsEv14, beatsEv15, beatsEv16, beatsEv17, beatsEv18, beatsEv19, beatsEv20, beatsEv21, beatsEv22, beatsEv23, beatsEv24, beatsEv25, beatsEv26, beatsEv27, beatsEv28, beatsEv29, beatsEv30, beatsEv31, beatsEv32, beatsEv33, beatsEv34, beatsEv35] },
     { id: 4, name: 'Sports Society', image: society4, events: [sportsEv1, sportsEv2, sportsEv3, sportsEv4] },
     { id: 5, name: 'Beats Breaker', image: society5, events: [] },
     { id: 6, name: 'Quills and Scroll', image: society6, events: [] },

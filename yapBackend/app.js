@@ -1,6 +1,9 @@
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const app = express();
 const PORT = 4000;
@@ -22,6 +25,52 @@ db.connect((err) => {
     console.error("Error connecting to MySQL:", err);
   } else {
     console.log("Connected to MySQL database");
+  }
+});
+
+// Sign-Up Route
+app.post("/signup", async (req, res) => {
+  const { name, email, password } = req.body;
+
+  try {
+    // Check if user already exists
+    const [user] = await db.promise().query("SELECT * FROM users WHERE email = ?", [email]);
+    if (user.length > 0) return res.status(400).json({ error: "User already exists" });
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Insert new user into the database
+    await db.promise().query("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", [name, email, hashedPassword]);
+
+    res.status(201).json({ message: "User created successfully" });
+  } catch (err) {
+    res.status(500).json({ error: "Error creating user" });
+    console.log(err);
+  }
+});
+
+// Login Route
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const [user] = await db.promise().query("SELECT * FROM users WHERE email = ?", [email]);
+    if (user.length === 0) {
+      return res.status(400).json({ error: "User not found. Please sign up first." });
+    }
+
+    const isMatch = await bcrypt.compare(password, user[0].password);
+    if (!isMatch) {
+      return res.status(400).json({ error: "Invalid credentials" });
+    }
+
+    const token = jwt.sign({ userId: user[0].id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+
+    res.status(200).json({ token, user: { name: user[0].name } }); // Include user's name in the response
+  } catch (err) {
+    console.error("Login error:", err);
+    res.status(500).json({ error: "Error logging in" });
   }
 });
 

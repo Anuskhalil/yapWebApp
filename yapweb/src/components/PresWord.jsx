@@ -11,43 +11,30 @@ const PresWord = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      easing: 'ease-in-out', 
-      once: true, 
+      easing: 'ease-in-out',
+      once: true,
     });
   }, []);
 
   return (
-    <div className="container py-5" id="preswords">
-      <div className="row align-items-center">
-        <div
-          className="col-lg-6 mb-4 mb-lg-0 text-center"
-          data-aos="fade-right" 
-        >
-          <img
-            src={presWord}
-            alt="President"
-            className="img-fluid shadow-sm"
-          />
+    <section className="message-section" aria-labelledby="message-heading">
+      <div className='message-section-content'>
+        <div className="message-image-container">
+          <img src="./src/images/PresidentArtsCouncil.jpg" alt="Muhammad Ahmed Shah" className="message-image" />
         </div>
-        <div
-          className="col-lg-6"
-          data-aos="fade-left" 
-        >
-          <h2 className="mb-3 fs-1 font-bold">Message to Youth</h2>
-          <p className="presWord">
-            Welcome to the Youth Ambassador Program a platform to empower future leaders. At the Arts Council of Pakistan Karachi, I believe in the power of young minds to shape our cultural, social, and creative future.
+        <div className="message-text">
+      <h2 id="message-heading" className="message-heading">Message to Youth</h2>
 
-            This program offers opportunities for connection, collaboration, and contribution. From cultural festivals and creative workshops to leadership building and global dialogues, it’s designed to help you realize your potential.
-
-            Join us to amplify your voice, nurture your talents, and drive meaningful change. Let’s create a more inclusive, vibrant, and innovative society together.
-
-            Take the first step today.
+          <p>
+            Welcome to the Youth Ambassador Program, a platform to empower young minds to shape our cultural, social, and creative future. This program offers opportunities for connection, collaboration, and contribution. From cultural festivals and creative workshops to leadership building and global dialogues, it's designed to help you realize your potential. Join us to amplify your voice, nurture your talents, and drive meaningful change. Let's create a more inclusive, vibrant, and innovative society together. Take the first step today.
           </p>
-          <h4 className="text-muted d-flex justify-content-end align-items-center text-align-center">- Muhammad Ahmed Shah</h4>
-          <h4 className="text-muted d-flex justify-content-end align-items-center text-align-center">- President, Arts Council of Pakistan</h4>
+          <p className="message-signature">
+            - Muhammad Ahmed Shah<br />
+            - President, Arts Council of Pakistan
+          </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

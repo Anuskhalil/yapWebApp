@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-// import { FaCog, FaUsers, FaBriefcase, FaCalendarAlt, FaNetworkWired, FaBook, FaHandshake } from "react-icons/fa";
+import { FaUser, FaSignOutAlt } from "react-icons/fa"; // Added icons for user and logout
 import logo from "../images/yap_hero_img.png";
 import "./Navbar.css";
 
 const NavigationBar = () => {
-  const [expanded, setExpanded] = useState(false); 
+  const [expanded, setExpanded] = useState(false);
   const navigate = useNavigate();
+  const userName = localStorage.getItem("userName");
 
-  const handleToggle = () => setExpanded(!expanded); 
+  const handleToggle = () => setExpanded(!expanded);
   const handleNavItemClick = (navigateTo) => {
-    setExpanded(false); 
-    navigate(navigateTo); 
+    setExpanded(false);
+    navigate(navigateTo);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Clear the token
+    localStorage.removeItem("userName"); // Clear the user's name
+    navigate("/login"); // Redirect to Login Page
   };
 
   return (
@@ -24,31 +31,26 @@ const NavigationBar = () => {
             src={logo}
             alt="Youth Ambassador Programme Logo"
             className="navbar-logo"
-            onClick={() => window.location.reload()} 
+            onClick={() => navigate("/")}
             style={{ cursor: "pointer" }}
           />
-          
         </Navbar.Brand>
 
         {/* Toggle Button */}
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           onClick={handleToggle}
+          className="navbar-toggle"
         />
 
         {/* Navbar Links */}
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link className="homeLink" onClick={() => handleNavItemClick('/')}>Home</Nav.Link>
-            {/* Philosophy Dropdown */}
+            <Nav.Link className="nav-link fw-bold" onClick={() => handleNavItemClick('/')}>Home</Nav.Link>
             <NavDropdown
-              title={
-                <span>
-                  {/* <FaCog className="me-2" /> */}
-                  Philosophy
-                </span>
-              }
+              title="Philosophy"
               id="philosophy-dropdown"
+              className="nav-dropdown"
             >
               <NavDropdown.Item onClick={() => handleNavItemClick('/AboutYap')}>
                 About Us
@@ -59,72 +61,19 @@ const NavigationBar = () => {
               <NavDropdown.Item onClick={() => handleNavItemClick('/upcomingEvents')}>
                 Upcoming Events
               </NavDropdown.Item>
-              <NavDropdown.Item href="#OurSociety" onClick={() => handleNavItemClick('/')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick('/')}>
                 Our Societies
               </NavDropdown.Item>
-              {/* <NavDropdown.Item onClick={() => handleNavItemClick('/sustainability')}>
-                How We Sustain
-              </NavDropdown.Item> */}
             </NavDropdown>
 
-            {/* People Dropdown */}
-            {/* <NavDropdown
-              title={
-                <span>
-                  <FaUsers className="me-2" />
-                  People
-                </span>
-              }
-              id="people-dropdown"
-            >
-              <NavDropdown.Item onClick={() => handleNavItemClick('/trainers-consultants')}>
-                Trainers & Consultants
-              </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/board-of-directors')}>
-                Board of Directors
-              </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/advisory-council')}>
-                Advisory Council
-              </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/team')}>
-                Team
-              </NavDropdown.Item>
-            </NavDropdown> */}
-
-            {/* Work Dropdown */}
-            {/* <NavDropdown
-              title={
-                <span>
-                  <FaBriefcase className="me-2" />
-                  Work
-                </span>
-              }
-              id="work-dropdown"
-            >
-              <NavDropdown.Item onClick={() => handleNavItemClick('/education')}>
-                Education
-              </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/key-projects')}>
-                Key Projects
-              </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/initiatives')}>
-                Initiatives
-              </NavDropdown.Item>
-            </NavDropdown> */}
-            <Nav.Link onClick={() => handleNavItemClick('/ourCourses')}>
-              {/* <FaBook className="me-2" /> */}
+            <Nav.Link className="fw-bold" onClick={() => handleNavItemClick('/ourCourses')}>
               Our Courses
             </Nav.Link>
 
-            {/* Events Dropdown */}
             <NavDropdown
-              title={
-                <span>
-                  {/* <FaCalendarAlt className="me-2" /> */}
-                  Events
-                </span>
-              }
+              title="Events"
               id="events-dropdown"
+              className="nav-dropdown"
             >
               <NavDropdown.Item onClick={() => handleNavItemClick('/InternationalWorkshops')}>
                 International Workshops
@@ -132,44 +81,26 @@ const NavigationBar = () => {
               <NavDropdown.Item onClick={() => handleNavItemClick('/yapEvents')}>
                 YAP Events/Workshops
               </NavDropdown.Item>
-              {/* <NavDropdown.Item onClick={() => handleNavItemClick('/societyEvents')}>
-                Our Societies Events
-              </NavDropdown.Item> */}
             </NavDropdown>
 
-            {/* Network Dropdown */}
             <NavDropdown
-              title={
-                <span>
-                  {/* <FaNetworkWired className="me-2" /> */}
-                  Network
-                </span>
-              }
+              title="Network"
               id="network-dropdown"
+              className="nav-dropdown"
             >
-              {/* <NavDropdown.Item onClick={() => handleNavItemClick('/clientele')}>
-                Clientele
-              </NavDropdown.Item> */}
-              <NavDropdown.Item href="#mouSignedUni" onClick={() => handleNavItemClick('/')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick('/')}>
                 Our MoU's
               </NavDropdown.Item>
             </NavDropdown>
 
-            {/* Library Dropdown */}
-            <Nav.Link className="libraryLink" onClick={() => handleNavItemClick('/library')}>
-              {/* <FaBook className="me-2" /> */}
+            <Nav.Link className="nav-link fw-bold" onClick={() => handleNavItemClick('/library')}>
               Library
             </Nav.Link>
 
-            {/* Work With Us Dropdown */}
             <NavDropdown
-              title={
-                <span>
-                  {/* <FaHandshake className="me-2" /> */}
-                  Work With Us
-                </span>
-              }
+              title="Work With Us"
               id="work-with-us-dropdown"
+              className="nav-dropdown"
             >
               <NavDropdown.Item onClick={() => handleNavItemClick('/volunteering')}>
                 Volunteering
@@ -177,19 +108,36 @@ const NavigationBar = () => {
               <NavDropdown.Item onClick={() => handleNavItemClick('/internees')}>
                 Internship Opportunities
               </NavDropdown.Item>
-              <NavDropdown.Item href="#contact" onClick={() => handleNavItemClick('/')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick('/')}>
                 Contact
               </NavDropdown.Item>
-              {/* <NavDropdown.Item onClick={() => handleNavItemClick('/faqs')}>
-                FAQs
-              </NavDropdown.Item> */}
             </NavDropdown>
+
             <Button
-              className="fw-bold nav-button"
+              className="nav-button fw-bold"
               onClick={() => handleNavItemClick('/our-team')}
             >
-              <span>Our Team</span>
+              Our Team
             </Button>
+
+            {/* User Section */}
+            {userName && (
+              <NavDropdown
+                title={
+                  <span className="user-section">
+                    <FaUser className="user-icon" />
+                    {userName}
+                  </span>
+                }
+                id="user-dropdown"
+                className="nav-dropdown"
+              >
+                <NavDropdown.Item onClick={handleLogout}>
+                  <FaSignOutAlt className="logout-icon" />
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -198,4 +146,3 @@ const NavigationBar = () => {
 };
 
 export default NavigationBar;
-

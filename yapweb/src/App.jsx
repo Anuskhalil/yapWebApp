@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute"; 
 import GlobalStyle from './components/GlobalStyle';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/Navbar';
@@ -21,6 +24,8 @@ import Internees from './components/Internees';
 import MissionVisionValues from './components/MissionVisionValues';
 import YapEvents from "./components/YapEvents";
 import InternationalWorkshops from "./components/InternationalWorkshops";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const ContactWithLoader = WithLoader(Contact);
@@ -53,30 +58,114 @@ const App = () => {
 
   return (
     <Router>
+
       <div>
         <ScrollToTop />
         <GlobalStyle />
         <NavigationBar />
         <Routes>
-          <Route path="/" element={<>
-            <Hero />
-            <SocietiesSlider />
-            <PresWords />
-            <UniversityPage />
-            <ContactWithLoader />
-          </>} />
-          <Route path="/our-team" element={<OurTeamLoader />} />
-          <Route path="/register" element={<RegistrationFormWithLoader />} />
-          <Route path="/SocietyForm" element={<SocietyFormWithLoader />} />
-          <Route path="/society/:id" element={<SocietyDetailWithLoader />} />
-          <Route path="/AboutYap" element={<AboutYapWithLoader />} />
-          <Route path="/missionVisionValues" element={<MissionVisionValuesWithLoader />} />
-          <Route path="/InternationalWorkshops" element={<InternationalWorkshopsWithLoader />} />
-          <Route path="/volunteering" element={<VolunteersWithLoader />} />
-          <Route path="/Internees" element={<InterneesWithLoader />} />
-          <Route path="/YapEvents" element={<YapEventsWithLoader />} />
+          {/* Public Routes (No Protection) */}
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+
+          {/* Protected Routes */}
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <>
+                  <Hero />
+                  <SocietiesSlider />
+                  <PresWords />
+                  <UniversityPage />
+                  <ContactWithLoader />
+                </>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/our-team"
+            element={
+              <ProtectedRoute>
+                <OurTeamLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <ProtectedRoute>
+                <RegistrationFormWithLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/SocietyForm"
+            element={
+              <ProtectedRoute>
+                <SocietyFormWithLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/society/:id"
+            element={
+              <ProtectedRoute>
+                <SocietyDetailWithLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/AboutYap"
+            element={
+              <ProtectedRoute>
+                <AboutYapWithLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/missionVisionValues"
+            element={
+              <ProtectedRoute>
+                <MissionVisionValuesWithLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/InternationalWorkshops"
+            element={
+              <ProtectedRoute>
+                <InternationalWorkshopsWithLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/volunteering"
+            element={
+              <ProtectedRoute>
+                <VolunteersWithLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/Internees"
+            element={
+              <ProtectedRoute>
+                <InterneesWithLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/YapEvents"
+            element={
+              <ProtectedRoute>
+                <YapEventsWithLoader />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
         <Footer />
+        <ToastContainer />
       </div>
     </Router>
   );

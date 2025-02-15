@@ -1,135 +1,176 @@
-/* Adjust hero-section to account for navbar height */
-.hero-section {
-  position: relative;
-  overflow: hidden;
-  color: #EDC533;
-  min-height: calc(100vh - 80px); 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  /* padding: 50px 10px; */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:cover;
-  /* background-attachment: fixed; */
-  /* flex-direction: column; */
-  /* box-sizing: border-box; */
+:root {
+  --color-primary: #2d2828;
+  --color-background: #f8f8f8;
+  --color-accent-yellow: #ff5733;
+  --color-accent-purple: #c8a2c8;
+  --color-accent-blue: #4169e1;
+  --color-accent-green: #90ee90;
+  --font-size-base: 16px;
+  --font-size-title: 4rem;
+  --font-size-subtitle: 1.05rem;
+  --border-radius: 2rem;
+  --button-padding: 0.75rem 1.5rem;
 }
 
-/* Video styling */
-.hero-video {
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(220, 190, 15, 0.5), rgba(255, 255, 255, 0.9)), url("../images/Signup.png");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--color-primary);
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+  top: 110px;
+}
+
+.hero-top-text {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00308f;
+  text-align: center;
   width: 100%;
-  height: 95.5vh;
-  object-fit: cover;
-  z-index: -1;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero-text {
+  text-align: center;
 }
 
 .yap-heading {
-  font-size: clamp(4rem, 5vw, 4rem);
-  /* Responsive font size */
+  font-size: clamp(2rem, 8vw, 4.8rem);
+  font-weight: 900;
+  color: black;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.yap-heading span {
+  display: block;
+}
+
+.hero-sub-title {
+  font-size: clamp(1.25rem, 4vw, 2rem);
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #EDC533;
 }
 
-.yap-quote-heading {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 600;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.yap-para {
-  font-weight: 400;
-  margin-bottom: 1.5rem;
+.hero-subtitle-para {
   font-size: clamp(1rem, 2vw, 1.2rem);
-  color: #f5f5f5db;
+  margin-bottom: 1.5rem;
   line-height: 1.5;
 }
 
-/* Button styling */
 .hero-button {
-  background-color: #EDC533 !important;
-  color: #1D2330 !important;
-  border-style: none !important;
-  padding: 12px 24px;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-  border-radius: 5px;
+  background-color: var(--color-accent-yellow);
+  color: var(--color-primary);
+  border: none;
+  padding: var(--button-padding);
+  border-radius: var(--border-radius);
   font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  outline: none;
 }
 
 .hero-button:hover {
-  background-color: #C9A000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
+  background-color: color-mix(in srgb, var(--color-accent-yellow) 80%, black);
 }
 
-.hero-button:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+.hero-button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Media Queries for Responsiveness */
-
-/* Medium screens (e.g., tablets) */
-@media (max-width: 1024px) {
-  .yap-heading {
-    font-size: clamp(2rem, 5vw, 3rem);
-  }
-
-  .yap-quote-heading {
-    font-size: clamp(1.25rem, 4vw, 2rem);
-  }
-
-  .yap-para {
-    font-size: 1rem;
-  }
+.arrow-icon {
+  font-size: 1.25rem;
 }
 
-/* Small screens (e.g., mobile phones) */
-@media (max-width: 768px) {
-  .yap-heading {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  .yap-quote-heading {
-    font-size: 1.5rem;
-    line-height: 1.2;
-  }
-
-  .yap-para {
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-
-  .hero-button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
+/* Carousel Custom Styles */
+.carousel .slide {
+  background: transparent; /* Remove default background */
 }
 
-/* Extra small screens (e.g., very small mobile phones) */
+.carousel .control-arrow {
+  background: rgba(0, 0, 0, 0.5) !important; /* Custom arrow background */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel .control-arrow:hover {
+  background: rgba(0, 0, 0, 0.8) !important; /* Hover effect for arrows */
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left-color: white; /* Arrow color */
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right-color: white; /* Arrow color */
+}
+
+/* Media Queries */
+
+/* Small screens (phones) */
 @media (max-width: 576px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .hero-top-text {
+    font-size: 0.8rem;
+  }
+
+  .hero-content {
+    padding: 1rem;
+  }
+
   .yap-heading {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 6vw, 3rem);
   }
 
-  .yap-quote-heading {
-    font-size: 1.25rem;
+  .hero-sub-title {
+    font-size: clamp(1rem, 3vw, 1.5rem);
   }
 
-  .yap-para {
-    font-size: 0.8rem;
+  .hero-subtitle-para {
+    font-size: clamp(0.9rem, 2vw, 1rem);
   }
+}
 
-  .hero-button {
-    font-size: 0.8rem;
-    padding: 8px 16px;
+/* Medium screens (tablets) */
+@media (min-width: 577px) and (max-width: 992px) {
+  .hero-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 993px) {
+  .hero-content {
+    padding: 2rem;
   }
 }
