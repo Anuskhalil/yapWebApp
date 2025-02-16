@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { FaUser, FaSignOutAlt } from "react-icons/fa"; // Added icons for user and logout
+import { FaUser, FaSignOutAlt, FaBars, FaTimes } from "react-icons/fa"; // Import icons
 import logo from "../images/yap_hero_img.png";
 import "./Navbar.css";
 
@@ -12,115 +12,143 @@ const NavigationBar = () => {
 
   const handleToggle = () => setExpanded(!expanded);
   const handleNavItemClick = (navigateTo) => {
-    setExpanded(false);
+    setExpanded(false); // Close the navbar when a link is clicked
     navigate(navigateTo);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Clear the token
-    localStorage.removeItem("userName"); // Clear the user's name
-    navigate("/login"); // Redirect to Login Page
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    navigate("/login");
   };
 
   return (
     <Navbar expand="lg" className="custom-navbar fixed-top" expanded={expanded}>
-      <Container>
+      <Container fluid> {/* Use fluid container for full width */}
         {/* Logo */}
-        <Navbar.Brand className="custom-navbar-brand">
+        <Navbar.Brand as="div" className="custom-navbar-brand">
           <img
             src={logo}
             alt="Youth Ambassador Programme Logo"
             className="navbar-logo"
-            onClick={() => navigate("/")}
+            onClick={() => handleNavItemClick("/")} // Use handleNavItemClick for consistency
             style={{ cursor: "pointer" }}
           />
         </Navbar.Brand>
 
-        {/* Toggle Button */}
+        {/* Toggle Button (Hamburger/Close Icon) */}
         <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
+          aria-controls="responsive-navbar-nav"
           onClick={handleToggle}
-          className="navbar-toggle"
-        />
+          className="navbar-toggler"
+        >
+          {expanded ? <FaTimes /> : <FaBars />} {/* Change icon based on expanded state */}
+        </Navbar.Toggle>
 
         {/* Navbar Links */}
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link className="nav-link fw-bold" onClick={() => handleNavItemClick('/')}>Home</Nav.Link>
+            {/* Home Link */}
+            <Nav.Link
+              onClick={() => handleNavItemClick("/")}
+              className="nav-link"
+            >
+              Home
+            </Nav.Link>
+
+            {/* Philosophy Dropdown */}
             <NavDropdown
               title="Philosophy"
               id="philosophy-dropdown"
               className="nav-dropdown"
             >
-              <NavDropdown.Item onClick={() => handleNavItemClick('/AboutYap')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick("/AboutYap")}>
                 About Us
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/missionVisionValues')}>
+              <NavDropdown.Item
+                onClick={() => handleNavItemClick("/missionVisionValues")}
+              >
                 Mission, Vision & Values
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/upcomingEvents')}>
+              <NavDropdown.Item
+                onClick={() => handleNavItemClick("/upcomingEvents")}
+              >
                 Upcoming Events
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick("/")}>
                 Our Societies
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Nav.Link className="fw-bold" onClick={() => handleNavItemClick('/ourCourses')}>
+            {/* Our Courses Link */}
+            <Nav.Link
+              onClick={() => handleNavItemClick("/ourCourses")}
+              className="nav-link"
+            >
               Our Courses
             </Nav.Link>
 
+            {/* Events Dropdown */}
             <NavDropdown
               title="Events"
               id="events-dropdown"
               className="nav-dropdown"
             >
-              <NavDropdown.Item onClick={() => handleNavItemClick('/InternationalWorkshops')}>
+              <NavDropdown.Item
+                onClick={() => handleNavItemClick("/InternationalWorkshops")}
+              >
                 International Workshops
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/yapEvents')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick("/yapEvents")}>
                 YAP Events/Workshops
               </NavDropdown.Item>
             </NavDropdown>
 
+            {/* Network Dropdown */}
             <NavDropdown
               title="Network"
               id="network-dropdown"
               className="nav-dropdown"
             >
-              <NavDropdown.Item onClick={() => handleNavItemClick('/')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick("/")}>
                 Our MoU's
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Nav.Link className="nav-link fw-bold" onClick={() => handleNavItemClick('/library')}>
+            {/* Library Link */}
+            <Nav.Link
+              onClick={() => handleNavItemClick("/library")}
+              className="nav-link"
+            >
               Library
             </Nav.Link>
 
+            {/* Work With Us Dropdown */}
             <NavDropdown
               title="Work With Us"
               id="work-with-us-dropdown"
               className="nav-dropdown"
             >
-              <NavDropdown.Item onClick={() => handleNavItemClick('/volunteering')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick("/volunteering")}>
                 Volunteering
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/internees')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick("/internees")}>
                 Internship Opportunities
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => handleNavItemClick('/')}>
+              <NavDropdown.Item onClick={() => handleNavItemClick("/")}>
                 Contact
               </NavDropdown.Item>
             </NavDropdown>
 
+            {/* Our Team Button */}
             <Button
-              className="nav-button fw-bold"
-              onClick={() => handleNavItemClick('/our-team')}
+              onClick={() => handleNavItemClick("/our-team")}
+              className="nav-button"
             >
               Our Team
             </Button>
 
-            {/* User Section */}
+            {/* User Section (Conditional Rendering) */}
             {userName && (
               <NavDropdown
                 title={

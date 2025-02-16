@@ -2,84 +2,85 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Hero.css';
 
 const Hero = () => {
   const navigate = useNavigate();
 
-  const handleRegisterClick = () => {
-    navigate('/register');
-  };
-
-  const handleSocietyRegisterClick = () => {
-    navigate('/society-registration');
-  };
-
   return (
-    <section className="hero-section" aria-labelledby="hero-title">
+    <section className="hero-section">
+      <div className="hero-top-text">
+        <span>A PLATFORM TO LEARN, CONNECT, AND GROW</span>
+      </div>
+
       <Carousel
-        showArrows={true} // Show navigation arrows
-        showStatus={false} // Hide status indicator
-        showThumbs={false} // Hide thumbnail navigation
-        infiniteLoop={true} // Infinite loop
-        autoPlay={true} // Auto-play the carousel
-        interval={5000} // Change slide every 5 seconds
-        stopOnHover={true} // Pause on hover
+        showArrows={false}
+        showStatus={false}
+        showThumbs={false}
+        infiniteLoop={true}
+        autoPlay={true}
+        interval={5000}
+        stopOnHover={true}
+        swipeable={true}
+        emulateTouch={true}
       >
-        {/* First Carousel Slide (Existing Hero Content) */}
+        {/* Slide 1: Ambassador Program */}
         <div className="hero-content">
-          <div className="hero-text">
-            <motion.h1
-              className="yap-heading"
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
+          <motion.div
+            className="hero-text"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+          >
+            <h1 className="yap-heading">
               <span>YOUTH</span>
               <span>AMBASSADORS</span>
               <span>PROGRAMME</span>
-            </motion.h1>
-            <h3 className="hero-sub-title">
-              YOUTH IS THE ONLY WAY FORWARD
-            </h3>
+            </h1>
+            <h3 className="hero-sub-title">Youth is the only way forward</h3>
             <p className="hero-subtitle-para">
-              Join the ACP Ambassador Programme at the Arts Council of Pakistan, Karachi! Enjoy exclusive event access, library privileges, skill-building, networking, and cafe discounts. Don't miss this chance to grow and make a difference in the arts!
+              Join the ACP Ambassador Programme at the Arts Council of Pakistan, Karachi!
+              Enjoy exclusive events, networking, and skill-building opportunities.
             </p>
-            <button className="hero-button" onClick={handleRegisterClick}>
-              Join for free
-              <span className="arrow-icon" aria-hidden="true">→</span>
-            </button>
-          </div>
+            <motion.button
+              className="hero-button"
+              onClick={() => navigate('/register')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Register Now <span className="arrow-icon">→</span>
+            </motion.button>
+          </motion.div>
         </div>
 
-        {/* Second Carousel Slide (Join Our Societies) */}
+        {/* Slide 2: Join Societies */}
         <div className="hero-content">
-          <div className="hero-text">
-            <motion.h1
-              className="yap-heading"
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
+          <motion.div
+            className="hero-text"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+          >
+            <h1 className="yap-heading">
               <span>JOIN OUR</span>
               <span>SOCIETIES</span>
-            </motion.h1>
-            <h3 className="hero-sub-title">
-              BE PART OF SOMETHING BIGGER
-            </h3>
+            </h1>
+            <h3 className="hero-sub-title">Be part of something bigger</h3>
             <p className="hero-subtitle-para">
-              Register now to join one of our societies and connect with like-minded individuals. Gain access to exclusive events, workshops, and networking opportunities.
+              Register now to become a member of our societies and gain access to exclusive events, workshops, and networking opportunities.
             </p>
-            <button className="hero-button" onClick={handleSocietyRegisterClick}>
-              Register Now
-              <span className="arrow-icon" aria-hidden="true">→</span>
-            </button>
-          </div>
+            <motion.button
+              className="hero-button"
+              onClick={() => navigate('/society-registration')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Join Our Society <span className="arrow-icon">→</span>
+            </motion.button>
+          </motion.div>
         </div>
       </Carousel>
-
-      <div className="hero-top-text">A PLATFORM TO LEARN, CONNECT, AND GROW</div>
     </section>
   );
 };

@@ -149,58 +149,14 @@ const SocietiesSlider = () => {
     { id: 16, name: 'Psych Squad', image: society16, events: [] },
   ];
 
-  const handleSocietySelect = (societyId) => {
-    const society = societies.find((s) => s.id === societyId);
-    setSelectedSociety(society);
-    setShowEvents(true); // Show events when a society is selected
-  };
-
   const handleKnowMoreClick = (id) => {
     navigate(`/society/${id}`);
-  };
-
-  const handleHideEvents = () => {
-    setShowEvents(false); // Hide events when the button is clicked
   };
 
   return (
     <div className="container" id="OurSociety">
       {/* Header Section */}
       <div className="curved-heading">Our Societies</div>
-
-      {/* Dropdown for Selecting Society */}
-      <DropdownButton
-        id="society-dropdown"
-        title={selectedSociety ? selectedSociety.name : 'Societies Event'}
-        className="mb-4"
-        onSelect={(eventKey) => handleSocietySelect(Number(eventKey))}
-      >
-        {societies.map((society) => (
-          <Dropdown.Item key={society.id} eventKey={society.id}>
-            {society.name}
-          </Dropdown.Item>
-        ))}
-      </DropdownButton>
-
-      {/* Display Selected Society Events */}
-      {selectedSociety && showEvents && selectedSociety.events.length > 0 ? (
-        <div className="events-slider">
-          <Button variant="danger" className="mb-3" onClick={handleHideEvents}>
-            Hide Events
-          </Button>
-          <Slider {...settings}>
-            {selectedSociety.events.map((eventImage, index) => (
-              <div key={index} className="event-slide">
-                <div className="image-wrapper">
-                  <img src={eventImage} alt={`Event ${index + 1}`} className="img-fluid" />
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-      ) : (
-        selectedSociety && showEvents && <p>No events available for {selectedSociety.name}</p>
-      )}
 
       {/* Society Slider */}
       <Slider {...settings} className="main-societies">

@@ -2,8 +2,8 @@
   display: inline-block;
   /* padding: 10px 20px; */
   /* background-color: #ff5733;  */
-  color: white; 
-  font-size: 40px;
+  color: rgb(3, 3, 3); 
+  font-size: 3rem;
   font-weight: bold;
   border-radius: 50%; 
   /* transform: rotate(-10deg); */
@@ -12,19 +12,9 @@
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-.curved-heading::before {
-  /* content: "Our Societies"; */
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  /* transform: translateX(-50%); */
-  /* font-size: 18px; */
-  font-weight: bold;
-}
-
 #OurSociety {
   position: relative;
-  top: -10px;
+  top: 60px;
   padding: 50px 20px;
   /* background-color: #0f0f0f;  */
   overflow-x: hidden;
