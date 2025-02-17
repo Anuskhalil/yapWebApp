@@ -2,22 +2,22 @@
   display: inline-block;
   /* padding: 10px 20px; */
   /* background-color: #ff5733;  */
-  color: rgb(3, 3, 3); 
-  font-size: 3rem;
+  /* color: rgb(3, 3, 3); */
+  font-size: 3.5rem;
   font-weight: bold;
-  border-radius: 50%; 
+  /* border-radius: 50%; */
   /* transform: rotate(-10deg); */
-  text-align: center;
-  position: relative;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  /* text-align: center; */
+  /* position: relative; */
+  /* text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); */
+  /* display: block; */
+  background: linear-gradient(90deg, #ff6600, #ffcc00);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #OurSociety {
-  position: relative;
-  top: 60px;
-  padding: 50px 20px;
-  /* background-color: #0f0f0f;  */
-  overflow-x: hidden;
+  box-shadow: 0 -10px rgb(0, 0, 0) inset;
 }
 
 .society-title {
@@ -27,7 +27,7 @@
 
 /* Adjust slider spacing */
 .main-societies .slick-slide {
-  padding: 0 10px; 
+  padding: 0 10px;
 }
 
 .society-slide {
@@ -66,17 +66,23 @@
 }
 
 #sent {
-  background-color: #edc533;
-  color: #000;
-  font-weight: 700;
-  padding: 10px 20px;
-  border-radius: 5px;
+  background: var(--color-accent);
+  color: white;
   border: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: var(--button-padding);
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* transition: background-color 0.3s ease, transform 0.3s ease; */
 }
 
 #sent:hover {
-  background-color: #c9a000;
+  background: #ff4500;
   transform: scale(1.05);
 }
 
@@ -111,9 +117,9 @@
   }
 }
 
-@media (max-width: 480px) {
-  #OurSociety {
-    padding: 30px 10px;
+@media (max-width: 760px) {
+  .curved-heading {
+    font-size: 3rem;
   }
 
   .society-slide img {
@@ -126,14 +132,17 @@
   }
 }
 
-#society-dropdown{
-  color: black;
-  background: #ff5733;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
+@media (max-width: 430px) {
+  .curved-heading {
+    font-size: 2rem;
+  }
+
+  .society-slide img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .society-slide h3 {
+    font-size: 0.9rem;
+  }
 }

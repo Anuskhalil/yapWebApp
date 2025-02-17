@@ -94,8 +94,6 @@ import rhetoricEv14 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv14.jpg
 
 const SocietiesSlider = () => {
   const navigate = useNavigate();
-  const [selectedSociety, setSelectedSociety] = useState(null); // To track selected society
-  const [showEvents, setShowEvents] = useState(false); // To toggle event visibility
 
   const settings = {
     infinite: true,
@@ -154,12 +152,12 @@ const SocietiesSlider = () => {
   };
 
   return (
-    <div className="container" id="OurSociety">
+    <div className="container py-5 mt-5" id="OurSociety">
       {/* Header Section */}
-      <div className="curved-heading">Our Societies</div>
+      <div className="curved-heading ms-3">Our Societies</div>
 
       {/* Society Slider */}
-      <Slider {...settings} className="main-societies">
+      <Slider {...settings} className="main-societies py-5 mt-3">
         {societies.map((society) => (
           <div key={society.id} className="society-slide">
             <div className="image-wrapper">

@@ -1,221 +1,116 @@
-/* --- Variables --- */
-:root {
-  --primary-color: #343a40; /* Dark gray */
-  --secondary-color: #f8f9fa; /* Light gray */
-  --accent-color: #ffc107; /* Yellow */
-  --hover-color: #e2a700; /* Darker yellow for hover */
-  --text-color: #333; /* Dark text */
-  --dropdown-bg: #fff; /* White dropdown background */
-  --dropdown-hover-bg: #f8f9fa; /* Light gray dropdown hover */
-  --button-bg: #ffc107;
-  --button-hover-bg: #e2a700;
-  --button-text-color: #343a40;
-  --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease-in-out;
-  --border-radius: 8px;
-  --font-family: "Inter", sans-serif; /* Modern font, ensure it's linked in your HTML */
-  --nav-link-padding-y: 0.7rem; /* Vertical padding */
-  --nav-link-padding-x: 1.5rem; /* Horizontal padding */
-}
-
-a {
-  text-decoration: none !important; /* Remove underlines from all links */
-  color: inherit; /* Inherit text color */
-}
-
-/* --- Navbar Styles --- */
+/* Navbar Styles */
 .custom-navbar {
-  background-color: var(--secondary-color);
-  box-shadow: var(--box-shadow);
-  padding: 0; /* Remove default padding, we'll control it */
-}
-
-.custom-navbar-brand {
-  padding: var(--nav-link-padding-y) var(--nav-link-padding-x); /* Consistent padding */
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  /* padding: 1rem; */
+  /* font-size: 1.2rem; */
 }
 
 .navbar-logo {
-  height: 60px; /* Base height, adjusted in media queries */
+  height: 100px;
   width: auto;
-  transition: height var(--transition);
   cursor: pointer;
-  display: block; /* Important for consistent sizing */
 }
 
-.navbar-toggler {
+.navbar-toggle {
   border: none;
-  padding: var(--nav-link-padding-y) var(--nav-link-padding-x); /* Consistent padding */
-  font-size: 1.25rem; /* Larger icon size */
-  color: var(--primary-color); /* Icon color */
-  transition: color var(--transition); /* Smooth transition */
 }
 
-.navbar-toggler:focus {
-  outline: none; /* Remove the focus outline */
-  box-shadow: none; /* Remove any focus box-shadow */
+.navbar-toggle:focus {
+  outline: none;
 }
-
-/* .navbar-toggler-icon {
-    No longer needed, using react-icons
-} */
 
 .nav-link {
-  color: var(--text-color) !important;
-  font-weight: 500; /* Slightly less bold */
-  padding: var(--nav-link-padding-y) var(--nav-link-padding-x) !important; /* Use variables */
-  transition: color var(--transition); /* Smooth transition */
-  display: block; /*  Important for proper spacing/click area */
+  color: #ffffff !important;
+  font-weight: 600;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease-in-out;
 }
 
 .nav-link:hover {
-  color: var(--accent-color) !important;
+  color: #ff8600 !important;
 }
 
-/* --- Dropdown Styles --- */
 .nav-dropdown .dropdown-toggle {
-  color: var(--text-color) !important;
-  font-weight: 500;
-  padding: var(--nav-link-padding-y) var(--nav-link-padding-x); /* Consistent padding */
-  transition: color var(--transition);
-}
-
-.nav-dropdown .dropdown-toggle:hover {
-  color: var(--accent-color) !important;
+  color: #ffffff !important;
+  font-weight: 600;
 }
 
 .nav-dropdown .dropdown-menu {
-  background-color: var(--dropdown-bg);
-  border: none;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: 0; /* Remove default padding */
-  min-width: 200px; /* Ensure dropdowns have a minimum width */
-  margin-top: 0; /* Remove margin */
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .nav-dropdown .dropdown-item {
-  color: var(--text-color);
-  padding: var(--nav-link-padding-y) var(--nav-link-padding-x);
-  transition: background-color var(--transition), color var(--transition);
-  white-space: nowrap; /* Prevent dropdown items from wrapping */
+  color: #fffefe;
+  /* font-weight: 500; */
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .nav-dropdown .dropdown-item:hover {
-  background-color: var(--dropdown-hover-bg);
-  color: var(--hover-color) !important;
+  background-color: #f8f9fa;
+  color: #ff8600 !important;
 }
 
-.nav-dropdown .dropdown-item:focus {
-  background-color: var(--dropdown-hover-bg);
-  color: var(--hover-color) !important;
-  outline: none; /* Remove the focus outline */
-}
-
-/* --- Button Styles --- */
 .nav-button {
-  background-color: var(--button-bg) !important;
-  color: var(--button-text-color) !important;
+  background-color: #ff8600 !important;
+  color: #ffffff !important;
   border: none !important;
   font-weight: 600;
-  padding: var(--nav-link-padding-y) var(--nav-link-padding-x); /* Consistent padding */
-  border-radius: var(--border-radius);
-  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
-  white-space: nowrap; /* Prevent button text from wrapping */
-  margin-left: var(--nav-link-padding-x); /* Add some space before the button */
+  margin: 0 0.5rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .nav-button:hover {
-  background-color: var(--button-hover-bg) !important;
-  transform: translateY(-2px); /* Slight lift effect */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-}
-
-.nav-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.5); /*  focus ring */
-}
-
-/* --- User Section --- */
-.user-section {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-color); /* Use consistent text color */
-  padding: var(--nav-link-padding-y) var(--nav-link-padding-x); /* Consistent padding*/
-  max-width: 150px; /* Limit the width */
-  overflow: hidden; /* Hide any overflowing content */
-  text-overflow: ellipsis; /* Add ellipsis for long names */
-  white-space: nowrap; /* Prevent wrapping */
+  background-color: #ff4500 !important;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .user-icon {
   font-size: 1.2rem;
+  color: #ff4500;
 }
 
 .logout-icon {
   margin-right: 0.5rem;
+  color: #ff4500;
 }
 
-/* --- Responsive Styles (Mobile-First) --- */
-
-/* Small screens (phones) */
-@media (max-width: 575.98px) {
+/* Responsive Styles */
+@media (max-width: 992px) {
   .navbar-logo {
-    height: 40px; /* Smaller logo on very small screens */
+    height: 100px;
   }
+
+  .nav-link,
+  .nav-dropdown .dropdown-toggle {
+    margin: 0.5rem 0;
+  }
+
   .nav-button {
-    margin-left: 0; /* Remove margin */
-    width: 100%; /* Full width on small screens*/
+    width: 100%;
+    margin: 0.5rem 0;
   }
 
-  /*  Stack dropdown items vertically */
-  .nav-dropdown .dropdown-menu {
-    display: block; /* Override React Bootstrap's default behavior */
-  }
-  /* Remove padding from container */
-  .custom-navbar > .container-fluid {
-    padding: 0;
-  }
-}
-
-/* Medium screens (tablets) and up */
-@media (min-width: 768px) {
-  .navbar-logo {
-    height: 50px;
-  }
-  /*  Align dropdowns with their toggles */
-  .nav-dropdown .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none; /* Hide by default, show on hover/focus */
-  }
-
-  .nav-dropdown:hover .dropdown-menu,
-  .nav-dropdown:focus-within .dropdown-menu {
-    display: block; /* Show on hover or focus */
-  }
-  .custom-navbar > .container-fluid {
-    padding-inline: 1rem;
-  }
-}
-
-/* Large screens (desktops) and up */
-@media (min-width: 992px) {
-  .navbar-logo {
-    height: 60px; /* Larger logo on larger screens */
-  }
-  .custom-navbar > .container-fluid {
-    padding-inline: 2rem;
-  }
   .user-section {
-    max-width: 200px; /* Increase max-width on larger screens */
+    margin: 0.5rem 0;
   }
 }
 
-/* XL Screens and up */
-@media (min-width: 1200px) {
-  .custom-navbar > .container-fluid {
-    padding-inline: 3rem;
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 80px;
+  }
+
+  .custom-navbar {
+    padding: 0.5rem;
+  }
+
+  .nav-dropdown .dropdown-menu {
+    margin-top: 0;
   }
 }

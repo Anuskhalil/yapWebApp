@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <section className="hero-section">
       <div className="hero-top-text">
-        <span>A PLATFORM TO LEARN, CONNECT, AND GROW</span>
+        <span>Youth Ambassadors Programme is a PLATFORM TO LEARN, CONNECT, AND GROW</span>
       </div>
 
       <Carousel
@@ -38,7 +38,7 @@ const Hero = () => {
               <span>AMBASSADORS</span>
               <span>PROGRAMME</span>
             </h1>
-            <h3 className="hero-sub-title">Youth is the only way forward</h3>
+            <h3 className="hero-sub-title">Youth is the only way forward!</h3>
             <p className="hero-subtitle-para">
               Join the ACP Ambassador Programme at the Arts Council of Pakistan, Karachi!
               Enjoy exclusive events, networking, and skill-building opportunities.

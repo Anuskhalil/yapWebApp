@@ -12,7 +12,7 @@ const UniversityPage = () => {
     <div className="university-page">
       {/* MoU Signed Universities Section */}
       <section id="mou-signed-universities">
-        <h2 className="section-title fs-1 fw-bold text-dark">MoU Signed Universities</h2>
+        {/* <h2 className="section-title fs-1 fw-bold">MoU Signed Universities</h2> */}
         <UniversitySlider />
       </section>
 

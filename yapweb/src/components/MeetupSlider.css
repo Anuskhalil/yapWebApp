@@ -1,94 +1,145 @@
-/* Meetup Section */
-body,
-html {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+/* --- Variables --- */
+:root {
+  --primary-color: #007bff; /* Blue */
+  --secondary-color: #6c757d; /* Gray */
+  --accent-color: #ffc107; /* Yellow */
+  --background-color: #f8f9fa; /* Light Gray */
+  --text-color: #343a40; /* Dark Gray */
+  --heading-color: #212529; /* Very Dark Gray */
+  --border-color: #dee2e6;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+  --font-family: "Inter", sans-serif;
 }
 
-[data-aos] {
-  transition: transform 0.6s ease, opacity 0.6s ease;
+/* --- General Styles --- */
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
-.modal {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-  height: 100%;
-}
-
-.modal-dialog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-.modal-content {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-body {
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-img.img-fluid {
-  max-width: 100%;
-  max-height: 90vh;
-  margin: auto;
-  display: block;
-  border-radius: 10px;
-}
-
-/* Meetup Container */
+/* --- Meetup Container --- */
 .meetup-container {
-  padding: 20px 0;
+  padding: 3rem 0;
   text-align: center;
-  /* background-color: #f9f9f9; */
+  /* background-color: white; */
 }
 
 .meetup-title {
-  margin-bottom: 30px;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #000000;
-  animation: fadeIn 1.2s ease-in-out;
+  margin-bottom: 2rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem); /* Responsive font size */
+  font-weight: 700;
+  color: var(--heading-color);
 }
 
-/* Photo Columns */
-.meetup-photo-col {
-  margin-bottom: 20px;
-  cursor: pointer;
+/* --- Slider Wrapper --- */
+.slider-wrapper {
+  padding: 0 2rem; /* Add some horizontal padding */
+  max-width: 1400px; /* Limit maximum width */
+  margin: 0 auto; /* Center the slider */
 }
 
-/* Image Wrapper with Hover Animation */
+/* --- Photo Wrapper --- */
 .meetup-photo-wrapper {
-  padding: 10px;
+  padding: 0.5rem; /* Add some padding around each image */
   cursor: pointer;
+  outline: none; /* Remove outline on click */
 }
 
 .meetup-photo {
-  border-radius: 8px;
-  transition: transform 0.3s;
+  width: 100%; /* Make images fill their container */
+  height: auto;
+  border-radius: var(--border-radius);
+  display: block; /* Important for consistent sizing */
+  transition: transform var(--transition); /* Smooth transition */
+  box-shadow: var(--box-shadow); /* Add a subtle shadow */
 }
 
 .meetup-photo:hover {
-  transform: scale(1.05);
+  transform: scale(1.03); /* Slight zoom on hover */
 }
 
 .meetup-photo-caption {
   text-align: center;
-  margin-top: 5px;
-  font-size: 14px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-color);
 }
+
+/* --- Modal Styles --- */
+.meetup-modal .modal-content {
+  background: transparent !important;
+  border: none !important;
+}
+.meetup-modal-body {
+  padding: 0; /* Remove padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meetup-modal-image {
+  max-height: 90vh; /* Limit image height to 90% of viewport height */
+  max-width: 90vw;
+  object-fit: contain; /* Ensure the image fits within the modal */
+  border-radius: var(--border-radius);
+  display: block;
+}
+
+/* --- Slider Arrow Customization --- */
+/*  Previous Arrow */
+.slick-prev {
+  left: -10px !important; /* Position outside the slider */
+  top: 110px;
+  z-index: 1;
+}
+
+.slick-prev:before {
+  font-size: 2rem; /* Larger arrow size */
+  color: grey !important; /* Arrow color */
+  opacity: 0.8; /* Slight transparency */
+  transition: opacity var(--transition);
+}
+
+.slick-prev:hover:before,
+.slick-prev:focus:before {
+  opacity: 1;
+}
+
+/* Next Arrow */
+.slick-next {
+  right: -10px !important; /* Position outside the slider */
+  top: 110px;
+  z-index: 1;
+}
+
+.slick-next:before {
+  font-size: 2rem;
+  color: grey !important;
+  opacity: 0.8;
+  transition: opacity var(--transition);
+}
+
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 767.98px) {
+  .slider-wrapper {
+    padding: 0 1rem; /* Reduce padding on smaller screens */
+  }
+}
+@media (max-width: 611px) {
+  .slick-next{
+    top: 80px;
+  }
+  .slick-prev{
+    top: 80px;
+  }
+}
+

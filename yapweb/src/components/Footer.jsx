@@ -19,7 +19,7 @@ const Footer = () => {
 
           {/* Quick Links Section */}
           <Col xs={6} md={3} className="mb-4">
-            <h3 className="mb-3">Quick Links</h3>
+            <h3 className="mb-3 ms-4">Quick Links</h3>
             <Nav className="flex-column">
               <Nav.Link className="footer-link text-decoration-none" href="#home">
                 Home
@@ -43,15 +43,15 @@ const Footer = () => {
           <Col xs={6} md={4} className="mb-3">
             <h3 className="mb-3">Get In Touch</h3>
             <p className="footer-text">
-              <FaMapMarkerAlt className="me-2" />
+              <FaMapMarkerAlt className="contact-icons me-2" />
               7400. M.R Kiyani Road, Saddar Town Karachi, Pakistan
             </p>
             <p className="footer-text">
-              <FaPhone className="me-2" />
+              <FaPhone className="contact-icons me-2" />
               +92 300-0802391
             </p>
             <p className="footer-text">
-              <FaEnvelope className="me-2" />
+              <FaEnvelope className="contact-icons me-2" />
               info@acpkhi.com
             </p>
             <div className="social-icons mt-3">

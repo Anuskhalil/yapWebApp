@@ -1,7 +1,15 @@
 .mou-universities {
   margin: 20px auto;
-  padding: 20px;
-  max-width: 1400px;
+  /* padding: 20px; */
+  max-width: 1300px;
+}
+
+.mousignedheading{
+  font-size: 3.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff6600, #ffcc00);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .university-card {
@@ -10,7 +18,7 @@
   padding: 15px;
   border-radius: 10px;
   background: #fff;
-  margin: 10px;
+  /* margin: 10px; */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -36,7 +44,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
 .university-description {
@@ -45,20 +52,19 @@
 }
 
 .learn-more-btn {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
+  background: var(--color-accent);
+  color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
-  background-color: #EDC533;
-  color: #000000;
   font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
 .learn-more-btn:hover {
-  background-color: #C9A000;
+  background: #ff4500;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
 }
@@ -68,95 +74,132 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-
 .universities-slider .slick-slide {
   padding: 10px;
 }
 
 .slick-dots li button:before {
   color: #333;
+  margin-top: 20px;
 }
 
-
-/* Modal Styles */
+/* Modal Overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
+/* Modal Content */
 .modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 800px;
-  width: 30%;
-  max-height: 80%;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.images-container {
+/* Modal Heading */
+.modal-content h3 {
+  font-size: 3rem;
+  font-weight: bold;
+  /* margin-bottom: 1.5rem; */
+  display: block;
+  background: linear-gradient(90deg, #ff6600, #ffcc00);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Modal Slider */
+.modal-slider {
+  width: 95%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.modal-slide {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
   justify-content: center;
-  margin-top: 15px;
+  align-items: center;
 }
 
 .mou-image {
-  max-width: 300px;
-  border: 1px solid #ddd;
+  max-width: 100%;
+  max-height: 70vh;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .close-modal-btn {
-  padding: 15px 30px;
-  background: #EDC533;
-  color: #000000;
+  padding: 0.8rem 1.5rem;
+  background: #ff6600;
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
-  margin: 20px auto;
   font-weight: bold;
-  font-size: 16px;
-  display: block;
-  width: 240px;
-  text-align: center;
   transition: all 0.3s ease;
+  margin-top: 1rem;
 }
-
-@media (min-width: 992px) {
-  .close-modal-btn {
-    width: 260px;
-    padding: 18px 35px;
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 1200px) {
-
-  .close-modal-btn {
-    width: 280px;
-    padding: 10px 40px;
-    font-size: 20px;
-  }
-}
-
 
 .close-modal-btn:hover {
-  background-color: #C9A000;
+  background: #ff4500;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .close-modal-btn:active {
   transform: scale(0.98);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .mousignedheading{
+    font-size: 2rem;
+  }
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .close-modal-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mousignedheading{
+    font-size: 2rem;
+  }
+  .modal-content {
+    padding: 1rem;
+  }
+
+  .modal-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .close-modal-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
 }

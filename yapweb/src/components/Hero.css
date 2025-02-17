@@ -26,7 +26,7 @@
 /* Top Scrolling Text */
 .hero-top-text {
   position: absolute;
-  top: 110px;
+  top: 130px;
   width: 100%;
   font-size: 1.2rem;
   font-weight: bold;
@@ -113,10 +113,6 @@
 
 .hero-button:hover {
   background: #ff4500;
-}
-
-.hero-button:focus-visible {
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
 /* RESPONSIVE DESIGN */

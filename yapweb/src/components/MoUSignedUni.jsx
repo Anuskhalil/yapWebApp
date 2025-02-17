@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './MoUSignedUni.css';
 
 // Importing university logos and images
@@ -78,17 +80,8 @@ import beaconSchool4 from '../images/MouUniversities/BeaconHouseSchool/beaconSch
 import beaconSchool5 from '../images/MouUniversities/BeaconHouseSchool/beaconSchool5.jpg';
 import beaconSchool6 from '../images/MouUniversities/BeaconHouseSchool/beaconSchool6.jpg';
 
-
-
 const MoUSignedUni = () => {
   const [selectedUniversity, setSelectedUniversity] = useState(null);
-  // {
-  //   id: 2, // Use a unique ID
-  //   name: 'Metropolitan University',
-  //   logo: 'path-to-logo-file', // Replace with the path to the university's logo
-  //   description: 'Memorandum of Understanding (MoU) for the Youth Ambassador Programme between Metropolitan University and Arts Council of Pakistan Karachi.',
-  //   images: ['path-to-image-1', 'path-to-image-2', ...], // Add paths to relevant MoU or related images
-  // },
 
   const universities = [
     {
@@ -223,26 +216,52 @@ const MoUSignedUni = () => {
 
   // Slider settings for universities
   const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
+    dots: true, // Show dots for navigation
+    infinite: true, // Infinite looping
+    speed: 500, // Transition speed
+    slidesToShow: 4, // Default number of slides to show on large screens
+    slidesToScroll: 1, // Number of slides to scroll at a time
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000, // Autoplay interval
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1024, // For screens smaller than 1024px (tablets)
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3, // Show 3 slides on tablets
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 868, // For screens smaller than 768px (small tablets)
+        settings: {
+          slidesToShow: 2, // Show 2 slides on small tablets
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 580, // For screens smaller than 480px (mobile)
+        settings: {
+          slidesToShow: 1, // Show 1 slide on mobile
           slidesToScroll: 1,
         },
       },
     ],
   };
 
+  // Slider settings for modal images
+  const modalSliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
   return (
-    <section className="mou-universities" id='mouSignedUni'>
+    <section className="mou-universities mt-5 py-5" id="mouSignedUni">
+        <h2 className='mousignedheading ms-4'>MoU Signed Universities</h2>
       <Slider {...sliderSettings} className="universities-slider">
         {universities.map((university) => (
           <div key={university.id} className="university-card">
@@ -268,25 +287,19 @@ const MoUSignedUni = () => {
       {/* Modal for displaying images */}
       {selectedUniversity && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h3>{selectedUniversity.name}</h3>
-            <div className="images-container">
-              {selectedUniversity.images.length > 0 ? (
-                selectedUniversity.images.map((image, index) => (
+            <Slider {...modalSliderSettings} className="modal-slider">
+              {selectedUniversity.images.map((image, index) => (
+                <div key={index} className="modal-slide">
                   <img
-                    key={index}
                     src={image}
                     alt={`MoU ${selectedUniversity.name} ${index + 1}`}
                     className="mou-image"
                   />
-                ))
-              ) : (
-                <p>No images available for this university.</p>
-              )}
-            </div>
+                </div>
+              ))}
+            </Slider>
             <button className="close-modal-btn" onClick={closeModal}>
               Close
             </button>
@@ -298,3 +311,4 @@ const MoUSignedUni = () => {
 };
 
 export default MoUSignedUni;
+

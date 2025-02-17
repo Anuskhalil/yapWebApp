@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -9,7 +9,6 @@ import prDrive1 from '../images/PrDrives/pr1.jpg';
 import prDrive2 from '../images/PrDrives/pr2.jpg';
 import prDrive3 from '../images/PrDrives/pr3.jpg';
 import prDrive4 from '../images/PrDrives/pr4.jpg';
-// import prDrive5 from '../images/PrDrives/pr5.jpg';
 import prDrive6 from '../images/PrDrives/pr6.jpg';
 import prDrive7 from '../images/PrDrives/pr7.jpg';
 import prDrive8 from '../images/PrDrives/pr8.jpg';
@@ -35,7 +34,6 @@ import prDrive27 from '../images/PrDrives/pr27.jpg';
 import prDrive28 from '../images/PrDrives/pr28.jpeg';
 
 const PrDrives = () => {
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -51,13 +49,12 @@ const PrDrives = () => {
     { image: prDrive2 },
     { image: prDrive3 },
     { image: prDrive4 },
-    // { image: prDrive5 },
-    { image: prDrive11 },
     { image: prDrive6 },
     { image: prDrive7 },
     { image: prDrive8 },
     { image: prDrive9 },
     { image: prDrive10 },
+    { image: prDrive11 },
     { image: prDrive12 },
     { image: prDrive13 },
     { image: prDrive14 },
@@ -78,47 +75,60 @@ const PrDrives = () => {
   ];
 
   const sliderSettings = {
-    // dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
+    dots: true, // Show dots for navigation
+    infinite: true, // Infinite looping
+    speed: 500, // Transition speed
+    slidesToShow: 4, // Default number of slides to show on large screens
+    slidesToScroll: 1, // Number of slides to scroll at a time
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000, // Autoplay interval
     responsive: [
       {
-        breakpoint: 1024,
-        settings: { slidesToShow: 3, slidesToScroll: 1 },
+        breakpoint: 1024, // For screens smaller than 1024px (tablets)
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
       },
       {
-        breakpoint: 768,
-        settings: { slidesToShow: 2, slidesToScroll: 1 },
+        breakpoint: 768, // For screens smaller than 768px (small tablets)
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
       },
       {
-        breakpoint: 480,
-        settings: { slidesToShow: 1, slidesToScroll: 1 },
+        breakpoint: 480, // For screens smaller than 480px (mobile)
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
       },
     ],
   };
 
   return (
-    <div className="pr-drives-slider-container" data-aos="zoom-in">
-      <div className="pr-drives-title fs-1 fw-bold" data-aos="fade-up">PR Drives Gallery</div>
-      <Slider {...sliderSettings}>
-        {prDrivesPhotos.map((photo, index) => (
-          <div key={index} className="pr-drive-slide">
-            <img
-              src={photo.image}
-              alt={photo.title}
-              className="pr-drive-image"
-              data-aos="fade-up"
-              data-aos-delay={`${index * 100}`}
-            />
-            <div className="pr-drive-caption">{photo.title}</div>
-          </div>
-        ))}
-      </Slider>
-    </div>
+    <section className="pr-drives-section mt-5 py-5" data-aos="zoom-in">
+      <div className="pr-drives-slider-container">
+        <div className="pr-drives-title ms-4" data-aos="fade-up">
+          PR Drives Gallery
+        </div>
+        <Slider {...sliderSettings}>
+          {prDrivesPhotos.map((photo, index) => (
+            <div key={index} className="pr-drive-slide">
+              <img
+                src={photo.image}
+                alt={photo.title}
+                className="pr-drive-image"
+                data-aos="fade-up"
+                data-aos-delay={`${index * 100}`}
+              />
+              <div className="pr-drive-caption">{photo.title}</div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </section>
   );
 };
 
