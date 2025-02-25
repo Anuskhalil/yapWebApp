@@ -11,10 +11,12 @@
   /* position: relative; */
   /* text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); */
   /* display: block; */
-  background: linear-gradient(90deg, #ff6600, #ffcc00);
+  background: linear-gradient(90deg, #0D7292, #0D7292);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
 
 #OurSociety {
   box-shadow: 0 -10px rgb(0, 0, 0) inset;
@@ -82,7 +84,7 @@
 }
 
 #sent:hover {
-  background: #ff4500;
+  background: #0D7292;
   transform: scale(1.05);
 }
 

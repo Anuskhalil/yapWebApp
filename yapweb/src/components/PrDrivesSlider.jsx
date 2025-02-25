@@ -32,6 +32,10 @@ import prDrive25 from '../images/PrDrives/pr25.jpg';
 import prDrive26 from '../images/PrDrives/pr26.jpeg';
 import prDrive27 from '../images/PrDrives/pr27.jpg';
 import prDrive28 from '../images/PrDrives/pr28.jpeg';
+import prDrive29 from '../images/PrDrives/pr29.jpg';
+import prDrive30 from '../images/PrDrives/pr30.jpg';
+import prDrive31 from '../images/PrDrives/pr31.jpg';
+import prDrive32 from '../images/PrDrives/pr32.jpg';
 
 const PrDrives = () => {
   useEffect(() => {
@@ -72,6 +76,10 @@ const PrDrives = () => {
     { image: prDrive26 },
     { image: prDrive27 },
     { image: prDrive28 },
+    { image: prDrive29 },
+    { image: prDrive30 },
+    { image: prDrive31 },
+    { image: prDrive32 },
   ];
 
   const sliderSettings = {

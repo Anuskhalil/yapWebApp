@@ -19,7 +19,8 @@ import RegistrationForm from './components/RegistrationForm';
 import SocietyDetail from './components/SocietyDetail';
 import SocietyForm from './components/SocietyForm';
 import AboutYap from './components/AboutYap';
-import Volunteers from './components/Volunteering';
+import VolunteeringPage from './components/Volunteering';
+import VolunteeringRegistration from './components/VolunteerRegistration'; 
 import Internees from './components/Internees';
 import MissionVisionValues from './components/MissionVisionValues';
 import YapEvents from "./components/YapEvents";
@@ -37,7 +38,8 @@ const SocietyDetailWithLoader = WithLoader(SocietyDetail);
 const AboutYapWithLoader = WithLoader(AboutYap);
 const MissionVisionValuesWithLoader = WithLoader(MissionVisionValues);
 const InternationalWorkshopsWithLoader = WithLoader(InternationalWorkshops);
-const VolunteersWithLoader = WithLoader(Volunteers);
+const VolunteersWithLoader = WithLoader(VolunteeringPage);
+const VolunteeringRegistrationWithLoader = WithLoader(VolunteeringRegistration);
 const InterneesWithLoader = WithLoader(Internees);
 const YapEventsWithLoader = WithLoader(YapEvents);
 
@@ -145,6 +147,14 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <VolunteersWithLoader />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/VolunteeringRegistration"
+            element={
+              <ProtectedRoute>
+                <VolunteeringRegistrationWithLoader />
               </ProtectedRoute>
             }
           />

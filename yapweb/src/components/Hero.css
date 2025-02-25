@@ -1,7 +1,7 @@
 :root {
   --color-primary: #1f1f1f;
   --color-background: #f4f4f4;
-  --color-accent: #ff6600;
+  --color-accent: #0d7292;
   --font-size-title: 3.5rem;
   --font-size-subtitle: 1.2rem;
   --border-radius: 8px;
@@ -11,7 +11,7 @@
 
 /* HERO SECTION */
 .hero-section {
-  background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.6)), url("../images/Signup.png") top/cover no-repeat;
+  position: relative;
   color: white;
   padding: 8rem 3rem;
   display: flex;
@@ -19,8 +19,30 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  position: relative;
   overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  animation: slideBackground 16s infinite linear;
+}
+
+/* Background Images Slideshow */
+@keyframes slideBackground {
+  0% {
+    background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.4)), url("../images/MeetUp/meetupimg33.jpg") center/cover no-repeat;
+  }
+  25% {
+    background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.4)), url("../images/WorkshopsByInternationalGuests/workshop12.jpeg") center/cover no-repeat top;
+  }
+  50% {
+    background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.4)), url("../images/YapEventsWorkshops/yapEv8.jpg") center/cover no-repeat;
+  }
+  75% {
+    background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.4)), url("../images/PrDrives/pr20.jpg") center/cover no-repeat;
+  }
+  100% {
+    background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.4)), url("../images/WorkshopsByInternationalGuests/workshop15.jpeg") center/cover no-repeat;
+  }
 }
 
 /* Top Scrolling Text */
@@ -61,6 +83,25 @@
   max-width: 900px;
   margin: auto;
   padding: 2rem;
+  position: relative;
+}
+
+/* CAROUSEL IMAGE */
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.7; /* Adjust opacity to blend with hero-section background */
+}
+
+/* HERO TEXT */
+.hero-text {
+  position: relative;
+  z-index: 2;
 }
 
 /* HEADING */
@@ -74,7 +115,7 @@
 
 .yap-heading span {
   display: block;
-  background: linear-gradient(90deg, #ff6600, #ffcc00);
+  background: linear-gradient(90deg, #EBC52B, #F47E48);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -112,7 +153,7 @@
 }
 
 .hero-button:hover {
-  background: #ff4500;
+  background: #0d7292;
 }
 
 /* RESPONSIVE DESIGN */
@@ -146,7 +187,7 @@
   .hero-button {
     font-size: 0.9rem;
     padding: 10px 20px;
-    margin-bottom: 1rem; /* Added to prevent overlap */
+    margin-bottom: 1rem;
   }
 }
 

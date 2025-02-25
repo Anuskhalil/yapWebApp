@@ -7,7 +7,7 @@
 .mousignedheading{
   font-size: 3.5rem;
   font-weight: bold;
-  background: linear-gradient(90deg, #ff6600, #ffcc00);
+  background: linear-gradient(90deg, #0D7292, #0D7292);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -64,7 +64,7 @@
 }
 
 .learn-more-btn:hover {
-  background: #ff4500;
+  background: #0D7292;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
 }
@@ -118,7 +118,7 @@
   font-weight: bold;
   /* margin-bottom: 1.5rem; */
   display: block;
-  background: linear-gradient(90deg, #ff6600, #ffcc00);
+  background: linear-gradient(90deg, #0D7292, #0D7292);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -145,7 +145,7 @@
 
 .close-modal-btn {
   padding: 0.8rem 1.5rem;
-  background: #ff6600;
+  background: #0D7292;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -157,7 +157,7 @@
 }
 
 .close-modal-btn:hover {
-  background: #ff4500;
+  background: #0D7292;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
 }

@@ -14,7 +14,7 @@
   /* text-transform: uppercase; */
   /* letter-spacing: 2px; */
   display: block;
-  background: linear-gradient(90deg, #ff6600, #ffcc00);
+  background: linear-gradient(90deg, #0D7292, #0D7292);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -63,7 +63,7 @@
 }
 
 .slick-dots li.slick-active button:before {
-  color: #ff6600;
+  color: #0D7292;
 }
 
 /* Responsive Adjustments */

@@ -3,6 +3,14 @@
   width: 300px; 
 }
 
+.society-main-content{
+  color: black;
+}
+
+.society-main-content h6{
+  color: #555;
+}
+
 .team-image {
   width: 100px; 
   height: 100px;
@@ -16,7 +24,7 @@
 .social-link {
   margin: 0 10px;
   text-decoration: none;
-  color: #333;
+  color: black;
   font-weight: bold;
 }
 
@@ -71,7 +79,7 @@
 
 .slider-item-icon {
   font-size: 3rem;
-  color: #6c757d;
+  color: #007bff;
   margin-bottom: 15px;
 }
 
@@ -79,7 +87,7 @@
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 8px;
-  color: #333;
+  color: black;
 }
 
 .slider-item-description {

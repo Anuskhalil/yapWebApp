@@ -246,7 +246,7 @@ const SocietyDetail = () => {
   const sliderContent = getSliderContent(society.id);
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 society-main-content">
       <img src={society.image} alt={society.name} className="society-image small-logo" />
       <div className="main-container-heading-and-para">
         <h1 className='societyName fs-1 fw-bold'>{society.name}</h1>
@@ -289,7 +289,7 @@ const SocietyDetail = () => {
       </div>
 
       {/* Society Events Section */}
-      <div className="society-events mt-5">
+      {/* <div className="society-events mt-5">
         <h2 className="text-center">Society Events</h2>
         <div className="row justify-content-center">
           {societyEvents.map((event, index) => (
@@ -298,7 +298,7 @@ const SocietyDetail = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <Slider autoplay dots infinite speed={500} slidesToShow={3} slidesToScroll={1}>
         {sliderContent.map((item, index) => (
@@ -310,7 +310,7 @@ const SocietyDetail = () => {
         ))}
       </Slider>
 
-      <div className="text-center mt-4">
+      <div className="text-center mt-5">
         <Button variant="dark" className="register-btn px-4 fw-bold" onClick={handleSocietyFormClick}>
           Join {society.name}
         </Button>
