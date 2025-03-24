@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import ProtectedRoute from "./components/ProtectedRoute"; 
+import ProtectedRoute from "./components/ProtectedRoute";
 import GlobalStyle from './components/GlobalStyle';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/Navbar';
@@ -20,7 +20,7 @@ import SocietyDetail from './components/SocietyDetail';
 import SocietyForm from './components/SocietyForm';
 import AboutYap from './components/AboutYap';
 import VolunteeringPage from './components/Volunteering';
-import VolunteeringRegistration from './components/VolunteerRegistration'; 
+import VolunteeringRegistration from './components/VolunteerRegistration';
 import Internees from './components/Internees';
 import MissionVisionValues from './components/MissionVisionValues';
 import YapEvents from "./components/YapEvents";
