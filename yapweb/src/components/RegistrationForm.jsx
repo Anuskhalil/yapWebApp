@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Modal } from "react-bootstrap";
 import axios from "axios";
-import './RegistrationForm.css';
 
 const StudentRegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -10,18 +8,17 @@ const StudentRegistrationForm = () => {
     email: "",
     phoneNumber: "",
     address: "",
-    inSociety: "", // "Yes" or "No"
-    society: "", // Society name (optional)
+    inSociety: "",
+    society: "",
   });
 
   const [modalMessage, setModalMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type } = e.target;
 
     if (type === "radio") {
-      // Handle Yes/No radio buttons
       setFormData({ ...formData, [name]: value });
     } else {
       setFormData({ ...formData, [name]: value });
@@ -34,18 +31,17 @@ const StudentRegistrationForm = () => {
     try {
       const response = await axios.post('http://localhost:4000/register/student', formData);
 
-      setModalMessage(response.data.message); // Show success message
-      setShowModal(true); // Open success modal
+      setModalMessage(response.data.message);
+      setShowModal(true);
 
-      // Reset the form fields after successful submission
       setFormData({
         fullName: "",
         fatherName: "",
         email: "",
         phoneNumber: "",
         address: "",
-        inSociety: "", // Reset radio button
-        society: "",   // Reset society selection
+        inSociety: "",
+        society: "",
       });
 
     } catch (err) {
@@ -63,109 +59,119 @@ const StudentRegistrationForm = () => {
     }
   };
 
-
-
   const closeModal = () => setShowModal(false);
 
   return (
-    <div className="form-container">
-      <h2 className="form-title">ACP Youth Ambassador Programme</h2>
-      <p className="form-subtitle">
+    <div className="form-container mx-8 mt-36 p-5 border border-gray-300 rounded-lg bg-gray-50">
+      <h2 className="form-title text-center font-bold text-2xl md:text-3xl mb-4">
+        ACP Youth Ambassador Programme
+      </h2>
+      <p className="form-subtitle text-center text-sm md:text-base text-gray-600 mb-6">
         Access to ACP Facilities | Collaborations | Volunteer & Internship
         Initiatives | Performances In International Festivals | Networking
         Opportunities
       </p>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formFullName">
-          <Form.Label>Full Name</Form.Label>
-          <Form.Control
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
+          <label className="block font-bold text-gray-700">Full Name</label>
+          <input
             type="text"
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
             placeholder="Enter full name"
             required
+            className="w-full p-2 border border-gray-300 rounded-md mb-4"
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group controlId="formFatherName">
-          <Form.Label>Father's Name</Form.Label>
-          <Form.Control
+        <div>
+          <label className="block font-bold text-gray-700">Father's Name</label>
+          <input
             type="text"
             name="fatherName"
             value={formData.fatherName}
             onChange={handleChange}
             placeholder="Enter father's name"
             required
+            className="w-full p-2 border border-gray-300 rounded-md mb-4"
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group controlId="formEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
+        <div>
+          <label className="block font-bold text-gray-700">Email</label>
+          <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="Enter email"
             required
+            className="w-full p-2 border border-gray-300 rounded-md mb-4"
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group controlId="formPhoneNumber">
-          <Form.Label>Phone Number</Form.Label>
-          <Form.Control
+        <div>
+          <label className="block font-bold text-gray-700">Phone Number</label>
+          <input
             type="text"
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleChange}
             placeholder="Enter phone number"
             required
+            className="w-full p-2 border border-gray-300 rounded-md mb-4"
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group controlId="formAddress">
-          <Form.Label>Address</Form.Label>
-          <Form.Control
-            as="textarea"
+        <div>
+          <label className="block font-bold text-gray-700">Address</label>
+          <textarea
             rows={3}
             name="address"
             value={formData.address}
             onChange={handleChange}
             placeholder="Enter address"
             required
+            className="w-full p-2 border border-gray-300 rounded-md mb-4"
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group controlId="formInSociety">
-          <Form.Label>Are you in any society?</Form.Label>
-          <div>
-            <Form.Check
-              type="radio"
-              label="Yes"
-              name="inSociety"
-              value="Yes"
-              checked={formData.inSociety === "Yes"}
-              onChange={handleChange}
-            />
-            <Form.Check
-              type="radio"
-              label="No"
-              name="inSociety"
-              value="No"
-              checked={formData.inSociety === "No"}
-              onChange={handleChange}
-            />
+        <div>
+          <label className="block font-bold text-gray-700">Are you in any society?</label>
+          <div className="flex space-x-4 mt-2">
+            <label className="flex items-center">
+              <input
+                type="radio"
+                name="inSociety"
+                value="Yes"
+                checked={formData.inSociety === "Yes"}
+                onChange={handleChange}
+                className="mr-2"
+              />
+              Yes
+            </label>
+            <label className="flex items-center">
+              <input
+                type="radio"
+                name="inSociety"
+                value="No"
+                checked={formData.inSociety === "No"}
+                onChange={handleChange}
+                className="mr-2"
+              />
+              No
+            </label>
           </div>
-        </Form.Group>
+        </div>
 
-        <Form.Group controlId="formSociety">
-          <Form.Label>Choose Society</Form.Label>
-          <Form.Control
-            as="select"
+        <div>
+          <label className="block font-bold text-gray-700">Choose Society</label>
+          <select
             name="society"
             value={formData.society}
             onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded-md"
           >
             <option value="">Select a society (optional)</option>
             <option value="Dramatic Society">Dramatic Society</option>
@@ -184,26 +190,35 @@ const StudentRegistrationForm = () => {
             <option value="Health Society">Health Society</option>
             <option value="Entrepreneur Society">Entrepreneur Society</option>
             <option value="Volunteer Society">Volunteer Society</option>
-          </Form.Control>
-        </Form.Group>
+          </select>
+        </div>
 
-        <Button className="mt-3 fw-bold hero-button" type="submit">
+        <button
+          type="submit"
+          className="mt-3 w-full bg-blue-600 text-white py-2 rounded-md font-bold hover:bg-blue-700 transition-colors"
+        >
           Register
-        </Button>
-      </Form>
+        </button>
+      </form>
 
       {/* Modal Popup for Success/Error */}
-      <Modal show={showModal} onHide={closeModal} className="registration-modal">
-        <Modal.Header closeButton>
-          <Modal.Title>Form Submission</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{modalMessage}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={closeModal}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[1000]">
+          <div className="bg-[#2a2222] text-white rounded-lg p-6 max-w-md w-full">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-bold">Form Submission</h3>
+              <button onClick={closeModal} className="text-white text-2xl">&times;</button>
+            </div>
+            <p className="mb-6">{modalMessage}</p>
+            <button
+              onClick={closeModal}
+              className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-colors"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

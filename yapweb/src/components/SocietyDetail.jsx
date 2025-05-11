@@ -1,64 +1,16 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
-  FaTheaterMasks,
-  FaChalkboardTeacher,
-  FaBook,
-  FaUserFriends,
-  FaMusic,
-  FaPodcast,
-  FaDrum,
-  FaHeadphones,
-  FaFootballBall,
-  FaMedal,
-  FaPeopleCarry,
-  FaTrophy,
-  FaGuitar,
-  FaMicrophone,
-  FaCompactDisc,
-  FaUtensils,
-  FaPepperHot,
-  FaBlender,
-  FaCarrot,
-  FaLaptopCode,
-  FaRobot,
-  FaNetworkWired,
-  FaMicrochip,
-  FaFilm,
-  FaVideo,
-  FaPenFancy,
-  FaCamera,
-  FaHandsHelping,
-  FaLeaf,
-  FaHeart,
-  FaHome,
-  FaHistory,
-  FaLandmark,
-  FaPalette,
-  FaCut,
-  FaPaintBrush,
-  FaGlobe,
-  FaLightbulb,
-  FaMoneyCheckAlt,
-  FaChartLine,
-  FaHandshake,
-  FaFeatherAlt,
-  FaScroll,
-  FaPenNib,
-  FaBookOpen,
-  FaComments,
-  FaTruck,
-  FaWarehouse,
-  FaPlaneDeparture,
-  FaIndustry,
-  FaBrain,
+  FaTheaterMasks, FaChalkboardTeacher, FaBook, FaUserFriends, FaMusic, FaPodcast, FaDrum, FaHeadphones,
+  FaFootballBall, FaMedal, FaPeopleCarry, FaTrophy, FaGuitar, FaMicrophone, FaCompactDisc, FaUtensils,
+  FaPepperHot, FaBlender, FaCarrot, FaLaptopCode, FaRobot, FaNetworkWired, FaMicrochip, FaFilm, FaVideo,
+  FaPenFancy, FaCamera, FaHandsHelping, FaLeaf, FaHeart, FaHome, FaHistory, FaLandmark, FaPalette, FaCut,
+  FaPaintBrush, FaGlobe, FaLightbulb, FaMoneyCheckAlt, FaChartLine, FaHandshake, FaFeatherAlt, FaScroll,
+  FaPenNib, FaBookOpen, FaComments, FaTruck, FaWarehouse, FaPlaneDeparture, FaIndustry, FaBrain,
 } from 'react-icons/fa';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './SocietyDetail.css';
-import { Container, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 
 import society1 from '../images/Societies/Society1.png';
 import society2 from '../images/Societies/Society2.png';
@@ -76,8 +28,6 @@ import society13 from '../images/Societies/Society13.png';
 import society14 from '../images/Societies/Society14.png';
 import society15 from '../images/Societies/Society15.png';
 import society16 from '../images/Societies/Society16.png';
-
-
 
 const societies = [
   { id: 1, name: 'Readers & Writers', image: society1, para: 'The Readers and Writers Society, Part of the ACP Youth Ambassador programme at the Arts Council of Pakistan, Karachi. It is designed for anyone who loves reading and writing.' },
@@ -102,10 +52,8 @@ const societyEvents = [
   { image: 'path_to_event_image1.jpg' },
   { image: 'path_to_event_image2.jpg' },
   { image: 'path_to_event_image3.jpg' },
-  // Add more event images here
 ];
 
-// Function to get slider content based on society ID
 const getSliderContent = (societyId) => {
   switch (societyId) {
     case 1:
@@ -136,7 +84,6 @@ const getSliderContent = (societyId) => {
         { icon: <FaPeopleCarry />, title: 'Team Building', description: 'Engage in team-building exercises and activities.' },
         { icon: <FaTrophy />, title: 'Awards Ceremony', description: 'Celebrate achievements with our awards ceremony.' }
       ];
-
     case 5:
       return [
         { icon: <FaGuitar />, title: 'Guitar Sessions', description: 'Learn and enjoy guitar playing sessions.' },
@@ -221,104 +168,91 @@ const getSliderContent = (societyId) => {
         { icon: <FaFeatherAlt />, title: 'Creative Expression Sessions', description: 'Explore your creativity as a form of therapy.' },
         { icon: <FaBookOpen />, title: 'Mental Health Awareness', description: 'Learn about mental health and how to maintain it.' }
       ];
-    // Add more cases for other societies
     default:
       return [];
   }
 };
 
-
 const SocietyDetail = () => {
   const navigate = useNavigate();
-
-  const handleSocietyFormClick = () => {
-    navigate('/SocietyForm', { state: { societyName: society.name } });
-
-  };
-
   const { id } = useParams();
   const society = societies.find((s) => s.id === parseInt(id));
 
+  const handleSocietyFormClick = () => {
+    navigate('/SocietyForm', { state: { societyName: society.name } });
+  };
+
   if (!society) {
-    return <div>Society not found</div>;
+    return <div className="text-center text-gray-600 mt-10">Society not found</div>;
   }
 
   const sliderContent = getSliderContent(society.id);
 
   return (
-    <div className="container mt-5 society-main-content">
-      <img src={society.image} alt={society.name} className="society-image small-logo" />
-      <div className="main-container-heading-and-para">
-        <h1 className='societyName fs-1 fw-bold'>{society.name}</h1>
-        <h6>{society.para}</h6>
+    <div className="container mx-auto mt-10 text-black px-4">
+      <img src={society.image} alt={society.name} className="w-64 md:w-80 mx-auto block rounded-lg" />
+      <div className="main-container-heading-and-para text-center mt-6">
+        <h1 className="societyName text-4xl md:text-5xl font-bold text-gray-800">{society.name}</h1>
+        <h6 className="text-gray-600 mt-4 max-w-3xl mx-auto">{society.para}</h6>
       </div>
 
-      <div className="team-section mt-5 py-5 ">
-        <h2 className="text-center">Meet Our Team</h2>
-        <div className="row justify-content-center">
+      <div className="team-section mt-10 py-10">
+        <h2 className="text-center text-3xl md:text-4xl font-semibold text-gray-800 mb-8">Meet Our Team</h2>
+        <div className="flex flex-wrap justify-center gap-8">
           {/* President */}
-          <div className="col-md-4 text-center">
-            <img src="path_to_president_image" alt="President" className="team-image rounded-circle" />
-            <h5 className="mt-3">President</h5>
-            <div className="social-links">
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
+          <div className="text-center w-full sm:w-1/2 md:w-1/3">
+            <img src="path_to_president_image" alt="President" className="w-24 h-24 rounded-full mx-auto object-cover" />
+            <h5 className="mt-3 text-xl font-medium text-gray-700">President</h5>
+            <div className="social-links mt-2">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-black font-bold mx-3 hover:text-blue-600 transition-colors">LinkedIn</a>
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-black font-bold mx-3 hover:text-blue-600 transition-colors">Twitter</a>
             </div>
           </div>
 
           {/* VP */}
-          <div className="col-md-4 text-center">
-            <img src="path_to_vp_image" alt="VP" className="team-image rounded-circle" />
-            <h5 className="mt-3">Vice President</h5>
-            <div className="social-links">
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
+          <div className="text-center w-full sm:w-1/2 md:w-1/3">
+            <img src="path_to_vp_image" alt="VP" className="w-24 h-24 rounded-full mx-auto object-cover" />
+            <h5 className="mt-3 text-xl font-medium text-gray-700">Vice President</h5>
+            <div className="social-links mt-2">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-black font-bold mx-3 hover:text-blue-600 transition-colors">LinkedIn</a>
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-black font-bold mx-3 hover:text-blue-600 transition-colors">Twitter</a>
             </div>
           </div>
 
           {/* General Secretary */}
-          <div className="col-md-4 text-center">
-            <img src="path_to_secretary_image" alt="General Secretary" className="team-image rounded-circle" />
-            <h5 className="mt-3">General Secretary</h5>
-            <div className="social-links">
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
+          <div className="text-center w-full sm:w-1/2 md:w-1/3">
+            <img src="path_to_secretary_image" alt="General Secretary" className="w-24 h-24 rounded-full mx-auto object-cover" />
+            <h5 className="mt-3 text-xl font-medium text-gray-700">General Secretary</h5>
+            <div className="social-links mt-2">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-black font-bold mx-3 hover:text-blue-600 transition-colors">LinkedIn</a>
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-black font-bold mx-3 hover:text-blue-600 transition-colors">Twitter</a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Society Events Section */}
-      {/* <div className="society-events mt-5">
-        <h2 className="text-center">Society Events</h2>
-        <div className="row justify-content-center">
-          {societyEvents.map((event, index) => (
-            <div key={index} className="col-md-3 col-sm-4 col-6 text-center mb-4">
-              <img src={event.image} alt={`Event ${index + 1}`} className="event-image img-fluid" />
-            </div>
-          ))}
-        </div>
-      </div> */}
-
-      <Slider autoplay dots infinite speed={500} slidesToShow={3} slidesToScroll={1}>
+      <Slider autoplay dots infinite speed={500} slidesToShow={3} slidesToScroll={1} className="mt-10">
         {sliderContent.map((item, index) => (
-          <div key={index} className="slider-item mt-5">
-            <div className="slider-item-icon">{item.icon}</div>
-            <div className="slider-item-title">{item.title}</div>
-            <div className="slider-item-description">{item.description}</div>
+          <div key={index} className="slider-item px-4">
+            <div className="flex flex-col items-center text-center p-4 bg-white shadow-lg rounded-lg">
+              <div className="slider-item-icon text-5xl md:text-4xl sm:text-3xl text-blue-600 mb-4">{item.icon}</div>
+              <div className="slider-item-title font-bold text-lg md:text-base sm:text-sm text-black mb-2">{item.title}</div>
+              <div className="slider-item-description text-gray-600 text-base md:text-sm sm:text-xs">{item.description}</div>
+            </div>
           </div>
         ))}
       </Slider>
 
-      <div className="text-center mt-5">
-        <Button variant="dark" className="register-btn px-4 fw-bold" onClick={handleSocietyFormClick}>
+      <div className="text-center mt-10">
+        <button
+          onClick={handleSocietyFormClick}
+          className="bg-gray-800 text-white font-bold px-6 py-3 rounded-lg hover:bg-gray-700 transition-all"
+        >
           Join {society.name}
-        </Button>
+        </button>
       </div>
     </div>
-
   );
-
 };
 
 export default SocietyDetail;

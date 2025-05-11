@@ -1,8 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import "./OurTeam.css";
-import TeamSlider from "./TeamSlider"; // Slider Component
-import TeamGrid from "./TeamGrid"; // Optional Grid Component for Team Members
+import TeamSlider from "./TeamSlider";
+import TeamGrid from "./TeamGrid";
 
 // Celebrity Images
 import sahirAliBagga from "../images/Celebrities/celebrity1.jpeg";
@@ -25,32 +23,32 @@ const celebrities = [
 
 const OurTeam = () => {
   return (
-    <Container className="our-team-container">
+    <div className="our-team-container max-w-6xl mx-auto p-5 mt-60 rounded-lg">
       {/* Section Heading */}
-      <div className="main-head text-center mb-5">
-        <h1 className="section-title ">Meet Our Team</h1>
-        <h3 className="section-subtitle">Celebrities and Influencers</h3>
+      <div className="main-head text-center mb-8">
+        <h1 className="section-title text-6xl font-bold text-gray-800">Meet Our Team</h1>
+        <h3 className="section-subtitle text-2xl text-gray-600">Celebrities and Influencers</h3>
       </div>
 
       {/* Circular Layout for Celebrities */}
-      <div className="circular-layout d-flex justify-content-center flex-wrap">
+      <div className="circular-layout flex justify-center flex-wrap">
         {celebrities.map((celebrity, index) => (
-          <div key={index} className="circular-item mx-3 mb-4">
-            <img src={celebrity.image} alt={celebrity.name} className="circle-img" />
-            <div className="overlay">
-              <div className="text">{celebrity.name}</div>
+          <div key={index} className="circular-item mx-5 mb-6 relative w-56 h-56 rounded-full overflow-hidden shadow-md transition-transform duration-300 hover:scale-105 cursor-pointer">
+            <img src={celebrity.image} alt={celebrity.name} className="circle-img w-full h-full object-cover" />
+            <div className="overlay absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black/60 opacity-0 transition-opacity duration-300">
+              <div className="text text-white text-xl font-bold text-center">{celebrity.name}</div>
             </div>
           </div>
         ))}
       </div>
 
       {/* Additional Section for Team Members */}
-      <div className="team-members-section">
-        <h3 className="teamMembers text-center mt-5">YAP Team Members</h3>
+      <div className="team-members-section mt-20">
+        <h3 className="teamMembers text-center text-6xl font-bold text-black mb-8">YAP Team Members</h3>
         <TeamSlider />
         <TeamGrid />
       </div>
-    </Container>
+    </div>
   );
 };
 

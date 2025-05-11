@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./InternationalWorkshops.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -15,32 +14,16 @@ const InternationalGuests = () => {
   }, []);
 
   const workshopGroups = [
-    // {
-    //   heading: "UIT - World Culture Festival",
-    //   images: ["workshop1", "workshop2"], 
-    // },
-    // {
-    //   heading: "DHA Suffa University - World Culture Festival",
-    //   images: ["workshop3", "workshop4"], 
-    // },
-    // {
-    //   heading: "Szabist - World Culture Festival",
-    //   images: ["workshop5"], 
-    // },
     {
       heading: "Workshop by Nepal Group at Salim Habib University in World Culture Festival",
       images: ["workshop13", "workshop9", "workshop11", "workshop10", "workshop12"],
     },
-    // {
-    //   heading: "Arts Council of Pakistan - World Culture Festival",
-    //   images: ["workshop7", "workshop8"], 
-    // },
     {
       heading: "Indus University - World Culture Festival",
       images: ["workshop36", "workshop48", "workshop38", "workshop39", "workshop40", "workshop41", "workshop42", "workshop43", "workshop44", "workshop45", "workshop46", "workshop47", "workshop37", "workshop49"],
     },
     {
-      heading: "Workshop by Germany and France Group at Greenwich University in  World Culture Festival",
+      heading: "Workshop by Germany and France Group at Greenwich University in World Culture Festival",
       images: ["workshop16", "workshop17", "workshop18", "workshop19", "workshop20", "workshop21", "workshop22"],
     },
     {
@@ -54,20 +37,24 @@ const InternationalGuests = () => {
   ];
 
   return (
-    <div className="international-guests-container mt-5 py-5">
-      <h1 className="international-guests-title">International Guests Workshops</h1>
-      <div className="container">
+    <div className="international-guests-container py-16 mt-10 text-center bg-gray-100">
+      <h1 className="international-guests-title text-5xl md:text-6xl font-bold text-[#0D7292] mb-10">
+        International Guests Workshops
+      </h1>
+      <div className="container mx-auto">
         {workshopGroups.map((group, groupIndex) => (
-          <div key={groupIndex} className="workshop-group" data-aos="fade-up">
-            <h2 className="group-heading">{group.heading}</h2>
-            <div className="row">
+          <div key={groupIndex} className="workshop-group mb-10" data-aos="fade-up">
+            <h2 className="group-heading text-2xl md:text-3xl text-gray-600 text-left mb-6">
+              {group.heading}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {group.images.map((image, index) => (
-                <div className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" key={index} data-aos="zoom-in">
-                  <div className="workshop-card">
+                <div key={index} className="mb-4" data-aos="zoom-in">
+                  <div className="workshop-card border border-gray-300 rounded-lg overflow-hidden shadow-md hover:scale-105 transition-transform">
                     <img
                       src={`./src/images/WorkshopsByInternationalGuests/${image}.jpeg`}
                       alt={image}
-                      className="workshop-image img-fluid"
+                      className="w-full h-auto"
                     />
                   </div>
                 </div>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './MoUSignedUni.css';
 
 // Importing university logos and images
 import ned from '../images/MouUniversities/Logos/nedLogo.jpg';
@@ -96,112 +95,128 @@ const MoUSignedUni = () => {
       id: 2,
       name: 'Sindh Madressatul Islam University',
       logo: smiu,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Sindh Madressatul Islam University',
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Sindh Madressatul Islam University',
       images: [smiuMoU1, smiuMoU2],
     },
     {
       id: 3,
       name: 'Dawood University of Engineering and Technology',
       logo: dawood,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Dawood University of Engineering and Technology',
-      images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
-    },
-    {
-      id: 3,
-      name: 'Ali Garh University',
-      logo: aliGarh,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Ali Garh University',
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Dawood University of Engineering and Technology',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 4,
-      name: 'Beacon House College',
-      logo: beacon,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Beacon House College',
+      name: 'Ali Garh University',
+      logo: aliGarh,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Ali Garh University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 5,
-      name: 'DHA Suffa University',
-      logo: suffa,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and DHA Suffa University',
-      images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
+      name: 'Beacon House College',
+      logo: beacon,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Beacon House College',
+      images: [beaconSchool1, beaconSchool2, beaconSchool3, beaconSchool4, beaconSchool5, beaconSchool6],
     },
     {
       id: 6,
-      name: 'Greenwich University',
-      logo: greenWich,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Greenwich University',
+      name: 'DHA Suffa University',
+      logo: suffa,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and DHA Suffa University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 7,
-      name: 'Highbrow University',
-      logo: highbrow,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Highbrow University',
-      images: [highbrow1, highbrow2, highbrow3, highbrow4, highbrow5, highbrow6],
-    },
-    {
-      id: 8,
-      name: 'IBA University Sukkur',
-      logo: ibaSukkur,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and IBA University Sukkur',
-      images: [ibaSukkur1, ibaSukkur2, ibaSukkur3, ibaSukkur4, ibaSukkur5, ibaSukkur6],
-    },
-    {
-      id: 9,
-      name: 'Karachi University',
-      logo: ku,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Karachi University',
+      name: 'Greenwich University',
+      logo: greenWich,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Greenwich University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
+      id: 8,
+      name: 'Highbrow University',
+      logo: highbrow,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Highbrow University',
+      images: [highbrow1, highbrow2, highbrow3, highbrow4, highbrow5, highbrow6],
+    },
+    {
+      id: 9,
+      name: 'IBA University Sukkur',
+      logo: ibaSukkur,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and IBA University Sukkur',
+      images: [ibaSukkur1, ibaSukkur2, ibaSukkur3, ibaSukkur4, ibaSukkur5, ibaSukkur6],
+    },
+    {
       id: 10,
-      name: 'Metropolitan University',
-      logo: metropolitan,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Metropolitan University',
+      name: 'Karachi University',
+      logo: ku,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Karachi University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 11,
-      name: 'Newports University',
-      logo: newports,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Newports University',
-      images: [newports1, newports2, newports3, newports4, newports5, newports6],
-    },
-    {
-      id: 12,
-      name: 'Nixor College',
-      logo: nixor,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Nixor College',
+      name: 'Metropolitan University',
+      logo: metropolitan,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Metropolitan University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
+      id: 12,
+      name: 'Newports University',
+      logo: newports,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Newports University',
+      images: [newports1, newports2, newports3, newports4, newports5, newports6],
+    },
+    {
       id: 13,
-      name: 'Salim Habib University',
-      logo: salimHabib,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Salim Habib University',
+      name: 'Nixor College',
+      logo: nixor,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Nixor College',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 14,
-      name: 'Sir Syed University of Engineering and Technology',
-      logo: sirSyed,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Sir Syed University of Engineering and Technology',
+      name: 'Salim Habib University',
+      logo: salimHabib,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Salim Habib University',
       images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 15,
-      name: 'ZiaUddin University',
-      logo: ziauddin,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and ZiaUddin University',
-      images: [ziauddin1, ziauddin2, ziauddin3, ziauddin4, ziauddin5, ziauddin6],
+      name: 'Sir Syed University of Engineering and Technology',
+      logo: sirSyed,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Sir Syed University of Engineering and Technology',
+      images: [dawoodMoU1, dawoodMoU2, dawoodMoU3, dawoodMoU4, dawoodMoU5, dawoodMoU6],
     },
     {
       id: 16,
+      name: 'ZiaUddin University',
+      logo: ziauddin,
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and ZiaUddin University',
+      images: [ziauddin1, ziauddin2, ziauddin3, ziauddin4, ziauddin5, ziauddin6],
+    },
+    {
+      id: 17,
       name: 'Beacon House School',
       logo: beacon,
-      description: 'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Beacon House School',
+      description:
+        'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and Beacon House School',
       images: [beaconSchool1, beaconSchool2, beaconSchool3, beaconSchool4, beaconSchool5, beaconSchool6],
     },
   ];
@@ -214,93 +229,124 @@ const MoUSignedUni = () => {
     setSelectedUniversity(null);
   };
 
-  // Slider settings for universities
   const sliderSettings = {
-    dots: true, // Show dots for navigation
-    infinite: true, // Infinite looping
-    speed: 500, // Transition speed
-    slidesToShow: 4, // Default number of slides to show on large screens
-    slidesToScroll: 1, // Number of slides to scroll at a time
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 3000, // Autoplay interval
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    arrows: true,
     responsive: [
       {
-        breakpoint: 1024, // For screens smaller than 1024px (tablets)
+        breakpoint: 1280,
         settings: {
-          slidesToShow: 3, // Show 3 slides on tablets
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 868, // For screens smaller than 768px (small tablets)
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2, // Show 2 slides on small tablets
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 580, // For screens smaller than 480px (mobile)
-        settings: {
-          slidesToShow: 1, // Show 1 slide on mobile
+          slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
     ],
   };
 
-  // Slider settings for modal images
   const modalSliderSettings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    arrows: true,
   };
 
   return (
-    <section className="mou-universities mt-5 py-5" id="mouSignedUni">
-        <h2 className='mousignedheading ms-4'>MoU Signed Universities</h2>
-      <Slider {...sliderSettings} className="universities-slider">
-        {universities.map((university) => (
-          <div key={university.id} className="university-card">
-            <div className="university-logo-container">
-              <img
-                src={university.logo}
-                alt={`${university.name} Logo`}
-                className="university-logo"
-              />
+    <section className="py-12 px-6 sm:px-6 lg:px-8" id="mouSignedUni">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#0D7292] to-[#0D7292] bg-clip-text text-transparent mb-8">
+          MoU Signed Universities
+        </h2>
+        <Slider {...sliderSettings} className="universities-slider">
+          {universities.map((university) => (
+            <div key={university.id} className="">
+              <div
+                className="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                role="button"
+                tabIndex={0}
+                onClick={() => openModal(university)}
+                onKeyDown={(e) => e.key === 'Enter' && openModal(university)}
+              >
+                <div className="p-6 flex flex-col items-center text-center">
+                  <div className="h-32 flex items-center justify-center">
+                    <img
+                      src={university.logo}
+                      alt={`${university.name} Logo`}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <h3 className="mt-4 text-lg sm:text-xl font-semibold text-gray-800 h-12 flex items-center justify-center">
+                    {university.name}
+                  </h3>
+                  <p className="mt-2 text-sm sm:text-base text-gray-600 line-clamp-3">
+                    {university.description}
+                  </p>
+                  <button
+                    className="mt-5 bg-[#0D7292] text-white font-semibold px-4 py-2 rounded-lg hover:bg-[#0D7292]/90 hover:scale-105 active:scale-95 transition-all"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openModal(university);
+                    }}
+                  >
+                    See Glimpse
+                  </button>
+                </div>
+              </div>
             </div>
-            <h3 className="university-name">{university.name}</h3>
-            <p className="university-description">{university.description}</p>
-            <button
-              className="learn-more-btn fw-bold"
-              onClick={() => openModal(university)}
-            >
-              See Glimpse
-            </button>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
 
-      {/* Modal for displaying images */}
       {selectedUniversity && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>{selectedUniversity.name}</h3>
-            <Slider {...modalSliderSettings} className="modal-slider">
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-[1000]"
+          onClick={closeModal}
+          role="dialog"
+          aria-labelledby="modal-title"
+        >
+          <div
+            className="bg-white p-4 sm:p-6 rounded-xl max-w-[90vw] sm:max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3
+              id="modal-title"
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#0D7292] to-[#0D7292] bg-clip-text text-transparent text-center mb-6"
+            >
+              {selectedUniversity.name}
+            </h3>
+            <Slider {...modalSliderSettings} className="w-full">
               {selectedUniversity.images.map((image, index) => (
-                <div key={index} className="modal-slide">
+                <div key={index} className="flex justify-center items-center">
                   <img
                     src={image}
-                    alt={`MoU ${selectedUniversity.name} ${index + 1}`}
-                    className="mou-image"
+                    alt={`MoU with ${selectedUniversity.name} - Image ${index + 1}`}
+                    className="w-full max-h-[60vh] object-contain rounded-lg shadow-md"
                   />
                 </div>
               ))}
             </Slider>
-            <button className="close-modal-btn" onClick={closeModal}>
+            <button
+              className="mt-6 w-full sm:w-auto bg-[#0D7292] text-white font-semibold px-6 py-2 rounded-lg hover:bg-[#0D7292]/90 hover:scale-105 active:scale-95 transition-all"
+              onClick={closeModal}
+            >
               Close
             </button>
           </div>
@@ -311,4 +357,3 @@ const MoUSignedUni = () => {
 };
 
 export default MoUSignedUni;
-

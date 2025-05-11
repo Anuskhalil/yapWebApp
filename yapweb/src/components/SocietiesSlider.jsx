@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './SocietiesSlider.css';
 
 import society1 from '../images/Societies/Society1.png';
 import society2 from '../images/Societies/Society2.png';
@@ -22,7 +20,6 @@ import society13 from '../images/Societies/Society13.png';
 import society14 from '../images/Societies/Society14.png';
 import society15 from '../images/Societies/Society15.png';
 import society16 from '../images/Societies/Society16.png';
-
 
 // Beats And Buzz
 import beatsEv1 from '../images/SocietyEvents/BeatsAndBuzz/beatsEv1.jpg';
@@ -85,12 +82,10 @@ import rhetoricEv6 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv6.jpg';
 import rhetoricEv7 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv7.jpg';
 import rhetoricEv8 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv8.jpg';
 import rhetoricEv9 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv9.jpg';
-import rhetoricEv10 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv10.jpg';
 import rhetoricEv11 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv11.jpg';
 import rhetoricEv12 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv12.jpg';
 import rhetoricEv13 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv13.jpg';
 import rhetoricEv14 from '../images/SocietyEvents/RhetoricRealm/rhetoricEv14.jpg';
-
 
 const SocietiesSlider = () => {
   const navigate = useNavigate();
@@ -152,21 +147,33 @@ const SocietiesSlider = () => {
   };
 
   return (
-    <div className="container py-5 mt-5" id="OurSociety">
+    <div className="max-w-7xl mx-auto py-12 px-4" id="OurSociety">
       {/* Header Section */}
-      <div className="curved-heading ms-3">Our Societies</div>
+      <div className="text-2xl md:text-4xl lg:text-4xl font-bold bg-gradient-to-r from-[#0D7292] to-[#0D7292] bg-clip-text text-transparent">
+        Our Societies
+      </div>
 
       {/* Society Slider */}
-      <Slider {...settings} className="main-societies py-5 mt-3">
+      <Slider {...settings} className="main-societies py-6">
         {societies.map((society) => (
-          <div key={society.id} className="society-slide">
-            <div className="image-wrapper">
-              <img src={society.image} alt={society.name} className="img-fluid" />
+          <div key={society.id} className="society-slide px-2">
+            <div className="bg-gray-300 p-5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center ">
+              <div className="image-wrapper flex justify-center items-center mb-4">
+                <img
+                  src={society.image}
+                  alt={society.name}
+                  className="w-42 h-40 md:w-28 md:h-28 sm:w-20 sm:h-20 rounded-full object-cover"
+                />
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold mb-4 text-black">{society.name}</h3>
+              <button
+                id="sent"
+                onClick={() => handleKnowMoreClick(society.id)}
+                className="bg-[#0D7292] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#0D7292]/90 hover:scale-105 active:scale-95 transition-all"
+              >
+                Know more
+              </button>
             </div>
-            <h3>{society.name}</h3>
-            <Button id="sent" onClick={() => handleKnowMoreClick(society.id)}>
-              Know more
-            </Button>
           </div>
         ))}
       </Slider>
@@ -175,5 +182,3 @@ const SocietiesSlider = () => {
 };
 
 export default SocietiesSlider;
-
-

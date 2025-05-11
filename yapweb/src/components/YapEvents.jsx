@@ -1,19 +1,18 @@
 import React, { useEffect } from "react";
-import "./YapEvents.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const YapEvents = () => {
-   useEffect(() => {
-      AOS.init({
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: false,
-        mirror: true,
-      });
-      AOS.refresh();
-    }, []);
-  // Grouped image data
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: true,
+    });
+    AOS.refresh();
+  }, []);
+
   const eventGroups = [
     {
       heading: "Workshops",
@@ -70,10 +69,10 @@ const YapEvents = () => {
     {
       heading: "Youme Difah",
       images: [
-         "youmeDifahGroupSinging", "youmeDifahPublicSpeaking1",
+        "youmeDifahGroupSinging", "youmeDifahPublicSpeaking1",
         "youmeDifahPublicSpeaking2", "youmeDifahSinging1", "youmeDifahSinging2",
         "youmeDifahSinging3", "youmeDifahSinging4", "youmeDifahSinging5",
-        "youmeDifahSinging6", "youmeDifahSinging7", "yapEv7","yapEv8","yapEv9",
+        "youmeDifahSinging6", "youmeDifahSinging7", "yapEv7", "yapEv8", "yapEv9",
       ],
     },
     {
@@ -86,21 +85,22 @@ const YapEvents = () => {
   ];
 
   return (
-    <div className="yap-events-container mt-5 py-5">
-      <h1 className="yap-events-title">YAP Events</h1>
-      <div className="container">
+    <div className="yap-events-container mt-5 py-5 relative top-12">
+      <h1 className="yap-events-title text-center mb-10 text-5xl font-bold text-[#0D7292]">
+        YAP Events
+      </h1>
+      <div className="container mx-auto px-4">
         {eventGroups.map((group, groupIndex) => (
-          <div key={groupIndex} className="event-group" data-aos="fade-up">
-            <h2 className="group-heading">{group.heading}</h2>
-            <div className="row">
+          <div key={groupIndex} className="event-group mb-10" data-aos="fade-up">
+            <h2 className="group-heading text-2xl mb-5 text-gray-600">{group.heading}</h2>
+            <div className="row grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {group.images.map((image, index) => (
-                <div className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" key={index} data-aos="zoom-in"
-                >
-                  <div className="event-card">
+                <div key={index} className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" data-aos="zoom-in">
+                  <div className="event-card overflow-hidden border border-gray-200 rounded-lg transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md">
                     <img
                       src={`./src/images/YapEventsWorkshops/${image}.jpg`}
                       alt={image}
-                      className="event-image img-fluid"
+                      className="event-image w-full h-auto rounded-lg"
                     />
                   </div>
                 </div>

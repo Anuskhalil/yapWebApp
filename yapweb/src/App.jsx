@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/Navbar';
 import Hero from './components/Hero';
 import OurTeam from './components/OurTeam';
+import OurCourses from './components/OurCourses';
 import SocietiesSlider from './components/SocietiesSlider';
 import PresWords from './components/PresWord';
 import UniversityPage from './components/MainPage';
@@ -74,6 +75,10 @@ const App = () => {
           <Route
             path="/our-team"
             element={<OurTeamLoader />}
+          />
+          <Route
+            path="/ourCourses"
+            element={<OurCourses />}
           />
           <Route
             path="/register"

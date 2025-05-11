@@ -1,8 +1,6 @@
-// npm install react-lottie
 import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../LoaderIcon.json';
-import './Loader.css';
 
 const Loader = () => {
   const defaultOptions = {
@@ -15,7 +13,7 @@ const Loader = () => {
   };
 
   return (
-    <div className="loader-container">
+    <div className="loader-container flex justify-center items-center h-screen bg-gradient-to-br from-gray-100 to-white">
       <Lottie options={defaultOptions} height={200} width={200} />
     </div>
   );

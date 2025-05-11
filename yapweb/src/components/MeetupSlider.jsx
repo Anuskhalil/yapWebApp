@@ -1,12 +1,10 @@
-import React, { useState } from 'react'; // No useEffect needed
+import React, { useState } from 'react';
 import Slider from 'react-slick';
-import { Modal } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './MeetupSlider.css';
 
-// Static imports (at the top of the file)
+// Static imports
 import meetupimg1 from '../images/MeetUp/meetupimg1.jpg';
 import meetupimg2 from '../images/MeetUp/meetupimg2.jpg';
 import meetupimg3 from '../images/MeetUp/meetupimg3.jpg';
@@ -93,9 +91,7 @@ const meetupImages = [
   { title: 'Meetup 41', image: meetupimg41 },
 ];
 
-
 const MeetupGallery = () => {
-
   const [showModal, setShowModal] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
 
@@ -111,7 +107,7 @@ const MeetupGallery = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: true, // Show arrows
+    arrows: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -128,7 +124,6 @@ const MeetupGallery = () => {
     ],
   };
 
-  // Framer Motion Variants
   const modalVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -144,36 +139,35 @@ const MeetupGallery = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-
   return (
-    <div className="meetup-container">
+    <div className="meetup-container py-12 text-center">
       <motion.h2
-        className="meetup-title"
+        className="meetup-title text-3xl md:text-4xl font-bold text-gray-900 mb-8"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         Meetup Gallery
       </motion.h2>
-      <div className="slider-wrapper">
+      <div className="slider-wrapper px-8 max-w-6xl mx-auto">
         <Slider {...sliderSettings}>
           {meetupImages.map((photo, index) => (
             <motion.div
               key={index}
-              className="meetup-photo-wrapper"
+              className="meetup-photo-wrapper p-2 cursor-pointer outline-none"
               onClick={() => handleImageClick(photo.image)}
               variants={imageVariants}
               initial="hidden"
               animate="visible"
-              custom={index} // Pass index for staggered animation
+              custom={index}
             >
               <img
-                className="meetup-photo"
+                className="meetup-photo w-full h-auto rounded-2xl shadow-md hover:scale-103 transition-transform duration-300"
                 src={photo.image}
                 alt={photo.title}
               />
               <motion.div
-                className="meetup-photo-caption"
+                className="meetup-photo-caption text-center mt-2 text-base text-gray-700"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
@@ -187,25 +181,21 @@ const MeetupGallery = () => {
 
       <AnimatePresence>
         {showModal && (
-          <Modal
-            show={showModal}
-            onHide={() => setShowModal(false)}
-            centered
-            size="xl"
-            className='meetup-modal'
+          <div
+            className="fixed inset-0 bg-black/70 flex items-center justify-center z-[1000]"
+            onClick={() => setShowModal(false)}
           >
-            <Modal.Body className="meetup-modal-body">
-              <motion.img
-                src={currentImage}
-                alt="Meetup"
-                className="img-fluid meetup-modal-image"
-                variants={modalVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-              />
-            </Modal.Body>
-          </Modal>
+            <motion.img
+              src={currentImage}
+              alt="Meetup"
+              className="max-h-[90vh] max-w-[90vw] object-contain rounded-2xl"
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={(e) => e.stopPropagation()} // Prevent closing on image click
+            />
+          </div>
         )}
       </AnimatePresence>
     </div>

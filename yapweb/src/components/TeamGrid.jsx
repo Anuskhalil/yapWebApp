@@ -1,9 +1,7 @@
 import React from "react";
-// import { Button } from "react-bootstrap";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./TeamGrid.css";
 
 // Import team member images and social media icons
 import azaibKhan from "../images/TeamMember/azaibKhanYAP.jpg";
@@ -60,7 +58,7 @@ const TeamGrid = () => {
     { name: "Noman", role: "Team Member", image: noman, linkedin: "https://linkedin.com/in/noman", github: "https://github.com/noman" },
     { name: "Eeman", role: "Team Member", image: eeman, linkedin: "https://linkedin.com/in/eeman", github: "https://github.com/eeman" },
     { name: "Aqsa", role: "Team Member", image: aqsa, linkedin: "https://linkedin.com/in/aqsa", github: "https://github.com/aqsa" },
-    { name: "Syed Alwaz", role: "Team Member", image: syedAlwaz, linkedin: "https://linkedin.com/in/aqsa", github: "https://github.com/alwaz" },
+    { name: "Syed Alwaz", role: "Team Member", image: syedAlwaz, linkedin: "https://linkedin.com/in/alwaz", github: "https://github.com/alwaz" },
     { name: "Rawaid Khan", role: "Team Member", image: rawaidKhan, linkedin: "https://linkedin.com/in/rawaidKhan", github: "https://github.com/rawaidKhan" },
   ];
 
@@ -71,64 +69,60 @@ const TeamGrid = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    centerMode: false, // Prevent overlapping cards
-    centerPadding: "20px", // Padding around the cards
+    centerMode: false,
+    centerPadding: "20px",
     responsive: [
       {
-        breakpoint: 1200, // For slightly smaller screens
+        breakpoint: 1200,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          centerPadding: "15px", // Adjust padding for medium screens
+          centerPadding: "15px",
         },
       },
       {
-        breakpoint: 992, // For medium screens
+        breakpoint: 992,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          centerPadding: "10px", // Reduce padding for smaller screens
+          centerPadding: "10px",
         },
       },
       {
-        breakpoint: 576, // For smaller screens
+        breakpoint: 576,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: "20px", // Center single card with padding
+          centerPadding: "20px",
         },
       },
     ],
   };
 
-
   return (
-    <div className="container-team" id="OurTeam">
-      {/* Team Slider */}
+    <div className="container-team max-w-6xl mx-auto px-6 py-10 overflow-hidden" id="OurTeam">
       <Slider {...settings} className="main-team-slider">
         {teamMembers.map((member, index) => (
-          <div key={index} className="team-slide">
-            <div className="image-wrapper">
-              <img src={member.image} alt={member.name} className="team-member-image" />
+          <div key={index} className="team-slide text-center p-5 bg-white rounded-xl shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            <div className="image-wrapper flex justify-center items-center mb-4">
+              <img src={member.image} alt={member.name} className="team-member-image w-30 h-30 rounded-full object-cover" />
             </div>
-            <h3>{member.name}</h3>
-            <p>{member.role}</p>
-            <div className="social-links">
-              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">{member.name}</h3>
+            <p className="text-base text-gray-600">{member.role}</p>
+            <div className="social-links flex justify-center gap-4 mt-4">
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon text-xl text-gray-600 hover:text-blue-600 transition-colors">
                 <FaLinkedin />
               </a>
-              <a href={member.github} target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href={member.github} target="_blank" rel="noopener noreferrer" className="social-icon text-xl text-gray-600 hover:text-gray-900 transition-colors">
                 <FaGithub />
               </a>
             </div>
-            {/* <Button className="know-more-btn">Know More</Button> */}
           </div>
         ))}
       </Slider>
     </div>
   );
 };
-
 
 export default TeamGrid;
