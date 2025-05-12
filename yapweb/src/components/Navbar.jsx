@@ -23,40 +23,54 @@ const NavigationBar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-gray-900 to-gray-800 shadow-xl z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-30">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
               src={logo}
               alt="Youth Ambassador Programme Logo"
-              className="h-23 w-auto cursor-pointer transition-transform duration-300 hover:scale-105"
+              className="h-16 w-auto cursor-pointer transition-transform duration-300 hover:scale-105"
               onClick={() => navigate("/")}
             />
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center space-x-4">
             <NavItem text="Home" onClick={() => handleNavItemClick("/")} />
-            <DropdownMenu title="Philosophy" items={[
-              { text: "About Us", path: "/AboutYap" },
-              { text: "Mission, Vision & Values", path: "/missionVisionValues" },
-              { text: "Upcoming Events", path: "/upcomingEvents" },
-              { text: "Our Societies", path: "/" },
-            ]} onItemClick={handleNavItemClick} />
+            <DropdownMenu
+              title="Philosophy"
+              items={[
+                { text: "About Us", path: "/AboutYap" },
+                { text: "Mission, Vision & Values", path: "/missionVisionValues" },
+                { text: "Upcoming Events", path: "/upcomingEvents" },
+                { text: "Our Societies", path: "/" },
+              ]}
+              onItemClick={handleNavItemClick}
+            />
             <NavItem text="Our Courses" onClick={() => handleNavItemClick("/ourCourses")} />
-            <DropdownMenu title="Events" items={[
-              { text: "International Workshops", path: "/InternationalWorkshops" },
-              { text: "YAP Events/Workshops", path: "/yapEvents" },
-            ]} onItemClick={handleNavItemClick} />
-            <DropdownMenu title="Network" items={[
-              { text: "Our MoU's", path: "/" },
-            ]} onItemClick={handleNavItemClick} />
+            <DropdownMenu
+              title="Events"
+              items={[
+                { text: "International Workshops", path: "/InternationalWorkshops" },
+                { text: "YAP Events/Workshops", path: "/yapEvents" },
+              ]}
+              onItemClick={handleNavItemClick}
+            />
+            <DropdownMenu
+              title="Network"
+              items={[{ text: "Our MoU's", path: "/" }]}
+              onItemClick={handleNavItemClick}
+            />
             <NavItem text="Library" onClick={() => handleNavItemClick("/library")} />
-            <DropdownMenu title="Work With Us" items={[
-              { text: "Volunteering", path: "/volunteering" },
-              { text: "Internship Opportunities", path: "/internees" },
-              { text: "Contact", path: "/" },
-            ]} onItemClick={handleNavItemClick} />
+            <DropdownMenu
+              title="Work With Us"
+              items={[
+                { text: "Volunteering", path: "/volunteering" },
+                { text: "Internship Opportunities", path: "/internees" },
+                { text: "Contact", path: "/" },
+              ]}
+              onItemClick={handleNavItemClick}
+            />
             <button
               onClick={() => handleNavItemClick("/our-team")}
               className="px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition-all duration-300 transform hover:scale-105"
@@ -64,25 +78,33 @@ const NavigationBar = () => {
               Our Team
             </button>
             {/* {userName && (
-              <DropdownMenu title={
-                <span className="flex items-center">
-                  <FaUser className="mr-2 text-teal-400" />
-                  {userName}
-                </span>
-              } items={[
-                { text: "Logout", icon: <FaSignOutAlt className="mr-2 text-teal-400" />, onClick: handleLogout },
-              ]} onItemClick={() => { }} />
+              <DropdownMenu
+                title={
+                  <span className="flex items-center">
+                    <FaUser className="mr-2 text-teal-400" />
+                    {userName}
+                  </span>
+                }
+                items={[
+                  {
+                    text: "Logout",
+                    icon: <FaSignOutAlt className="mr-2 text-teal-400" />,
+                    onClick: handleLogout,
+                  },
+                ]}
+                onItemClick={() => {}}
+              />
             )} */}
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-md text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="lg:hidden p-3 rounded-md text-white bg-gray-800/50 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 z-50"
             onClick={handleToggle}
             aria-controls="mobile-menu"
             aria-expanded={expanded}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -102,27 +124,45 @@ const NavigationBar = () => {
       >
         <div className="flex flex-col space-y-1 px-4 py-6">
           <MobileNavItem text="Home" onClick={() => handleNavItemClick("/")} />
-          <MobileDropdownMenu title="Philosophy" items={[
-            { text: "About Us", path: "/AboutYap" },
-            { text: "Mission, Vision & Values", path: "/missionVisionValues" },
-            { text: "Upcoming Events", path: "/upcomingEvents" },
-            { text: "Our Societies", path: "/" },
-          ]} onItemClick={handleNavItemClick} />
+          <MobileDropdownMenu
+            title="Philosophy"
+            items={[
+              { text: "About Us", path: "/AboutYap" },
+              { text: "Mission, Vision & Values", path: "/missionVisionValues" },
+              { text: "Upcoming Events", path: "/upcomingEvents" },
+              { text: "Our Societies", path: "/" },
+            ]}
+            onItemClick={handleNavItemClick}
+          />
           <MobileNavItem text="Our Courses" onClick={() => handleNavItemClick("/ourCourses")} />
-          <MobileDropdownMenu title="Events" items={[
-            { text: "International Workshops", path: "/InternationalWorkshops" },
-            { text: "YAP Events/Workshops", path: "/yapEvents" },
-          ]} onItemClick={handleNavItemClick} />
-          <MobileDropdownMenu title="Network" items={[
-            { text: "Our MoU's", path: "/" },
-          ]} onItemClick={handleNavItemClick} />
+          <MobileDropdownMenu
+            title="Events"
+            items={[
+              { text: "International Workshops", path: "/InternationalWorkshops" },
+              { text: "YAP Events/Workshops", path: "/yapEvents" },
+            ]}
+            onItemClick={handleNavItemClick}
+          />
+          <MobileDropdownMenu
+            title="Network"
+            items={[{ text: "Our MoU's", path: "/" }]}
+            onItemClick={handleNavItemClick}
+          />
           <MobileNavItem text="Library" onClick={() => handleNavItemClick("/library")} />
-          <MobileDropdownMenu title="Work With Us" items={[
-            { text: "Volunteering", path: "/volunteering" },
-            { text: "Internship Opportunities", path: "/internees" },
-            { text: "Contact", path: "/" },
-          ]} onItemClick={handleNavItemClick} />
-          <MobileNavItem text="Our Team" onClick={() => handleNavItemClick("/our-team")} highlight />
+          <MobileDropdownMenu
+            title="Work With Us"
+            items={[
+              { text: "Volunteering", path: "/volunteering" },
+              { text: "Internship Opportunities", path: "/internees" },
+              { text: "Contact", path: "/" },
+            ]}
+            onItemClick={handleNavItemClick}
+          />
+          <MobileNavItem
+            text="Our Team"
+            onClick={() => handleNavItemClick("/our-team")}
+            highlight
+          />
           {/* {userName && (
             <MobileNavItem
               text={
@@ -189,11 +229,7 @@ const MobileNavItem = ({ text, onClick, highlight, children }) => (
     >
       {text}
     </button>
-    {children && (
-      <div className="pl-4">
-        {children}
-      </div>
-    )}
+    {children && <div className="pl-4">{children}</div>}
   </div>
 );
 
@@ -208,7 +244,12 @@ const MobileDropdownMenu = ({ title, items, onItemClick }) => {
         className="w-full text-left px-4 py-3 text-white font-medium hover:text-teal-400 transition-colors duration-200 flex items-center justify-between"
       >
         {title}
-        <svg className={`w-5 h-5 transform ${isOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className={`w-5 h-5 transform ${isOpen ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>

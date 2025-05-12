@@ -4,64 +4,63 @@ import { motion } from 'framer-motion';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-import hero1 from '/src/images/YapEventsWorkshops/azadiFestival8.jpg'
-import hero2 from '/src/images/YapEventsWorkshops/azadiFestival10.jpg'
-import hero3 from '/src/images/YapEventsWorkshops/azadiFestival11.jpg'
-import hero4 from '/src/images/YapEventsWorkshops/azadiFestival12.jpg'
-import hero5 from '/src/images/YapEventsWorkshops/azadiFestival13.jpg'
-import hero6 from '/src/images/YapEventsWorkshops/azadiFestival7.jpg'
+import hero1 from '/src/images/YapEventsWorkshops/azadiFestival8.jpg';
+import hero2 from '/src/images/YapEventsWorkshops/azadiFestival10.jpg';
+import hero3 from '/src/images/YapEventsWorkshops/azadiFestival11.jpg';
+import hero4 from '/src/images/YapEventsWorkshops/azadiFestival12.jpg';
+import hero5 from '/src/images/YapEventsWorkshops/azadiFestival13.jpg';
+import hero6 from '/src/images/YapEventsWorkshops/azadiFestival7.jpg';
 
-// Placeholder background images (replace with actual paths)
-const backgroundImages = [
-  hero1,
-  hero2,
-  hero3,
-  hero4,
-  hero5,
-  hero6,
-];
+// Placeholder background images
+const backgroundImages = [hero1, hero2, hero3, hero4, hero5, hero6];
 
-// Slide data (repeating the two existing slides across 6 images)
+// Slide data
 const slides = [
   {
     heading: ["YOUTH", "AMBASSADORS", "PROGRAMME"],
     subTitle: "Youth is the only way forward!",
-    description: "Join the ACP Ambassador Programme at the Arts Council of Pakistan, Karachi! Enjoy exclusive events, networking, and skill-building opportunities.",
+    description:
+      "Join the ACP Ambassador Programme at the Arts Council of Pakistan, Karachi! Enjoy exclusive events, networking, and skill-building opportunities.",
     buttonText: "Register Now",
     buttonPath: '/register',
   },
   {
     heading: ["JOIN OUR", "SOCIETIES"],
     subTitle: "Be part of something bigger",
-    description: "Register now to become a member of our societies and gain access to exclusive events, workshops, and networking opportunities.",
+    description:
+      "Register now to become a member of our societies and gain access to exclusive events, workshops, and networking opportunities.",
     buttonText: "Join Our Society",
     buttonPath: '/society-registration',
   },
   {
     heading: ["YOUTH", "AMBASSADORS", "PROGRAMME"],
     subTitle: "Youth is the only way forward!",
-    description: "Join the ACP Ambassador Programme at the Arts Council of Pakistan, Karachi! Enjoy exclusive events, networking, and skill-building opportunities.",
+    description:
+      "Join the ACP Ambassador Programme at the Arts Council of Pakistan, Karachi! Enjoy exclusive events, networking, and skill-building opportunities.",
     buttonText: "Register Now",
     buttonPath: '/register',
   },
   {
     heading: ["JOIN OUR", "SOCIETIES"],
     subTitle: "Be part of something bigger",
-    description: "Register now to become a member of our societies and gain access to exclusive events, workshops, and networking opportunities.",
+    description:
+      "Register now to become a member of our societies and gain access to exclusive events, workshops, and networking opportunities.",
     buttonText: "Join Our Society",
     buttonPath: '/society-registration',
   },
   {
     heading: ["YOUTH", "AMBASSADORS", "PROGRAMME"],
     subTitle: "Youth is the only way forward!",
-    description: "Join the ACP Ambassador Programme at the Arts Council of Pakistan, Karachi! Enjoy exclusive events, networking, and skill-building opportunities.",
+    description:
+      "Join the ACP Ambassador Programme at the Arts Council of Pakistan, Karachi! Enjoy exclusive events, networking, and skill-building opportunities.",
     buttonText: "Register Now",
     buttonPath: '/register',
   },
   {
     heading: ["JOIN OUR", "SOCIETIES"],
     subTitle: "Be part of something bigger",
-    description: "Register now to become a member of our societies and gain access to exclusive events, workshops, and networking opportunities.",
+    description:
+      "Register now to become a member of our societies and gain access to exclusive events, workshops, and networking opportunities.",
     buttonText: "Join Our Society",
     buttonPath: '/society-registration',
   },
@@ -94,7 +93,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-[70vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden text-white font-sans">
       {/* Scrolling Text at the Top */}
-      <div className="absolute top-4 sm:top-6 md:top-8 w-full text-center z-20">
+      <div className="absolute top-4 sm:top-6 md:top-8 w-full text-center z-20 overflow-hidden">
         <motion.span
           className="inline-block whitespace-nowrap text-sm sm:text-base md:text-lg font-bold uppercase text-white tracking-wider"
           variants={scrollTextVariants}
@@ -115,12 +114,12 @@ const Hero = () => {
         stopOnHover={true}
         swipeable={true}
         emulateTouch={true}
-        className="relative"
+        className="relative w-full"
       >
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[100vh] flex items-center justify-center bg-cover bg-center"
+            className="relative min-h-[70vh] md:min-h-[70vh] lg:min-h-[80vh] flex items-center justify-center bg-cover bg-center w-full"
             style={{ backgroundImage: `url(${backgroundImages[index]})` }}
           >
             {/* Gradient Overlay for Readability */}
@@ -128,7 +127,7 @@ const Hero = () => {
 
             {/* Slide Content */}
             <motion.div
-              className="relative z-20 flex flex-col items-center justify-center text-center max-w-5xl mx-auto px-4 sm:px-6 md:px-8"
+              className="relative z-20 flex flex-col items-center justify-center text-center max-w-5xl mx-auto px-4 sm:px-6 md:px-8 w-full"
               variants={slideContentVariants}
               initial="hidden"
               animate="visible"
@@ -162,7 +161,7 @@ const Hero = () => {
         ))}
       </Carousel>
 
-      {/* Custom Carousel Dots Styling */}
+      {/* Custom Carousel Dots and Arrows Styling */}
       <style>
         {`
           .carousel .control-dots {
@@ -188,8 +187,8 @@ const Hero = () => {
           .carousel .control-arrow {
             background: rgba(0, 0, 0, 0.5) !important;
             border-radius: 50%;
-            width: 55px !important;
-            height: 55px !important;
+            width: 40px !important;
+            height: 40px !important;
             top: 50% !important;
             transform: translateY(-50%);
             opacity: 0.7;
@@ -199,10 +198,22 @@ const Hero = () => {
             opacity: 1;
           }
           .carousel .control-prev {
-            left: 10px !important;
+            left: 8px !important;
           }
           .carousel .control-next {
-            right: 10px !important;
+            right: 8px !important;
+          }
+          @media (max-width: 640px) {
+            .carousel .control-arrow {
+              width: 32px !important;
+              height: 32px !important;
+            }
+            .carousel .control-prev {
+              left: 4px !important;
+            }
+            .carousel .control-next {
+              right: 4px !important;
+            }
           }
         `}
       </style>
