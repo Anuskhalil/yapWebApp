@@ -4,14 +4,21 @@ import { motion } from 'framer-motion';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
+import hero1 from '/src/images/YapEventsWorkshops/azadiFestival8.jpg'
+import hero2 from '/src/images/YapEventsWorkshops/azadiFestival10.jpg'
+import hero3 from '/src/images/YapEventsWorkshops/azadiFestival11.jpg'
+import hero4 from '/src/images/YapEventsWorkshops/azadiFestival12.jpg'
+import hero5 from '/src/images/YapEventsWorkshops/azadiFestival13.jpg'
+import hero6 from '/src/images/YapEventsWorkshops/azadiFestival7.jpg'
+
 // Placeholder background images (replace with actual paths)
 const backgroundImages = [
-  '/src/images/YapEventsWorkshops/azadiFestival8.jpg',
-  '/src/images/YapEventsWorkshops/azadiFestival10.jpg',
-  '/src/images/YapEventsWorkshops/azadiFestival11.jpg',
-  '/src/images/YapEventsWorkshops/azadiFestival12.jpg',
-  '/src/images/YapEventsWorkshops/azadiFestival13.jpg',
-  '/src/images/YapEventsWorkshops/azadiFestival7.jpg',
+  hero1,
+  hero2,
+  hero3,
+  hero4,
+  hero5,
+  hero6,
 ];
 
 // Slide data (repeating the two existing slides across 6 images)

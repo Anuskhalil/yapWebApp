@@ -89,7 +89,7 @@ const MoUSignedUni = () => {
       logo: ned,
       description:
         'Memorandum of Understanding (MoU) Between Youth Ambassador Programme by Arts Council of Pakistan Karachi and NED University of Engineering & Technology',
-      images: [nedMoU1, nedMoU2, nedMoU3, nedMoU4],
+      images: [nedMoU1, nedMoU2, nedMoU3]
     },
     {
       id: 2,
@@ -230,7 +230,6 @@ const MoUSignedUni = () => {
   };
 
   const sliderSettings = {
-    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -258,7 +257,6 @@ const MoUSignedUni = () => {
   };
 
   const modalSliderSettings = {
-    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -275,9 +273,9 @@ const MoUSignedUni = () => {
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#0D7292] to-[#0D7292] bg-clip-text text-transparent mb-8">
           MoU Signed Universities
         </h2>
-        <Slider {...sliderSettings} className="universities-slider">
+        <Slider {...sliderSettings} className="universities-slider -mx-2">
           {universities.map((university) => (
-            <div key={university.id} className="">
+            <div key={university.id} className="px-2">
               <div
                 className="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl"
                 role="button"
